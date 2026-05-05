@@ -1,0 +1,5 @@
+name: indiz-digital-gmbh/stepping-stone-site-package
+label: 'Stepping Stone Site Package'
+dependencies:
+  - typo3/fluid-styled-content
+  - typo3/fluid-styled-content-css
