@@ -1,0 +1,46 @@
+name: ndz/carousel
+typeName: ndz_carousel
+group: stepping-stone
+prefixFields: true
+prefixType: full
+basics:
+  - TYPO3/Appearance
+fields:
+  - identifier: header
+    type: Palette
+    label: Header
+    fields:
+    - identifier: header
+      useExistingField: true
+    - identifier: header_layout
+      useExistingField: true
+      default: 100
+    - identifier: header_style
+      useExistingField: true
+      type: Select
+  - identifier: slides
+    type: Collection
+    label: Slides
+    fields:
+      - identifier: title
+        type: Textarea
+        label: Titel
+      - identifier: text
+        type: Textarea
+        label: Text
+      - identifier: footer
+        type: Textarea
+        label: Fusszeile
+      - identifier: link
+        type: Link
+        label: Link
+      - identifier: image
+        type: File
+        label: Bild
+        maxitems: 1
+        allowed: common-image-types
+      - identifier: icon
+        type: File
+        label: Icon
+        maxitems: 1
+        allowed: common-image-types

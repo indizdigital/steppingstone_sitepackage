@@ -1,0 +1,33 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+<f:layout name="Default" />
+<f:section name="Main">
+    <f:if condition="{data.carousel}">
+        <f:then>
+            <div class="js-carousel mb-20 -mx-5 px-5 md:-mx-10 md:px-10 lg:-mx-20 lg:px-20">
+                <f:for each="{data.image}" as="image">
+                    <div class="js-carousel-cell bg-grey-100 w-full rounded-[40px] p-[5%] md:w-[49%] md:mr-[2%]">
+                        <div class="relative h-0 pb-[65%]">
+                            <f:image image="{image}" alt="{image.name}" class="absolute w-full h-full object-contain object-center" />
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="grid gap-2.5 mb-20 sm:grid-cols-2 sm:gap-3 md:gap-3.5 lg:gap-4.5 xl:gap-6">
+                <f:for each="{data.image}" as="image">
+                    <div class="bg-grey-100 w-full rounded-[40px] p-[5%]">
+                        <div class="relative h-0 pb-[65%]">
+                            <f:image image="{image}" alt="{image.name}" class="absolute w-full h-full object-contain object-center" />
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+        </f:else>
+    </f:if>
+</f:section>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="plaintext" original="labels.xlf" source-language="en" date="2026-06-12T06:21:28+00:00" product-name="ndz/link">
+    <header/>
+    <body>
+      <trans-unit id="title">
+        <source>External URL</source>
+      </trans-unit>
+      <trans-unit id="title.label">
+        <source>Title</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

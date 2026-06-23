@@ -1,0 +1,29 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers"
+    xmlns:ndz="http://typo3.org/ns/IndizDigitalGmbh/SteppingStoneSitePackage/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+<f:layout name="Default" />
+<f:section name="Main">
+    <f:variable name="cookieName" value="alert_closed_alert-{data.uid}" />
+    <f:if condition="{ndz:cookie(name: cookieName)} != 1">
+        <f:asset.script identifier="alerts" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-alerts.js"/>
+        <div aria-label="{data.header}" data-alert-id="alert-{data.uid}">
+            <div class="ndz-alert ndz-alert-{data.select}">
+                <div class="flex-1">
+                    <h2 class="font-bold">{data.header}</h2>
+                    <div class="ndz-rte">
+                        <f:format.html>{data.textarea}</f:format.html>
+                    </div>
+                </div>
+                <button type="button" class="ndz-alert-close" aria-label="Meldung schliessen" data-alert-close>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="fill-current">
+                        <path d="M11.7,10.24c.4.4.4,1.05,0,1.46-.2.2-.46.3-.73.3s-.53-.1-.73-.3l-4.24-4.24L1.76,11.7c-.2.2-.46.3-.73.3s-.53-.1-.73-.3c-.4-.4-.4-1.05,0-1.46l4.24-4.24L.3,1.76c-.4-.4-.4-1.05,0-1.46s1.05-.4,1.46,0l4.24,4.24L10.24.3c.4-.4,1.05-.4,1.46,0,.4.4.4,1.05,0,1.46l-4.24,4.24,4.24,4.24Z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </f:if>
+</f:section>
+</html>

@@ -1,0 +1,38 @@
+mod.web_layout.BackendLayouts {
+    contact {
+        title = LLL:EXT:stepping_stone_site_package/Resources/Private/Language/locallang_be.xlf:backend_layout.contact
+        icon = EXT:stepping_stone_site_package/Resources/Public/Icons/BackendLayouts/contact.svg
+        config {
+            backend_layout {
+                colCount = 3
+                rowCount = 2
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = Top Left
+                                identifier = topleft
+                                colPos = 1
+                            }
+                            2 {
+                                name = Top Right
+                                identifier = topright
+                                colPos = 2
+                            }
+                        }
+                    }
+                    2 {
+                        columns {
+                            1 {
+                                name = Main
+                                colspan = 3
+                                colPos = 0
+                                identifier = main
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

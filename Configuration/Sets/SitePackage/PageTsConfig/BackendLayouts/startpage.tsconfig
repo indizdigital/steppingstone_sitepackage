@@ -1,0 +1,55 @@
+#
+# BACKENDLAYOUT: DEFAULT
+#
+mod {
+    web_layout {
+        BackendLayouts {
+            startpage {
+                title = LLL:EXT:stepping_stone_site_package/Resources/Private/Language/locallang_be.xlf:backend_layout.startpage
+                config {
+                    backend_layout {
+                        colCount = 2
+                        rowCount = 3
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Top
+                                        colspan = 2
+                                        colPos = 1
+                                        identifier = top
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = Links
+                                        colPos = 2
+                                        identifier = left
+                                    }
+                                    2 {
+                                        name = Rechts
+                                        colPos = 3
+                                            identifier = right
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
+                                        name = Main
+                                        colspan = 2
+                                        colPos = 0
+                                        identifier = main
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:stepping_stone_site_package/Resources/Public/Icons/BackendLayouts/startpage.svg
+            }
+        }
+    }
+}

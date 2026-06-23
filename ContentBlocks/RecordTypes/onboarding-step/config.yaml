@@ -1,0 +1,174 @@
+name: ndz/onboarding-step
+table: tx_ndz_onboardingstep
+prefixFields: false
+labelField: title
+security:
+  ignorePageTypeRestriction: true
+fields:
+  - identifier: title
+    type: Textarea
+    label: Title
+  - identifier: bodytext
+    type: Textarea
+    label: Text
+    useExistingField: true
+  - identifier: link
+    type: Link
+    label: Link
+    allowedTypes:
+      - page
+  - identifier: icon
+    type: File
+    label: Icon
+    minitems: 1
+    maxitems: 1
+    allowed: svg
+  - identifier: settingsTab
+    type: Tab
+    label: Appearance
+  - identifier: mobileposition
+    type: Palette
+    label: Position Mobile
+    fields:
+      - identifier: from
+        type: Select
+        label: Start (Mobile)
+        renderType: selectSingle
+        default: 1
+        items:
+        - label: 'Column 1'
+          value: 1
+        - label: 'Column 2'
+          value: 2
+        - label: 'Column 3'
+          value: 3
+        - label: 'Column 4'
+          value: 4
+        - label: 'Column 5'
+          value: 5
+        - label: 'Column 6'
+          value: 6
+        - label: 'Column 7'
+          value: 7
+        - label: 'Column 8'
+          value: 8
+        - label: 'Column 9'
+          value: 9
+        - label: 'Column 10'
+          value: 10
+        - label: 'Column 11'
+          value: 11
+        - label: 'Column 12'
+          value: 12
+        - label: 'Column 13'
+          value: 13
+      - identifier: to
+        type: Select
+        label: End (Mobile)
+        renderType: selectSingle
+        default: 7
+        items:
+        - label: 'Column 1'
+          value: 1
+        - label: 'Column 2'
+          value: 2
+        - label: 'Column 3'
+          value: 3
+        - label: 'Column 4'
+          value: 4
+        - label: 'Column 5'
+          value: 5
+        - label: 'Column 6'
+          value: 6
+        - label: 'Column 7'
+          value: 7
+        - label: 'Column 8'
+          value: 8
+        - label: 'Column 9'
+          value: 9
+        - label: 'Column 10'
+          value: 10
+        - label: 'Column 11'
+          value: 11
+        - label: 'Column 12'
+          value: 12
+        - label: 'Column 13'
+          value: 13
+  - identifier: tabletposition
+    type: Palette
+    label: Position Tablet
+    fields:
+      - identifier: frommd
+        type: Select
+        label: Start (Tablet/Desktop)
+        renderType: selectSingle
+        default: 1
+        items:
+        - label: 'Column 1'
+          value: 1
+        - label: 'Column 2'
+          value: 2
+        - label: 'Column 3'
+          value: 3
+        - label: 'Column 4'
+          value: 4
+        - label: 'Column 5'
+          value: 5
+        - label: 'Column 6'
+          value: 6
+        - label: 'Column 7'
+          value: 7
+        - label: 'Column 8'
+          value: 8
+        - label: 'Column 9'
+          value: 9
+        - label: 'Column 10'
+          value: 10
+        - label: 'Column 11'
+          value: 11
+        - label: 'Column 12'
+          value: 12
+        - label: 'Column 13'
+          value: 13
+      - identifier: tomd
+        type: Select
+        label: End (Tablet/Desktop)
+        renderType: selectSingle
+        default: 7
+        items:
+        - label: 'Column 1'
+          value: 1
+        - label: 'Column 2'
+          value: 2
+        - label: 'Column 3'
+          value: 3
+        - label: 'Column 4'
+          value: 4
+        - label: 'Column 5'
+          value: 5
+        - label: 'Column 6'
+          value: 6
+        - label: 'Column 7'
+          value: 7
+        - label: 'Column 8'
+          value: 8
+        - label: 'Column 9'
+          value: 9
+        - label: 'Column 10'
+          value: 10
+        - label: 'Column 11'
+          value: 11
+        - label: 'Column 12'
+          value: 12
+        - label: 'Column 13'
+          value: 13
+  - identifier: yposition
+    type: Palette
+    label: Y-Position
+    fields:
+      - identifier: offset
+        type: Text
+        label: Offset upward (percent)
+      - identifier: offsettext
+        type: Text
+        label: Text Offset up- and downwards (percent)

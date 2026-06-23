@@ -1,0 +1,20 @@
+name: ndz/onboarding-category
+table: tx_ndz_onboardingcategory
+prefixFields: false
+labelField: title
+security:
+  ignorePageTypeRestriction: true
+fields:
+  - identifier: title
+    type: Text
+    label: Title
+  - identifier: bodytext
+    type: Textarea
+    label: Text
+    useExistingField: true
+    enableRichtext: true
+    richtextConfiguration: custom
+  - identifier: steps
+    label: Steps
+    type: Relation
+    allowed: 'tx_ndz_onboardingstep'

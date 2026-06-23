@@ -1,0 +1,23 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers"
+    xmlns:ndz="http://typo3.org/ns/IndizDigitalGmbh/SteppingStoneSitePackage/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:layout name="Default" />
+<f:section name="Main">
+    <div class="grid grid-cols-1 gap-x-12 gap-y-5 sm:grid-cols-2">
+        <div class="ndz-rte">
+            <f:for each="{data.col1}" as="content">
+                <f:format.html>{content.bodytext}</f:format.html>    
+            </f:for>
+        </div>
+        <div class="ndz-rte">
+            <f:for each="{data.col2}" as="content">
+                <f:format.html>{content.bodytext}</f:format.html>    
+            </f:for>
+        </div>
+    </div>
+</f:section>
+</html>

@@ -1,0 +1,10 @@
+name: ndz/inturl
+table: tx_ndz_links
+typeField: type
+typeName: inturl
+fields:
+  - identifier: url
+    type: Link
+    label: URL
+    allowedTypes:
+      - page

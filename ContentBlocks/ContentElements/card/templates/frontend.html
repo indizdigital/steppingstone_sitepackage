@@ -1,0 +1,85 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+<f:layout name="Default" />
+<f:section name="Main">
+    <f:if condition="{data.carousel}">
+        <f:then>
+            <f:asset.script identifier="flickity-js" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/flickity.pkgd.min.js" />
+            <f:asset.script identifier="carousel" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-flickity.js"/>
+            <div class="js-carousel mb-20 -mx-5 px-5 md:-mx-10 md:px-10 lg:-mx-20 md:px-20">
+                <f:for each="{data.cards}" as="card">
+                    <div class="js-carousel-cell ndz-card ndz-card-{data.ndz_card_layout} {f:if(condition: '{card.link.url}', then: 'ndz-card-link')} w-[49%] md:w-[32%] min-h-full mr-[2%] {f:if(condition: '{data.ndz_card_columns} == 4cols', then: 'lg:w-[23.5%]')}">
+                        <f:if condition="{card.link.url}">
+                            <f:link.typolink parameter="{card.link}" class="absolute inset-0 z-10"><span class="sr-only">Link</span></f:link.typolink>
+                        </f:if>
+                        <f:if condition="{card.icon}">
+                            <div class="relative{f:if(condition: '{data.ndz_card_iconsize} == large', then: ' w-[65%] max-w-[167px]', else: ' w-[20%] max-w-[74px]')}">
+                                <span class="relative h-0 pb-[100%] bg-white rounded-full flex items-center justify-center">
+                                    <f:image image="{card.icon.0}" alt="{card.icon.0.alternative}" class="absolute inset-0 fill-current size-full p-[20%] object-contain object-center" />
+                                </span>
+                                <f:if condition="{data.ndz_card_iconsize} == 'large' && {card.subicon.0}">
+									<div class="absolute -right-[5%] bottom-0 w-[35%]">
+										<span class="relative h-0 pb-[100%] bg-white rounded-full flex items-center justify-center text-blue shadow-lg">
+                                            <f:image image="{card.subicon.0}" alt="{card.subicon.0.alternative}" class="absolute inset-0 fill-current size-full p-[20%] object-contain object-center" />
+										</span>
+									</div>
+								</f:if>
+                            </div>
+                        </f:if>
+                        <div>
+                            <h3 class="font-extrabold {f:if(condition: '{data.ndz_card_columns} == 4cols', then: 'xl:text-1.5xl', else: 'text-3xl')}">{card.title}</h3>
+                            <f:if condition="{card.subtitle}">
+                                <p>{card.subtitle}</p>
+                            </f:if>
+                        </div>
+                        <f:if condition="{card.text}">
+                            <div>
+                                <p><f:format.nl2br>{card.text}</f:format.nl2br></p>
+                            </div>
+                        </f:if>
+                    </div>
+                </f:for>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="grid grid-cols-2 gap-2.5 mb-20 sm:gap-3 md:grid-cols-3 md:gap-3.5 lg:gap-4.5 xl:gap-6 {f:if(condition: '{data.ndz_card_columns} == 4cols', then: 'lg:grid-cols-4')}">
+                <f:for each="{data.cards}" as="card">
+                    <div class="ndz-card ndz-card-{data.ndz_card_layout} {f:if(condition: '{card.link.url}', then: 'ndz-card-link')}">
+                        <f:if condition="{card.icon}">
+                            <div class="relative {f:if(condition: '{data.ndz_card_iconsize} == large', then: ' w-[65%] max-w-[167px]', else: ' w-[20%] max-w-[74px]')}">
+                                <span class="relative h-0 pb-[100%] bg-white rounded-full flex items-center justify-center">
+                                    <f:image image="{card.icon.0}" alt="{card.icon.0.alternative}" class="absolute inset-0 fill-current size-full p-[20%] object-contain object-center" />
+                                </span>
+                                <f:if condition="{data.ndz_card_iconsize} == 'large' && {card.subicon.0}">
+									<div class="absolute -right-[5%] bottom-0 w-[35%]">
+										<span class="relative h-0 pb-[100%] bg-white rounded-full flex items-center justify-center text-blue shadow-lg">
+                                            <f:image image="{card.subicon.0}" alt="{card.subicon.0.alternative}" class="absolute inset-0 fill-current size-full p-[20%] object-contain object-center" />
+										</span>
+									</div>
+								</f:if>
+                            </div>
+                        </f:if>
+                        <div>
+                            <h3 class="font-extrabold {f:if(condition: '{data.ndz_card_columns} == 4cols', then: 'xl:text-1.5xl', else: 'text-3xl')}">{card.title}</h3>
+                            <f:if condition="{card.subtitle}">
+                                <p>{card.subtitle}</p>
+                            </f:if>
+                        </div>
+                        <f:if condition="{card.text}">
+                            <div>
+                                <p><f:format.nl2br>{card.text}</f:format.nl2br></p>
+                            </div>
+                        </f:if>
+                        <f:if condition="{card.link.url}">
+                            <f:link.typolink parameter="{card.link}" class="absolute inset-0"><span class="sr-only">Link</span></f:link.typolink>
+                        </f:if>
+                    </div>
+                </f:for>
+            </div>
+        </f:else>
+    </f:if>
+</f:section>
+</html>

@@ -1,0 +1,34 @@
+name: ndz/image
+typeName: ndz_image
+group: stepping-stone
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: header
+    useExistingField: true
+  - identifier: header_layout
+    useExistingField: true
+  - identifier: header_style
+    useExistingField: true
+    type: Select
+    label: Style
+    renderType: selectSingle
+    items:
+    - label: 'Big'
+      value: big
+    - label: 'Middle'
+      value: middle
+    - label: 'Small'
+      value: small
+  - identifier: image
+    useExistingField: true
+  - identifier: settingsTab
+    type: Tab
+    label: Appearance
+  - identifier: ce_layout
+    type: Palette
+    label: Content Element Layout
+    fields:
+      - identifier: carousel
+        type: Checkbox
+        label: Carousel

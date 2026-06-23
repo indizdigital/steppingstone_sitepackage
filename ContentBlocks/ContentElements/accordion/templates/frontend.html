@@ -1,0 +1,73 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+<f:layout name="Default" />
+<f:section name="Main">
+    <f:asset.script identifier="accordion" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-accordion.js"/>
+    <div class="js-accordion border-y border-gray-200 divide-y divide-gray-200">
+        <f:for each="{data.items}" as="item">
+            <div class="ndz-accordion-item js-accordion-item{f:if(condition: item.open, then: ' js-accordion-active')}">
+                <h2 class="text-2xl text-blue font-extrabold xl:text-3.5xl">
+                    <button type="button" class="js-accordion-header py-2 w-full flex items-center justify-between text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                        {item.title}
+                        <svg class="ndz-accordion-icon js-accordion-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                </h2>
+                <div id="panel-1" role="region" aria-labelledby="accordion-1" class="ndz-accordion-content js-accordion-content">
+                    <div class="ndz-accordion-content-inner ndz-rte">
+                        <f:format.html>{item.text}</f:format.html>
+                        <f:if condition="{item.link.url}">
+                            <p class="my-5">
+                                <f:link.typolink parameter="{item.link}" class="ndz-btn ndz-btn-link ndz-btn-secondary">
+                                    {f:if(condition: item.link.title, then: item.link.title, else: 'Mehr erfahren')}
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 17.14" class="fill-current w-4">
+                                        <path d="M18.72,10.11H1.54c-.44,0-.8-.15-1.1-.44s-.44-.66-.44-1.1.15-.8.44-1.1c.3-.3.66-.44,1.1-.44h17.18l-4.39-4.39c-.31-.31-.46-.67-.44-1.08s.16-.77.44-1.08C14.64.17,15,.01,15.43,0c.42-.01.79.13,1.1.44l7.05,7.05c.15.15.26.32.33.5s.1.37.1.58-.03.4-.1.58-.17.35-.33.5l-7.05,7.05c-.31.31-.67.46-1.1.44s-.79-.17-1.1-.48c-.28-.31-.43-.67-.44-1.08s.13-.77.44-1.08l4.39-4.39Z"></path>
+                                    </svg>
+                                </f:link.typolink>
+                            </p>
+                        </f:if>
+                        <f:if condition="{item.links}">
+                            <ul class="list-none ml-0">
+                                <f:for each="{item.links}" as="link">
+                                    <li>
+                                        <f:switch expression="{link.type}">
+                                            <f:case value="exturl">
+                                                <f:link.typolink parameter="{link.url}" class="ndz-btn ndz-btn-link ndz-btn-secondary">
+                                                    {f:if(condition: link.url.title, then: link.url.title, else: 'Mehr erfahren')}
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" height="28px" width="28px" viewBox="0 -960 960 960">
+                                                        <path d="M212.31-140Q182-140 161-161q-21-21-21-51.31v-535.38Q140-778 161-799q21-21 51.31-21h222.3q12.77 0 21.39 8.62 8.61 8.61 8.61 21.38T456-768.62q-8.62 8.62-21.39 8.62h-222.3q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v535.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h535.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-222.3q0-12.77 8.62-21.39 8.61-8.61 21.38-8.61t21.38 8.61q8.62 8.62 8.62 21.39v222.3Q820-182 799-161q-21 21-51.31 21H212.31ZM760-717.85 409.85-367.69q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L717.85-760H590q-12.77 0-21.38-8.62Q560-777.23 560-790t8.62-21.38Q577.23-820 590-820h193.84q15.47 0 25.81 10.35Q820-799.31 820-783.84V-590q0 12.77-8.62 21.38Q802.77-560 790-560t-21.38-8.62Q760-577.23 760-590v-127.85Z"/>
+                                                    </svg>
+                                                </f:link.typolink>
+                                            </f:case>
+                                            <f:case value="inturl">
+                                                <f:link.typolink parameter="{link.url}" class="ndz-btn ndz-btn-link ndz-btn-secondary">
+                                                    {f:if(condition: link.url.title, then: link.url.title, else: 'Mehr erfahren')}
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" height="28px" width="28px" viewBox="0 -960 960 960">
+                                                        <path d="M664.46-450H210q-12.77 0-21.38-8.62Q180-467.23 180-480t8.62-21.38Q197.23-510 210-510h454.46L532.77-641.69q-8.92-8.93-8.81-20.89.12-11.96 8.81-21.27 9.31-9.3 21.38-9.61 12.08-.31 21.39 9l179.15 179.15q5.62 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.3 6.23-7.92 11.85L575.54-275.54q-8.93 8.92-21.19 8.81-12.27-.12-21.58-9.42-8.69-9.31-9-21.08-.31-11.77 9-21.08L664.46-450Z"/>
+                                                    </svg>
+                                                </f:link.typolink>
+                                            </f:case>
+                                            <f:defaultCase>
+                                                <a href="{link.file.0.publicUrl}" class="ndz-btn ndz-btn-link ndz-btn-secondary">
+                                                    {f:if(condition: link.file.0.title, then: link.file.0.title, else: 'Download')}
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" height="28px" width="28px" viewBox="0 -960 960 960">
+                                                        <path d="M353.08-462.31h35.38v-80h44.62q15.07 0 25.23-10.15 10.15-10.16 10.15-25.23v-44.62q0-15.07-10.15-25.23-10.16-10.15-25.23-10.15h-80v195.38Zm35.38-115.38v-44.62h44.62v44.62h-44.62Zm120.77 115.38h78.46q15.08 0 25.23-10.15 10.16-10.16 10.16-25.23v-124.62q0-15.07-10.16-25.23-10.15-10.15-25.23-10.15h-78.46v195.38Zm35.38-35.38v-124.62h43.08v124.62h-43.08Zm123.08 35.38h35.39v-80h47.69v-35.38h-47.69v-44.62h47.69v-35.38h-83.08v195.38ZM322.31-260Q292-260 271-281q-21-21-21-51.31v-455.38Q250-818 271-839q21-21 51.31-21h455.38Q808-860 829-839q21 21 21 51.31v455.38Q850-302 829-281q-21 21-51.31 21H322.31Zm0-60h455.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H322.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85Zm-140 200Q152-120 131-141q-21-21-21-51.31v-515.38h60v515.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h515.38v60H182.31ZM310-800v480-480Z"/>
+                                                    </svg>
+                                                </a>
+                                            </f:defaultCase>
+                                        </f:switch>
+                                    </li>
+                                </f:for>
+                            </ul>
+                        </f:if>
+                    </div>
+                </div>
+            </div>
+        </f:for>
+    </div>
+</f:section>
+</html>

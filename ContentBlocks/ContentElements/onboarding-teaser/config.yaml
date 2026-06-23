@@ -1,0 +1,42 @@
+name: ndz/onboarding-teaser
+typeName: ndz_onboardingteaser
+group: stepping-stone
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: overline
+    type: Palette
+    label: Headlines
+    fields:
+    - identifier: subheader
+      useExistingField: true
+      label: Overline
+  - identifier: heading
+    type: Palette
+    fields:
+    - identifier: header
+      useExistingField: true
+    - identifier: header_layout
+      useExistingField: true
+    - identifier: header_style
+      useExistingField: true
+      type: Select
+  - identifier: categories
+    label: Onboarding categories
+    type: Relation
+    allowed: 'tx_ndz_onboardingcategory'
+  - identifier: settingsTab
+    type: Tab
+    label: Appearance
+  - identifier: ce_settings
+    type: Palette
+    label: Content Element Settings
+    fields:
+      - identifier: activeslide
+        type: Select
+        renderType: selectSingle
+        label: Active Slide
+        items:
+          - label: ''
+            value: ''
+        itemsProcFunc: 'IndizDigitalGmbh\SteppingStoneSitePackage\UserFunction\ActiveSlideItems->getItems'

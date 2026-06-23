@@ -1,0 +1,11 @@
+name: ndz/extended
+typeName: 1781790999
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: text
+    type: Textarea
+    label: Text
+  - identifier: linklabel
+    type: Text
+    label: Label Link

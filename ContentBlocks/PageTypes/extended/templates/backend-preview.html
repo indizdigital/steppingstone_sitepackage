@@ -1,0 +1,21 @@
+<html xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <div class="card card-size-medium">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Title:</dt>
+                <dd class="col-sm-9">
+                   {data.title}
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-3">Text:</dt>
+                <dd class="col-sm-9">
+                   {data.text}
+                </dd>
+            </dl>
+            <be:link.editRecord class="btn btn-default" uid="{data.uid}" table="{data.mainType}" fields="title,ndz_extended_text,ndz_extended_linklabel">
+               Edit page properties
+            </be:link.editRecord>
+        </div>
+    </div>
+</html>

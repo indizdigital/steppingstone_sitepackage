@@ -1,0 +1,33 @@
+name: ndz/text
+typeName: ndz_text
+group: stepping-stone
+prefixFields: true
+prefixType: full
+#basics:
+#  - TYPO3/Appearance
+fields:
+  - identifier: overline
+    type: Palette
+    label: Headlines
+    fields:
+    - identifier: subheader
+      useExistingField: true
+      label: Overline
+  - identifier: heading
+    type: Palette
+    fields:
+    - identifier: header
+      useExistingField: true
+    - identifier: header_layout
+      useExistingField: true
+    - identifier: header_style
+      useExistingField: true
+      type: Select
+  - identifier: bodytext
+    type: Textarea
+    useExistingField: true
+    enableRichtext: true
+    richtextConfiguration: default
+  - identifier: link
+    type: Link
+    label: Link

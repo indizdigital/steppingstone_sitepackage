@@ -1,0 +1,12 @@
+name: ndz/file
+table: tx_ndz_links
+typeField: type
+typeName: file
+fields:
+  - identifier: file
+    type: File
+    label: File
+    minitems: 1
+    maxitems: 1
+    allowed: pdf
+

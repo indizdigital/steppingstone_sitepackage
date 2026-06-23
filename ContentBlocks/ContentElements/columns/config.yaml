@@ -1,0 +1,41 @@
+name: ndz/columns
+typeName: ndz_columns
+group: stepping-stone
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: overline
+    type: Palette
+    label: Headlines
+    fields:
+      - identifier: subheader
+        useExistingField: true
+        label: Overline
+  - identifier: heading
+    type: Palette
+    fields:
+      - identifier: header
+        useExistingField: true
+        type: Textarea
+      - identifier: header_layout
+        useExistingField: true
+      - identifier: header_style
+        useExistingField: true
+        type: Select
+  - identifier: columns
+    type: Palette
+    fields:
+      - identifier: col1
+        label: Left Column
+        type: Collection
+        fields:
+          - identifier: bodytext
+            type: Textarea
+            enableRichtext: true
+      - identifier: col2
+        label: Right Column
+        type: Collection
+        fields:
+          - identifier: bodytext
+            type: Textarea
+            enableRichtext: true

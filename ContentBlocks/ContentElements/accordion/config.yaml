@@ -1,0 +1,43 @@
+name: ndz/accordion
+typeName: ndz_accordion
+group: stepping-stone
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: header
+    type: Palette
+    label: Header
+    fields:
+    - identifier: header
+      useExistingField: true
+    - identifier: header_layout
+      useExistingField: true
+    - identifier: header_style
+      useExistingField: true
+      type: Select
+  - identifier: items
+    type: Collection
+    label: Items
+    fields:
+      - identifier: title
+        type: Text
+        label: Titel
+      - identifier: text
+        type: Textarea
+        label: Text
+        enableRichtext: true
+        richtextConfiguration: default
+      - identifier: links
+        type: Collection
+        label: Links & Downloads
+        foreign_table: tx_ndz_links
+      - identifier: settingsTab
+        type: Tab
+        label: Settings
+      - identifier: ce_settings
+        type: Palette
+        label: Content Element Settings
+        fields:
+          - identifier: open
+            type: Checkbox
+            label: 'Open by Default'

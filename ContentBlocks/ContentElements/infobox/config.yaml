@@ -1,0 +1,27 @@
+name: ndz/infobox
+typeName: ndz_infobox
+group: stepping-stone
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: header
+    useExistingField: true
+    label: Titel
+  - identifier: textarea
+    type: Textarea
+    label: Text
+    enableRichtext: true
+    richtextConfiguration: full
+  - identifier: select
+    type: Select
+    label: Info-Typ
+    renderType: selectSingle
+    items:
+      - label: 'Info'
+        value: info
+      - label: 'Erfolg'
+        value: success
+      - label: 'Warnung'
+        value: warning
+      - label: 'Fehler'
+        value: error

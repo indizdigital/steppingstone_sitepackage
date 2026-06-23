@@ -1,0 +1,10 @@
+name: ndz/exturl
+table: tx_ndz_links
+typeField: type
+typeName: exturl
+fields:
+  - identifier: url
+    type: Link
+    label: URL
+    allowedTypes:
+      - url

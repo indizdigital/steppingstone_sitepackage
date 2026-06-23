@@ -5,7 +5,7 @@ mod {
     web_layout {
         BackendLayouts {
             default {
-                title = LLL:EXT:stepping_stone_site_package/Resources/Private/Language/locallang_be.xlf:backend_layout.example
+                title = LLL:EXT:stepping_stone_site_package/Resources/Private/Language/locallang_be.xlf:backend_layout.default
                 config {
                     backend_layout {
                         colCount = 1
@@ -23,7 +23,7 @@ mod {
                         }
                     }
                 }
-                icon = EXT:stepping_stone_site_package/Resources/Public/Icons/BackendLayouts/example.svg
+                icon = EXT:stepping_stone_site_package/Resources/Public/Icons/BackendLayouts/default.svg
             }
         }
     }

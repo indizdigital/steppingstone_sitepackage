@@ -1,0 +1,26 @@
+name: ndz/header
+typeName: ndz_header
+group: stepping-stone
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: type
+    type: Select
+    renderType: selectSingle
+    label: Type
+    default: blue
+    items:
+      - label: Blue
+        value: blue
+      - label: Lightblue
+        value: lightblue
+  - identifier: header
+    useExistingField: true
+  - identifier: text
+    type: Textarea
+    label: Text
+  - identifier: icon
+    type: File
+    label: Icon
+    maxitems: 1
+    allowed: svg

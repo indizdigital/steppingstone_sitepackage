@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2026-05-05UTC06:52:170">
+        <header>
+            <authorName>Pascal Mürner</authorName>
+            <authorEmail>tech@indiz.digital</authorEmail>
+        </header>
+        <body>
+            <trans-unit id="showmore">
+                <source>Show more</source>
+                <target>Mehr anzeigen</target>
+            </trans-unit>
+            <trans-unit id="discover">
+                <source>Discover now</source>
+                <target>Jetzt entdecken</target>
+            </trans-unit>
+            <trans-unit id="mobileAbbr">
+                <source>M</source>
+                <target>M</target>
+            </trans-unit>
+            <trans-unit id="phoneAbbr">
+                <source>P</source>
+                <target>T</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

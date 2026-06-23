@@ -1,0 +1,25 @@
+settings:
+  page.meta.viewport:
+    label: 'Meta - Viewport'
+    type: string
+    default: 'width=device-width, initial-scale=1'
+  page.meta.robots:
+    label: 'Meta - Robots'
+    type: string
+    default: 'index,follow'
+  page.meta.apple-mobile-web-app-capable:
+    label: 'Meta - Apple mobile web app capable'
+    type: string
+    default: 'no'
+  page.meta.compatible:
+    label: 'Meta - Compatible'
+    type: string
+    default: 'IE=edge'
+  config.headerComment:
+    label: 'Header comment'
+    type: string
+    default: 'build by get.typo3.org/sitepackage'
+  page.pageview.paths: 
+    label: 'Pageview paths'
+    type: string
+    default: 'EXT:stepping_stone_site_package/Resources/Private/PageView/'

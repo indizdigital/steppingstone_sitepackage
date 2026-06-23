@@ -1,0 +1,22 @@
+name: ndz/team
+typeName: ndz_team
+group: stepping-stone
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: heading
+    type: Palette
+    label: Headlines
+    fields:
+    - identifier: header
+      useExistingField: true
+      type: Textarea
+    - identifier: header_layout
+      useExistingField: true
+    - identifier: header_style
+      useExistingField: true
+      type: Select
+  - identifier: record_select
+    type: Relation
+    label: Members
+    allowed: 'tx_ndz_teammember'

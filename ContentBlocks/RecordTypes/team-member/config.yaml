@@ -1,0 +1,33 @@
+name: ndz/team-member
+table: tx_ndz_teammember
+prefixFields: false
+labelField: 
+  - first_name
+  - last_name
+security:
+  ignorePageTypeRestriction: true
+fields:
+  - identifier: first_name
+    type: Text
+    label: First name
+  - identifier: last_name
+    type: Text
+    label: Last name
+  - identifier: function
+    type: Text
+    label: Funktion
+  - identifier: mobile
+    type: Text
+    label: Mobile
+  - identifier: phone
+    type: Text
+    label: Phone
+  - identifier: email
+    type: Text
+    label: Email
+  - identifier: image
+    type: File
+    label: Image
+    maxitems: 1
+    allowed: jpg,png
+    l10n_mode: exclude

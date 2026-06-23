@@ -1,0 +1,52 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers"
+    xmlns:ndz="http://typo3.org/ns/IndizDigitalGmbh/SteppingStoneSitePackage/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+<f:switch expression="{data.ndz_header_type}">
+
+    <f:case value="blue">
+        <section class="ndz-header-default flex items-center gap-5 px-5 -mx-5 py-10 md:px-10 md:-mx-10 lg:px-20 lg:-mx-20 xl:gap-10">
+            <f:if condition="{data.icon.0}">
+                <f:then>
+                    <div class="w-1/4 max-w-45 flex-none">
+                        <span class="relative h-0 pb-[100%] bg-white rounded-full flex items-center justify-center text-blue">
+                            <f:image image="{data.icon.0}" alt="{data.icon.0.alternative}" class="absolute inset-0 fill-current size-full p-[20%] object-contain object-center" />
+                        </span>
+                    </div>
+                </f:then>
+                <f:else>
+                    <div class="hidden lg:block lg:w-1/4 lg:max-w-45 lg:flex-none"></div>
+                </f:else>
+            </f:if>
+            <div class="flex-1">
+                <h1 class="font-bold text-3.5xl xl:text-5.5xl mb-1 xl:mb-5">{data.header}</h1>
+                <p class="font-bold xl:text-2.5xl">{data.text}</p>
+            </div>
+        </section>
+    </f:case>
+
+    <f:case value="lightblue">
+        <section class="bg-lightblue text-blue flex items-center gap-5 px-5 -mx-5 py-10 md:px-10 md:-mx-10 lg:px-20 lg:-mx-20 xl:gap-10">
+            <f:if condition="{data.icon.0}">
+                <f:then>
+                    <div class="w-1/4 max-w-45 flex-none">
+                        <span class="relative h-0 pb-[100%] bg-white rounded-full flex items-center justify-center text-blue">
+                            <f:image image="{data.icon.0}" alt="{data.icon.0.alternative}" class="absolute inset-0 fill-current size-full p-[20%] object-contain object-center" />
+                        </span>
+                    </div>
+                </f:then>
+                <f:else>
+                    <div class="hidden lg:block lg:w-1/4 lg:max-w-45 lg:flex-none"></div>
+                </f:else>
+            </f:if>
+            <div class="flex-1">
+                <h1 class="font-bold text-3.5xl xl:text-5.5xl mb-1 xl:mb-5">{data.header}</h1>
+                <p class="font-bold xl:text-2.5xl">{data.text}</p>
+            </div>
+        </section>
+    </f:case>
+
+</f:switch>
+</html>

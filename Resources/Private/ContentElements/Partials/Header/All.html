@@ -1,0 +1,17 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{data.header_layout} != 100">
+    <f:if condition="{data.header} || {data.subheader}">
+        <header {f:if(condition: data.subheader, then: 'class="space-y-1 md:space-y-2 xl:space-y-3"')}>
+            <f:if condition="{data.subheader}">
+                <span class="block text-orange font-extrabold">{data.subheader}</span>
+            </f:if>
+            <f:render partial="Header/Header" arguments="{
+                header: data.header,
+                layout: data.header_layout,
+                style: '{f:if(condition: data.header_style, then: \'ndz-headline-{data.header_style}\')}',
+                link: data.header_link,
+                default: settings.defaultHeaderType}" />
+        </header>
+    </f:if>
+</f:if>
+</html>

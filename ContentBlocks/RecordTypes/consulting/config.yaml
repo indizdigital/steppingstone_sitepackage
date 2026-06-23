@@ -1,0 +1,25 @@
+name: ndz/consulting
+table: tx_ndz_consulting
+prefixFields: false
+labelField: title
+security:
+  ignorePageTypeRestriction: true
+fields:
+  - identifier: title
+    type: Text
+    label: Title
+  - identifier: mobile
+    type: Text
+    label: Mobile
+  - identifier: phone
+    type: Text
+    label: Phone
+  - identifier: email
+    type: Text
+    label: Email
+  - identifier: image
+    type: File
+    label: Image
+    maxitems: 1
+    allowed: svg
+    l10n_mode: exclude

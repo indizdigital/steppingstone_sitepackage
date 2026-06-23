@@ -24,6 +24,7 @@ config {
     index_externals = 1
     index_metatags = 1
     headerComment = {$config.headerComment}
+    spamProtectEmailAddresses = -2
 
     // Disable Image Upscaling
     noScaleUp = 1

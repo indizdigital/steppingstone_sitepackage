@@ -1,0 +1,22 @@
+name: ndz/onboarding
+typeName: ndz_onboarding
+group: stepping-stone
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: header
+    type: Palette
+    label: Header
+    fields:
+    - identifier: header
+      useExistingField: true
+    - identifier: header_layout
+      useExistingField: true
+    - identifier: header_style
+      useExistingField: true
+      type: Select
+  - identifier: categories
+    label: Onboarding categories
+    type: Relation
+    allowed: 'tx_ndz_onboardingcategory'
+

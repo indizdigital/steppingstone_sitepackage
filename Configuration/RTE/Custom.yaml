@@ -8,7 +8,8 @@ editor:
         contentsCss: "EXT:stepping_stone_site_package/Resources/Public/Css/rte.css"
 
         stylesSet:
-            - { name: "Lead", element: "p", attributes: { 'class': 'lead' } }
+            - { name: "Subline", element: "p", attributes: { 'class': 'ndz-rte-subline' } }
+            - { name: "Lead", element: "p", attributes: { 'class': 'ndz-rte-lead' } }
 
         toolbarGroups:
             - { name: styles, groups: [ format, styles ] }
@@ -22,7 +23,7 @@ editor:
             - { name: tools, groups: [ table, specialchar ] }
             - { name: document, groups: [ mode ] }
 
-        format_tags: "p;h1;h2;h3;h4;h5;pre"
+        format_tags: "p;h2;h3;"
 
         justifyClasses:
             - text-left
@@ -40,3 +41,9 @@ editor:
             - Anchor
             - Underline
             - Strike
+            
+        table:
+            contentToolbar:
+                - tableRow
+                - tableColumn
+                - mergeTableCells

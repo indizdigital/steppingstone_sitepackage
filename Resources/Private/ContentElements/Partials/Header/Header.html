@@ -1,0 +1,18 @@
+<html 
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:ndz="http://typo3.org/ns/IndizDigitalGmbh/SteppingStoneSitePackage/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+<f:if condition="{header}">
+    <f:switch expression="{layout}">
+        <f:case value="1">
+            <h1 class="{style}"><ndz:format.inlineText value="{header}" /></h1>
+        </f:case>
+        <f:case value="2">
+            <h2 class="{style}"><ndz:format.inlineText value="{header}" /></h2>
+        </f:case>
+        <f:case value="3">
+            <h3 class="{style}"><ndz:format.inlineText value="{header}" /></h3>
+        </f:case>
+    </f:switch>
+</f:if>
+</html>

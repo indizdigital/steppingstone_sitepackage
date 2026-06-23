@@ -1,0 +1,10 @@
+<f:layout name="Default" />
+<f:section name="Main">
+    <f:render partial="Content" arguments="{records: content.top.records}"/>
+
+    <div class="py-10 grid grid-cols-1 gap-12 sm:grid-cols-2" aria-label="Teaser Produkte">
+        <f:render partial="Content" arguments="{records: content.left.records}"/>
+        <f:render partial="Content" arguments="{records: content.right.records}"/>
+    </div>
+    <f:render partial="Content" arguments="{records: content.main.records}"/>
+</f:section>

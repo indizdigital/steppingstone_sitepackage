@@ -1,0 +1,87 @@
+name: ndz/card
+typeName: ndz_card
+group: stepping-stone
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: header
+    type: Palette
+    label: Header
+    fields:
+    - identifier: header
+      useExistingField: true
+    - identifier: header_layout
+      useExistingField: true
+    - identifier: header_style
+      useExistingField: true
+      type: Select
+  - identifier: cards
+    type: Collection
+    label: Cards
+    fields:
+      - identifier: title
+        type: Text
+        label: Titel
+      - identifier: subtitle
+        type: Text
+        label: Untertitel
+      - identifier: text
+        type: Textarea
+        label: Text
+      - identifier: link
+        type: Link
+        label: Link
+      - identifier: icons
+        type: Palette
+        fields:
+        - identifier: icon
+          type: File
+          label: Icon
+          maxitems: 1
+          allowed: svg
+        - identifier: subicon
+          type: File
+          label: Subicon
+          maxitems: 1
+          allowed: svg
+  - identifier: settingsTab
+    type: Tab
+    label: Appearance
+  - identifier: ce_layout
+    type: Palette
+    label: Content Element Layout
+    fields:
+      - identifier: layout
+        type: Select
+        label: Layout
+        renderType: selectSingle
+        items:
+        - label: 'Grau'
+          value: grey
+        - label: 'Hellgrau'
+          value: lightgrey
+        - label: 'Blau'
+          value: blue
+        - label: 'Hellblau'
+          value: lightblue
+      - identifier: columns
+        type: Select
+        label: Columns
+        renderType: selectSingle
+        items:
+        - label: '3 Cols'
+          value: 3cols
+        - label: '4 Cols'
+          value: 4cols
+      - identifier: iconsize
+        type: Select
+        label: Icon Size
+        renderType: selectSingle
+        items:
+        - label: 'Large'
+          value: large
+        - label: 'Small'
+          value: small
+      - identifier: carousel
+        type: Checkbox
+        label: Carousel

@@ -6,6 +6,18 @@
             <authorEmail>tech@indiz.digital</authorEmail>
         </header>
         <body>
+            <trans-unit id="showmore">
+                <source>Show more</source>
+            </trans-unit>
+            <trans-unit id="discover">
+                <source>Discover now</source>
+            </trans-unit>
+            <trans-unit id="mobileAbbr">
+                <source>M</source>
+            </trans-unit>
+            <trans-unit id="phoneAbbr">
+                <source>P</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

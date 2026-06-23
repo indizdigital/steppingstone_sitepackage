@@ -9,6 +9,15 @@
             <trans-unit id="backend_layout.default">
                 <source>Default</source>
             </trans-unit>
+            <trans-unit id="backend_layout.startpage">
+                <source>Startpage</source>
+            </trans-unit>
+            <trans-unit id="backend_layout.onboarding">
+                <source>Onboarding</source>
+            </trans-unit>
+            <trans-unit id="backend_layout.onboarding.detail">
+                <source>Onboarding Detail</source>
+            </trans-unit>
             <trans-unit id="backend_layout.column.stage">
                 <source>Stage</source>
             </trans-unit>

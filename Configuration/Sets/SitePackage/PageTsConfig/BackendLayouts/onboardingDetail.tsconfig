@@ -1,0 +1,54 @@
+#
+# BACKENDLAYOUT: DEFAULT
+#
+mod {
+    web_layout {
+        BackendLayouts {
+            onboardingDetail {
+                title = LLL:EXT:stepping_stone_site_package/Resources/Private/Language/locallang_be.xlf:backend_layout.onboarding.detail
+                icon = EXT:stepping_stone_site_package/Resources/Public/Icons/BackendLayouts/onboardingdetail.svg
+                config {
+                    backend_layout {
+                        colCount = 2
+                        rowCount = 2
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Top
+                                        colPos = 1
+                                        identifier = top
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = Main
+                                        colPos = 0
+                                        identifier = main
+                                    }
+                                    2 {
+                                        name = Aside
+                                        colPos = 3
+                                        identifier = aside
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
+                                        name = Bottom
+                                        colPos = 2
+                                        identifier = bottom
+                                        colspan = 2
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -5,7 +5,10 @@ page = PAGE
 page {
     typeNum = 0
     shortcutIcon = EXT:stepping_stone_site_package/Resources/Public/Icons/favicon.ico
-
+    bodyTagCObject = TEXT
+    bodyTagCObject {
+        value = <body class="ndz-body">
+    }  
     10 = PAGEVIEW
     10 {
         paths {
@@ -23,7 +26,24 @@ page {
                 includeSpacer = 1
                 as = mainnavigation
             }
-            30 = page-content
+            25 = menu
+            25 {
+                special = directory
+                special.value = 6
+
+                levels = 1
+                as = metanavigation
+            }
+            30 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+            30 {
+                languages = auto
+                as = languageNavigation
+            }
+            35 = page-content
+            40 = Indiz\Products\DataProcessing\CategoryShortlistProcessor
+            40 {
+                as = categories
+            }
         }
     }
 
@@ -60,5 +80,31 @@ page {
 
     includeJSFooter {
         stepping_stone_site_package_scripts = EXT:stepping_stone_site_package/Resources/Public/JavaScript/main.js
+    }
+}
+
+lib.parentPageTitle = TEXT
+lib.parentPageTitle.data = levelfield:1, title
+
+lib.contentBlock {
+    layoutRootPaths {
+        100 = EXT:stepping_stone_site_package/Resources/Private/ContentElements/Layouts/
+    }
+    partialRootPaths {
+        100 = EXT:stepping_stone_site_package/Resources/Private/ContentElements/Partials/
+    }
+}
+
+plugin.tx_form {
+    view {
+        templateRootPaths {
+            100 = EXT:stepping_stone_site_package/Resources/Private/Extensions/Form/Templates/
+        }
+        partialRootPaths {
+            100 = EXT:stepping_stone_site_package/Resources/Private/Extensions/Form/Partials/
+        }
+        layoutRootPaths {
+            100 = EXT:stepping_stone_site_package/Resources/Private/Extensions/Form/Layouts/
+        }
     }
 }
