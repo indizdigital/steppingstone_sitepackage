@@ -11,7 +11,7 @@ fields:
     type: Textarea
     label: Text
     enableRichtext: true
-    richtextConfiguration: full
+    richtextConfiguration: default
   - identifier: select
     type: Select
     label: Info-Typ

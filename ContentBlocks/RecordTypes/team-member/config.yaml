@@ -31,3 +31,9 @@ fields:
     maxitems: 1
     allowed: jpg,png
     l10n_mode: exclude
+  - identifier: link
+    type: Link
+    label: Link
+    allowedTypes:
+      - page
+      - url

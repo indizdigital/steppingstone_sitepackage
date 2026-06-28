@@ -1,0 +1,419 @@
+
+renderingOptions:
+  submitButtonLabel: Send
+identifier: steppingStoneTest
+label: 'Contact form'
+type: Form
+prototypeName: complaintForm
+finishers:
+  -
+    options:
+      message: 'Oops! No email was sent. Anyway, have a great day! ????'
+      contentElementUid: '554'
+    identifier: Confirmation
+  -
+    options:
+      subject: 'Contact form'
+      recipients:
+        tech@indiz.digital: 'stepping stone'
+      senderAddress: 3750497@customers.stepping-stone.ch
+      senderName: 'stepping stone'
+      addHtmlPart: true
+      attachUploads: true
+      translation:
+        language: default
+      title: ''
+    identifier: EmailToReceiver
+    defaultValue: ''
+  -
+    identifier: SaveToDatabase
+    options:
+      table: tx_steppingstonesitepackage_form_submissions
+      mode: insert
+      databaseColumnMappings:
+        pid:
+          value: 80
+      elements:
+        name:
+          mapOnDatabaseColumn: company
+        singleselect-1:
+          mapOnDatabaseColumn: title
+        text-1:
+          mapOnDatabaseColumn: first_name
+        text-2:
+          mapOnDatabaseColumn: last_name
+        text-3:
+          mapOnDatabaseColumn: address_line_1
+        text-4:
+          mapOnDatabaseColumn: address_line_2
+        text-5:
+          mapOnDatabaseColumn: postcode
+        text-6:
+          mapOnDatabaseColumn: location
+        text-7:
+          mapOnDatabaseColumn: country
+        telephone-1:
+          mapOnDatabaseColumn: phone
+        email-1:
+          mapOnDatabaseColumn: email
+        checkbox-1:
+          mapOnDatabaseColumn: terms_accepted
+        checkbox-2:
+          mapOnDatabaseColumn: newsletter
+        textarea-1:
+          mapOnDatabaseColumn: message
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: ''
+      nextButtonLabel: ''
+    identifier: page-1
+    label: ''
+    type: Page
+    renderables:
+      -
+        type: GridRow
+        identifier: gridrow-1
+        label: 'Grid: Row'
+        renderables:
+          -
+            defaultValue: ''
+            identifier: name
+            label: Company
+            type: Text
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: 'e.g. Musterfirma AG'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xxl:
+                    numbersOfColumnsToUse: ''
+                  xs:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            properties:
+              options:
+                Mister: Mister
+                Miss: Miss
+                Divers: Divers
+              fluidAdditionalAttributes:
+                autocomplete: ''
+                required: required
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xxl:
+                    numbersOfColumnsToUse: ''
+                  xl:
+                    numbersOfColumnsToUse: '6'
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  xs:
+                    numbersOfColumnsToUse: '6'
+            type: SingleSelect
+            identifier: singleselect-1
+            label: Title
+            defaultValue: ''
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-1
+            label: 'First name'
+            properties:
+              elementDescription: ''
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: 'e.g. Maximilian'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-2
+            label: Surname
+            properties:
+              elementDescription: ''
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: 'e.g. Mustermann'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+                  xxl:
+                    numbersOfColumnsToUse: ''
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-3
+            label: 'Address bar 1'
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: 'e.g. Musterstrasse 12'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-4
+            label: 'Address bar 2'
+            properties:
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+              elementDescription: ''
+              fluidAdditionalAttributes:
+                placeholder: 'e.g. 2. Stock oder c/o. Musterfirma AG'
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-5
+            label: Postcode
+            properties:
+              fluidAdditionalAttributes:
+                min: '1000'
+                max: '9999'
+                required: required
+                placeholder: 'e.g. 3000'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '2'
+                  sm:
+                    numbersOfColumnsToUse: '2'
+                  md:
+                    numbersOfColumnsToUse: '2'
+                  lg:
+                    numbersOfColumnsToUse: '2'
+                  xl:
+                    numbersOfColumnsToUse: '2'
+              validationErrorMessages:
+                -
+                  code: 1221563685
+                  message: 'Der Postcode ist nicht korrekt'
+                -
+                  code: 1221561046
+                  message: 'Der Postcode ist nicht korrekt'
+            validators:
+              -
+                options:
+                  minimum: '1000'
+                  maximum: '9999'
+                identifier: NumberRange
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-6
+            label: Location
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: 'e.g. Bern'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '4'
+                  sm:
+                    numbersOfColumnsToUse: '4'
+                  md:
+                    numbersOfColumnsToUse: '4'
+                  lg:
+                    numbersOfColumnsToUse: '4'
+                  xl:
+                    numbersOfColumnsToUse: '4'
+              elementDescription: ''
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-7
+            label: Country
+            properties:
+              fluidAdditionalAttributes:
+                placeholder: 'e.g. Schweiz'
+                required: required
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Telephone
+            identifier: telephone-1
+            label: 'Mobile or phone'
+            properties:
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+              fluidAdditionalAttributes:
+                placeholder: 'e.g. +41 79 123 45 67'
+          -
+            defaultValue: ''
+            type: Email
+            identifier: email-1
+            label: Email
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: 'e.g. maximilian.mustermann@musterfirma.ch'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+              validationErrorMessages:
+                -
+                  code: 1221559976
+                  message: 'Die E-Mail-Adresse ist nicht korrekt'
+            validators:
+              -
+                identifier: EmailAddress
+              -
+                identifier: NotEmpty
+          -
+            type: GridColumn
+            identifier: gridcolumn-12
+            label: 'Grid: Column'
+            properties:
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+            renderables:
+              -
+                type: Checkbox
+                identifier: checkbox-1
+                label: 'I have read the general terms and conditions and agree.'
+                properties:
+                  elementDescription: ''
+                  fluidAdditionalAttributes:
+                    required: required
+                validators:
+                  -
+                    identifier: NotEmpty
+              -
+                type: Checkbox
+                identifier: checkbox-2
+                label: 'I would like to receive the newsletter.'
+          -
+            defaultValue: ''
+            type: Textarea
+            identifier: textarea-1
+            label: 'Questions or comments'
+            properties:
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'

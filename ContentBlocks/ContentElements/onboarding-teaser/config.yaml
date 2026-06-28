@@ -3,6 +3,8 @@ typeName: ndz_onboardingteaser
 group: stepping-stone
 prefixFields: true
 prefixType: full
+basics:
+  - TYPO3/Appearance
 fields:
   - identifier: overline
     type: Palette
@@ -27,7 +29,7 @@ fields:
     allowed: 'tx_ndz_onboardingcategory'
   - identifier: settingsTab
     type: Tab
-    label: Appearance
+    label: Settings
   - identifier: ce_settings
     type: Palette
     label: Content Element Settings

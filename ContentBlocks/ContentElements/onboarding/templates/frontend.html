@@ -15,12 +15,12 @@
                 <div class="ndz-flipbox">
                     <input type="checkbox" id="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}" class="ndz-flipbox-check">
                     <label class="text-white ndz-flipbox-inner" for="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}">
-                        <div class="ndz-flipbox-front">
+                        <div class="ndz-flipbox-front p-[12%] flex flex-col justify-center text-xl lg:text-3xl xl:text-4.5xl">
                             <div{f:if(condition: step.offsettext, then: ' style=\'margin-top:{step.offsettext}%;\'')}>
                                 <h3 class="ndz-headline-small text-white hyphens-auto"><f:format.nl2br>{step.title}</f:format.nl2br></h3>
                             </div>
                         </div>
-                        <div class="ndz-flipbox-back">
+                        <div class="ndz-flipbox-back p-[12%] flex flex-col justify-center text-xs lg:text-sm xl:text-xl">
                             <div{f:if(condition: step.offsettext, then: ' style=\'margin-top:{step.offsettext}%;\'')}>
                                 <p>{step.bodytext}</p>
                                 <p class="mt-1 lg:mt-3">

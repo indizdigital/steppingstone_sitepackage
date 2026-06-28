@@ -155,3 +155,11 @@ window.addEventListener('scroll', () => {
     }
     lastScrollY = currentScrollY;
 });
+
+
+/* INIT HIGHLIGHTJS */
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('pre code').forEach(el => {
+        hljs.highlightElement(el);
+    });
+});

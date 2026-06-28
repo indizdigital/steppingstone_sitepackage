@@ -3,8 +3,8 @@ typeName: ndz_text
 group: stepping-stone
 prefixFields: true
 prefixType: full
-#basics:
-#  - TYPO3/Appearance
+basics:
+  - TYPO3/Appearance
 fields:
   - identifier: overline
     type: Palette

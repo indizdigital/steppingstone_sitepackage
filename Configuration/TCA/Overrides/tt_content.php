@@ -22,3 +22,6 @@ $GLOBALS['TCA']['tt_content']['columns']['header_style'] = [
     ],
 ];
 $GLOBALS['TCA']['tt_content']['columns']['header_layout']['config']['default'] = 2;
+
+// Configuration/TCA/Overrides/tt_content.php
+//$GLOBALS['TCA']['tt_content']['columns']['image']['l10n_mode'] = 'exclude';

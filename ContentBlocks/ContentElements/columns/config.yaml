@@ -28,14 +28,20 @@ fields:
       - identifier: col1
         label: Left Column
         type: Collection
+        minitems: 1
+        maxitems: 1
         fields:
           - identifier: bodytext
             type: Textarea
             enableRichtext: true
+            richtextConfiguration: custom
       - identifier: col2
         label: Right Column
         type: Collection
+        minitems: 1
+        maxitems: 1
         fields:
           - identifier: bodytext
             type: Textarea
             enableRichtext: true
+            richtextConfiguration: custom

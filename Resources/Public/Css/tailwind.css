@@ -1,13 +1,16 @@
 @import "./fonts.css";
 @import "./flickity.css";
+@import "./swiper-bundle.css" layer(base);
+@import "../JavaScript/highlight/styles/default.css";
 @import "tailwindcss" source("../../../../../../vendor");
-@source inline("{md:,}{col-start,col-end}-{1..13} {md:,}{order}-{1..10} mt-[var-(--mt)]");
+@source inline("{,sm:,md:,lg:,xl}{grid-cols}-{1..12} {,sm:,md:,lg:,xl}{col-span}-{1..12} {md:,}{col-start,col-end}-{1..13} {md:,}{order}-{1..10} mt-[var-(--mt)]");
 
 @theme {
     --color-black: #000000;
     --color-white: #ffffff;
     --color-lightblue: #f2f3f8;
     --color-blue: #001280;
+    --color-blue-500: #6671b3;
     --color-lightblue: #f2f3f9;
     --color-orange: #ffb133;
     --color-lightgreen: #edf5ee;
@@ -24,6 +27,7 @@
     --color-grey-800: #3c3c3c;
     --color-grey-900: #1d1d1b;
     --color-orange: #f9ae0e;
+    --color-error: #ff3333;
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
     --font-sans: "Inter", sans-serif;
@@ -52,6 +56,17 @@
     --h-header-small-xl: 65px;
     --h-nav-sm: calc(100dvh - 87px);
     --h-nav-md: calc(100dvh - 103px);
+
+    --swiper-pagination-color: #001280;
+    --swiper-pagination-bullet-size: 18px;
+    --swiper-pagination-bullet-inactive-color: #ffffff;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-bullet-horizontal-gap: 2px;
+    --swiper-pagination-bottom: 12px;
+    --swiper-navigation-color: #001280;
+    --swiper-navigation-size: 40px;
+    --swiper-navigation-top-offset: 50%;
+    --swiper-navigation-sides-offset: 10px;
 }
 
 @layer base {
@@ -86,6 +101,8 @@
     input[type="text"],
     input[type="password"],
     input[type="number"],
+    input[type="tel"],
+    input[type="email"],
     textarea {
         @apply appearance-none w-full bg-white placeholder:text-grey-200 focus:outline-0;
     }
@@ -136,6 +153,9 @@
     select {
         @apply appearance-none outline-none cursor-pointer;
     }
+    textarea {
+        @apply resize-none min-h-40;
+    }
     .ndz-rte > *:first-child {
         @apply mt-0;
     }
@@ -171,28 +191,15 @@
     .ndz-headline-small {
         @apply text-xl text-blue font-extrabold lg:text-2xl xl:text-3xl;
     }
-    .frame-type-ndz_accordion,
-    .frame-type-ndz_card,
-    .frame-type-ndz_image,
-    .frame-type-ndz_columns,
-    .frame-type-ndz_onboardingteaser {
-        @apply space-y-3 lg:space-y-5 xl:space-y-8;
-    }
-    .frame-type-ndz_text {
-        @apply space-y-1 md:space-y-2 xl:space-y-3;
-    }
-    .frame-type-ndz_onboardingteaser {
-        @apply bg-lightblue pt-8 px-5 -mx-5 md:pt-10 md:px-10 md:-mx-10 lg:pt-12 lg:px-20 lg:-mx-20;
-    }
-    .frame-type-ndz_carousel {
-        @apply -mx-5 md:-mx-10 lg:-mx-20;
-    }
 }
 
 @layer components {
     /* FORMS */
     .ndz-input-field {
         @apply bg-white px-3 py-1 rounded-lg outline outline-grey-200 focus-within:outline-blue;
+    }
+    .ndz-input-field-has-error {
+        @apply outline-error;
     }
     /* ALERTS */
     .ndz-alert {
@@ -346,8 +353,33 @@
     .ndz-carousel-dots-current {
         @apply bg-blue;
     }
-    .ndz-carousel-stones .flickity-slider {
+    .ndz-carousel-stones .swiper-wrapper {
         @apply !left-5 md:!left-10 lg:!left-20;
+    }
+    .swiper-wrapper {
+        @apply ease-out-expo;
+    }
+    .swiper-pagination-bullet {
+        @apply border-1 border-blue ease-out-expo duration-500;
+    }
+    .swiper-pagination-bullet-active {
+        @apply border-white;
+    }
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        @apply block size-full bg-lightblue rounded-full bg-no-repeat bg-center bg-size-[10px] content-[''] bg-[url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%207.89%2013.99%22%3E%3Cg%20transform%3D%22translate%280%2C13.99%29%20rotate%28-90%29%22%3E%3Cpath%20d%3D%22M13.7.29c.39.39.39%2C1.02%2C0%2C1.41l-5.82%2C5.82c-.49.49-1.28.49-1.77%2C0L.29%2C1.7C-.1%2C1.31-.1.68.29.29.68-.1%2C1.31-.1%2C1.7.29l5.29%2C5.29L12.28.29c.39-.39%2C1.02-.39%2C1.41%2C0h.01Z%22%20style%3D%22fill%3A%23001280%3B%22/%3E%3C/g%3E%3C/svg%3E)];
+    }
+    .swiper-button-prev::after {
+        @apply rotate-180;
+    }
+    .swiper-button-disabled {
+        @apply opacity-0;
+    }
+    .ndz-carousel-offset .swiper-button-prev {
+        @apply -left-15;
+    }
+    .ndz-carousel-offset .swiper-button-next {
+        @apply -right-15;
     }
 
     /* ACCORDION */
@@ -423,18 +455,13 @@
     }
     .ndz-flipbox-front,
     .ndz-flipbox-back {
-        @apply absolute overflow-hidden backface-hidden inset-0 flex flex-col justify-center p-[12%];
+        @apply absolute overflow-hidden backface-hidden inset-0;
     }
     .ndz-flipbox-front {
-        @apply isolate text-xl translate-z-[1px] lg:text-3xl xl:text-4.5xl;
+        @apply isolate translate-z-[1px];
     }
     .ndz-flipbox-back {
-        @apply w-full h-full rotate-y-180 text-xs lg:text-sm xl:text-xl;
-    }
-
-    /* FORM */
-    .frame-type-form_formframework {
-        @apply p-5 bg-gray-100;
+        @apply w-full h-full rotate-y-180;
     }
 
 }
@@ -446,6 +473,9 @@
 }
 .ndz-rte-subline {
     @apply font-extrabold;
+}
+.ndz-rte pre {
+    @apply bg-grey-100 p-5 overflow-auto;
 }
 figure.table {
     @apply w-full;
@@ -481,6 +511,44 @@ figure.table {
 .ndz-onboarding-stonewidth-11,
 .ndz-onboarding-stonewidth-12 {
     @apply w-[75%] md:w-[41.666%] 
+}
+
+/* FRAME TYPES */
+.frame-type-ndz_accordion,
+.frame-type-ndz_card,
+.frame-type-ndz_image,
+.frame-type-ndz_columns,
+.frame-type-ndz_onboardingteaser,
+.frame-type-form_formframework,
+.frame-type-insights_tease {
+    @apply space-y-3 lg:space-y-5 xl:space-y-8;
+}
+.frame-type-ndz_text {
+    @apply space-y-1 md:space-y-2 xl:space-y-3;
+}
+.frame-type-ndz_onboardingteaser {
+    @apply bg-lightblue pt-8 px-5 md:pt-10 md:px-10 lg:pt-12 lg:px-20;
+}
+.frame-type-ndz_onboardingteaser,
+.frame-type-ndz_carousel,
+.frame-type-form_formframework,
+.frame-type-insights_tease {
+    @apply -mx-5 md:-mx-10 lg:-mx-20;
+}
+.frame-type-insights_tease {
+    @apply bg-blue p-5 md:p-10 lg:px-20;
+}
+.frame-type-insights_tease > header > h1,
+.frame-type-insights_tease > header > h2 {
+    @apply text-white;
+} 
+.frame-type-form_formframework {
+    @apply p-5 bg-gray-100 md:p-10 lg:px-20;
+}
+
+/* FORM */
+.frame-type-form_formframework .actions {
+    @apply mt-5 md:mt-10;
 }
 
 /* JAVASCRIPT */

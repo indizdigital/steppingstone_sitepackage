@@ -5,62 +5,70 @@
 >
 <f:layout name="Default" />
 <f:section name="Main">
-    <f:asset.script identifier="flickity-js" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/flickity.pkgd.min.js" />
-    <f:asset.script identifier="carousel" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-flickity.js"/>
+    <f:asset.script identifier="swiperjs" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/swiper-bundle.min.js" />
+    <f:asset.script identifier="swiper" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-swiper.js"/>
     <!-- <f:asset.script identifier="stones" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-carousel.js"/> -->
     <!-- <ul class="js-carousel bg-blue/5" data-stone-base="{f:uri.resource(path: 'Images/Stones/', extensionName: 'SteppingStoneSitePackage')}"> -->
-    <ul class="js-carousel bg-blue/5">
+    <div class="swiper bg-lightblue" data-slides-per-view="1" data-space-between="0">
         <f:variable name="slideCount" value="{data.slides -> f:count()}" />
-        <f:for each="{data.slides}" as="slide">
-            <li class="js-carousel-cell min-h-full px-5 pt-8 text-blue relative md:p-10 lg:px-20 {f:if(condition: '{slideCount} > 1', then: 'pb-15', else: 'pb-8')}" role="region" aria-labelledby="aria-slide-title-{slide.uid}">
-                <!-- <div class="js-carousel-stone absolute inset-5 pointer-events-none overflow-hidden" aria-hidden="true"></div> -->
-                <div class="relative grid grid-cols-3 gap-5 sm:grid-cols-2">
-                    <div class="self-center space-y-2 col-span-2 sm:col-span-1">
-                        <p id="aria-slide-title-{slide.uid}" class="ndz-headline-large"><ndz:format.inlineText value="{slide.title}" /></p>
-                        <f:if condition="{slide.text}">
-                            <p class="ndz-rte-lead font-extrabold"><ndz:format.inlineText value="{slide.text}" /></p>
-                        </f:if>
-                        <div class="text-xs md:text-sm xl:text-base">
-                            <f:if condition="{slide.footer}">
-                                <cite class="not-italic"><ndz:format.inlineText value="{slide.footer}" /></cite>
+        <div class="swiper-wrapper">
+            <f:for each="{data.slides}" as="slide">
+                <div class="swiper-slide min-h-full px-5 pt-8 text-blue relative md:p-10 lg:px-20" role="region" aria-labelledby="aria-slide-title-{slide.uid}">
+                    <!-- <div class="js-carousel-stone absolute inset-5 pointer-events-none overflow-hidden" aria-hidden="true"></div> -->
+                    <div class="relative grid grid-cols-3 gap-5 sm:grid-cols-2">
+                        <div class="self-center space-y-2 col-span-2 sm:col-span-1">
+                            <p id="aria-slide-title-{slide.uid}" class="ndz-headline-large"><ndz:format.inlineText value="{slide.title}" /></p>
+                            <f:if condition="{slide.text}">
+                                <p class="ndz-rte-lead font-extrabold"><ndz:format.inlineText value="{slide.text}" /></p>
                             </f:if>
-                            <f:if condition="{slide.link.url}">
-                                <div class="col-span-2">
-                                    <f:link.typolink class="ndz-btn mt-5 md:mt-10" parameter="{slide.link}">
-                                        <f:if condition="{slide.link.title}">
-                                            <f:then>
-                                                {slide.link.title}
-                                            </f:then>
-                                            <f:else>
-                                                <f:translate key="showmore" extensionName="SteppingStoneSitePackage" />
-                                            </f:else>
-                                        </f:if>
-                                        
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 17.14" class="fill-current w-4">
-                                            <path d="M18.72,10.11H1.54c-.44,0-.8-.15-1.1-.44s-.44-.66-.44-1.1.15-.8.44-1.1c.3-.3.66-.44,1.1-.44h17.18l-4.39-4.39c-.31-.31-.46-.67-.44-1.08s.16-.77.44-1.08C14.64.17,15,.01,15.43,0c.42-.01.79.13,1.1.44l7.05,7.05c.15.15.26.32.33.5s.1.37.1.58-.03.4-.1.58-.17.35-.33.5l-7.05,7.05c-.31.31-.67.46-1.1.44s-.79-.17-1.1-.48c-.28-.31-.43-.67-.44-1.08s.13-.77.44-1.08l4.39-4.39Z"/>
-                                        </svg>
-                                    </f:link.typolink>
-                                </div>
-                            </f:if>
+                            <div class="text-xs md:text-sm xl:text-base">
+                                <f:if condition="{slide.footer}">
+                                    <cite class="not-italic"><ndz:format.inlineText value="{slide.footer}" /></cite>
+                                </f:if>
+                                <f:if condition="{slide.link.url}">
+                                    <div class="col-span-2">
+                                        <f:link.typolink class="ndz-btn mt-5 md:mt-10" parameter="{slide.link}">
+                                            <f:if condition="{slide.link.title}">
+                                                <f:then>
+                                                    {slide.link.title}
+                                                </f:then>
+                                                <f:else>
+                                                    <f:translate key="showmore" extensionName="SteppingStoneSitePackage" />
+                                                </f:else>
+                                            </f:if>
+                                            
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 17.14" class="fill-current w-4">
+                                                <path d="M18.72,10.11H1.54c-.44,0-.8-.15-1.1-.44s-.44-.66-.44-1.1.15-.8.44-1.1c.3-.3.66-.44,1.1-.44h17.18l-4.39-4.39c-.31-.31-.46-.67-.44-1.08s.16-.77.44-1.08C14.64.17,15,.01,15.43,0c.42-.01.79.13,1.1.44l7.05,7.05c.15.15.26.32.33.5s.1.37.1.58-.03.4-.1.58-.17.35-.33.5l-7.05,7.05c-.31.31-.67.46-1.1.44s-.79-.17-1.1-.48c-.28-.31-.43-.67-.44-1.08s.13-.77.44-1.08l4.39-4.39Z"/>
+                                            </svg>
+                                        </f:link.typolink>
+                                    </div>
+                                </f:if>
+                            </div>
                         </div>
-                    </div>
-                    <div class="sm:flex sm:items-start sm:justify-center">
-                        <div class="relative sm:w-[60%] max-w-[380px]">
-                            <f:if condition="{slide.image}">
-                                <f:image class="object-contain w-full h-full" image="{slide.image.0}" alt="{slide.title}" />
-                            </f:if>
-                            <f:if condition="{slide.icon}">
-                                <div class="absolute bottom-[2%] right-0 w-[34%] h-0 pb-[34%] bg-white text-blue rounded-full">
-                                    <span class="relative h-0 pb-[100%] bg-white rounded-full flex items-center justify-center">
-                                        <f:image image="{slide.icon.0}" class="absolute inset-0 fill-current size-full p-[20%] object-contain object-center" />
-                                    </span>
-                                </div>
-                            </f:if>
+                        <div class="sm:flex sm:items-start sm:justify-center">
+                            <div class="relative sm:w-[60%] max-w-[380px]">
+                                <f:if condition="{slide.image}">
+                                    <f:image class="object-contain w-full h-full" image="{slide.image.0}" alt="{slide.title}" />
+                                </f:if>
+                                <f:if condition="{slide.icon}">
+                                    <div class="absolute bottom-[2%] right-0 w-[34%] h-0 pb-[34%] bg-white text-blue rounded-full">
+                                        <span class="relative h-0 pb-[100%] bg-white rounded-full flex items-center justify-center">
+                                            <f:image image="{slide.icon.0}" class="absolute inset-0 fill-current size-full p-[20%] object-contain object-center" />
+                                        </span>
+                                    </div>
+                                </f:if>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </li>
-        </f:for>
-    </ul>
+            </f:for>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev after:bg-white"></div>
+        <div class="swiper-button-next after:bg-white"></div>
+    </div>
 </f:section>
 </html>

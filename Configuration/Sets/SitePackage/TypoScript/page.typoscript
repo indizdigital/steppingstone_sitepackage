@@ -44,6 +44,14 @@ page {
             40 {
                 as = categories
             }
+            45 = menu
+            45 {
+                special = directory
+                special.value = 62
+
+                levels = 1
+                as = footernavigation
+            }
         }
     }
 
@@ -79,6 +87,7 @@ page {
     }
 
     includeJSFooter {
+        highlightjs = EXT:stepping_stone_site_package/Resources/Public/JavaScript/highlight/highlight.min.js
         stepping_stone_site_package_scripts = EXT:stepping_stone_site_package/Resources/Public/JavaScript/main.js
     }
 }
@@ -96,15 +105,16 @@ lib.contentBlock {
 }
 
 plugin.tx_form {
-    view {
-        templateRootPaths {
-            100 = EXT:stepping_stone_site_package/Resources/Private/Extensions/Form/Templates/
+    settings {
+        yamlConfigurations {
+            100 = EXT:stepping_stone_site_package/Configuration/Form/CustomFormSetup.yaml
         }
-        partialRootPaths {
-            100 = EXT:stepping_stone_site_package/Resources/Private/Extensions/Form/Partials/
-        }
-        layoutRootPaths {
-            100 = EXT:stepping_stone_site_package/Resources/Private/Extensions/Form/Layouts/
+    }
+}
+module.tx_form {
+    settings {
+        yamlConfigurations {
+            100 = EXT:stepping_stone_site_package/Configuration/Form/CustomFormSetup.yaml
         }
     }
 }

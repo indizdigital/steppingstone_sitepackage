@@ -31,10 +31,34 @@ mod.wizards.newContentElement.wizardItems {
         before = default
         header = stepping stone
     }
-    removeItems = default, lists, menu, special
+    removeItems = lists, menu, special
 }
 
 TCEMAIN {
 
 }
 
+TCEMAIN.linkHandler.product {
+    handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
+    label = Product
+    configuration {
+        table = tx_products_domain_model_product
+        pageTreeMountPoints = 2
+    }
+    scanAfter = page
+}
+
+TCEMAIN.linkHandler.category {
+    handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
+    label = Category
+    configuration {
+        table = tx_products_domain_model_category
+        pageTreeMountPoints = 38
+    }
+    scanAfter = page
+}
+
+TCEMAIN.table.tt_content {
+  disablePrependAtCopy = 1
+  disableHideAtCopy = 1
+}

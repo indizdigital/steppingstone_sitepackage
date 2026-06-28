@@ -4,8 +4,8 @@ document.querySelectorAll('.js-carousel').forEach(carousel => {
     carousels.push(new Flickity(carousel, {
         cellAlign: 'left',
         contain: true,
-        wrapAround: true,
-        //groupCells: 3
+        wrapAround: false,
+        groupCells: true
     }));
 });
 

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:stepping_stone_site_package/Resources/Private/Language/Form/locallang.xlf">
+    <body>
+      <trans-unit id="element.steppingStoneTest.properties.label">
+        <source>Contact form</source>
+      </trans-unit>
+      <trans-unit id="element.steppingStoneTest.renderingOptions.submitButtonLabel">
+        <source>Send</source>
+      </trans-unit>
+
+      <trans-unit id="element.name.properties.label">
+        <source>Company</source>
+      </trans-unit>
+      <trans-unit id="element.name.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Musterfirma AG</source>
+      </trans-unit>
+
+      <trans-unit id="element.singleselect-1.properties.label">
+        <source>Title</source>
+      </trans-unit>
+      <trans-unit id="element.singleselect-1.properties.options.Mister">
+        <source>Mister</source>
+      </trans-unit>
+      <trans-unit id="element.singleselect-1.properties.options.Miss">
+        <source>Miss</source>
+      </trans-unit>
+      <trans-unit id="element.singleselect-1.properties.options.Divers">
+        <source>Divers</source>
+      </trans-unit>
+
+      <trans-unit id="element.text-1.properties.label">
+        <source>First name</source>
+      </trans-unit>
+      <trans-unit id="element.text-1.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Maximilian</source>
+      </trans-unit>
+
+      <trans-unit id="element.text-2.properties.label">
+        <source>Surname</source>
+      </trans-unit>
+      <trans-unit id="element.text-2.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Mustermann</source>
+      </trans-unit>
+
+      <trans-unit id="element.text-3.properties.label">
+        <source>Address line 1</source>
+      </trans-unit>
+      <trans-unit id="element.text-3.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Musterstrasse 12</source>
+      </trans-unit>
+
+      <trans-unit id="element.text-4.properties.label">
+        <source>Address line 2</source>
+      </trans-unit>
+      <trans-unit id="element.text-4.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. 2nd floor or c/o Musterfirma AG</source>
+      </trans-unit>
+
+      <trans-unit id="element.text-5.properties.label">
+        <source>Postcode</source>
+      </trans-unit>
+      <trans-unit id="element.text-5.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. 3000</source>
+      </trans-unit>
+
+      <trans-unit id="element.text-6.properties.label">
+        <source>Location</source>
+      </trans-unit>
+      <trans-unit id="element.text-6.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Bern</source>
+      </trans-unit>
+
+      <trans-unit id="element.text-7.properties.label">
+        <source>Country</source>
+      </trans-unit>
+      <trans-unit id="element.text-7.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Switzerland</source>
+      </trans-unit>
+
+      <trans-unit id="element.telephone-1.properties.label">
+        <source>Mobile or phone</source>
+      </trans-unit>
+      <trans-unit id="element.telephone-1.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. +41 79 123 45 67</source>
+      </trans-unit>
+
+      <trans-unit id="element.email-1.properties.label">
+        <source>Email</source>
+      </trans-unit>
+      <trans-unit id="element.email-1.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. maximilian.mustermann@musterfirma.ch</source>
+      </trans-unit>
+
+      <trans-unit id="element.checkbox-1.properties.label">
+        <source>I have read the general terms and conditions and agree.</source>
+      </trans-unit>
+
+      <trans-unit id="element.checkbox-2.properties.label">
+        <source>I would like to receive the newsletter.</source>
+      </trans-unit>
+
+      <trans-unit id="element.textarea-1.properties.label">
+        <source>Questions or comments</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

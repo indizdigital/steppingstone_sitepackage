@@ -7,55 +7,62 @@
 
 <f:layout name="Default" />
 <f:section name="Main">
-    <f:asset.script identifier="flickity-js" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/flickity.pkgd.min.js" />
-    <f:asset.script identifier="carousel-stone" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-carousel-stones.js"/>
+    <f:asset.script identifier="swiperjs" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/swiper-bundle.min.js" />
+    <f:asset.script identifier="swiper" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-swiper.js"/>
 
-    <div class="js-carousel-stones ndz-carousel-stones mt-8 -mx-5 md:mt-12 md:-mx-10 lg:-mx-20" data-initial-slide="{data.ndz_onboardingteaser_activeslide}">
-        <f:variable name="globalStepIndex" value="0" />
-        <f:for each="{data.categories}" as="category" iteration="catIt">
-            <f:for each="{category.steps}" as="step" iteration="stepIt">
-                <f:variable name="globalStepIndex" value="{globalStepIndex + 1}" />
-                <div class="js-carousel-cell min-h-full ndz-onboarding-stonewidth-{step.tomd - step.frommd} flex items-center justfiy-stretch pt-10 pb-20{f:if(condition: '{stepIt.total} == 1', then: ' mr-50', else: ' mr-5')}">
-                    <f:if condition="{stepIt.isFirst}"><div class="absolute top-0 left-0 text-blue font-extrabold pl-4 min-h-20 border-l border-blue whitespace-nowrap">{category.title}</div></f:if>
-                    <div class="ndz-flipbox w-full">
-                        <input type="checkbox" id="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}" class="ndz-flipbox-check">
-                        <label class="text-white ndz-flipbox-inner" for="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}">
-                            <div class="ndz-flipbox-front">
-                                <div{f:if(condition: step.offsettext, then: ' style=\'margin-top:{step.offsettext}%;\'')}>
-                                    <h3 class="ndz-headline-small text-white hyphens-auto"><f:format.nl2br>{step.title}</f:format.nl2br></h3>
+    <div class="swiper ndz-carousel-stones mt-8 -mx-5 md:mt-12 md:-mx-10 lg:-mx-20" data-initial-slide="{data.ndz_onboardingteaser_activeslide - 1}" data-loop="true" data-space-between="10">
+        <f:variable name="globalStepIndex" value="-1" />
+        <div class="swiper-wrapper items-stretch">
+            <f:for each="{data.categories}" as="category" iteration="catIt">
+                <f:for each="{category.steps}" as="step" iteration="stepIt">
+                    <f:variable name="globalStepIndex" value="{globalStepIndex + 1}" />
+                    <div class="swiper-slide h-auto ndz-onboarding-stonewidth-{step.tomd - step.frommd} flex items-center justfiy-stretch pt-10 pb-20">
+                        <f:if condition="{stepIt.isFirst}"><div class="absolute top-0 left-0 text-blue font-extrabold pl-4 min-h-20 border-l border-blue">{category.title}</div></f:if>
+                        <div class="ndz-flipbox w-full">
+                            <input type="checkbox" id="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}" class="ndz-flipbox-check">
+                            <label class="text-white ndz-flipbox-inner" for="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}">
+                                <div class="ndz-flipbox-front p-[12%] flex flex-col justify-center text-xl lg:text-3xl xl:text-4.5xl">
+                                    <div{f:if(condition: step.offsettext, then: ' style=\'margin-top:{step.offsettext}%;\'')}>
+                                        <h3 class="ndz-headline-small text-white hyphens-auto"><f:format.nl2br>{step.title}</f:format.nl2br></h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="ndz-flipbox-back">
-                                <div{f:if(condition: step.offsettext, then: ' style=\'margin-top:{step.offsettext}%;\'')}>
-                                    <p>{step.bodytext}</p>
-                                    <p class="mt-1 lg:mt-3">
-                                        <f:link.typolink class="ndz-btn ndz-btn-circle bg-white text-blue size-8 lg:size-10 xl:pointer-events-auto" parameter="{step.link}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current">
-                                                <path d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.5303 11.1161C16.0185 11.6043 16.0185 12.3957 15.5303 12.8839L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z" />
-                                            </svg>
-                                        </f:link.typolink>
-                                    </p>
+                                <div class="ndz-flipbox-back p-[12%] flex flex-col justify-center text-xs lg:text-sm xl:text-lg">
+                                    <div{f:if(condition: step.offsettext, then: ' style=\'margin-top:{step.offsettext}%;\'')}>
+                                        <p>{step.bodytext}</p>
+                                        <p class="mt-1 lg:mt-3">
+                                            <f:link.typolink class="ndz-btn ndz-btn-circle bg-white text-blue size-8 lg:size-10 xl:pointer-events-auto" parameter="{step.link}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current">
+                                                    <path d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.5303 11.1161C16.0185 11.6043 16.0185 12.3957 15.5303 12.8839L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z" />
+                                                </svg>
+                                            </f:link.typolink>
+                                        </p>
+                                    </div>
+                                    <f:link.typolink class="hidden absolute inset-0 pointer-events-auto xl:block" parameter="{step.link}">
+                                        <span class="sr-only">Link</span>
+                                    </f:link.typolink>
                                 </div>
-                                <f:link.typolink class="hidden absolute inset-0 pointer-events-auto xl:block" parameter="{step.link}">
-                                    <span class="sr-only">Link</span>
-                                </f:link.typolink>
-                            </div>
-                            <f:for each="{step.icon}" as="icon">
-                                <f:if condition="{data.ndz_onboardingteaser_activeslide}">
-                                    <f:then>
-                                        <ndz:inlineSvg class="w-full fill-blue{f:if(condition: '{data.ndz_onboardingteaser_activeslide} != {globalStepIndex}', then: ' fill-blue/50', else: ' fill-blue')}" path="{icon.originalFile}" />
-                                    </f:then>
-                                    <f:else>
-                                        <ndz:inlineSvg class="w-full fill-blue" path="{icon.originalFile}" />
-                                    </f:else>
-                                </f:if>
-                                
-                            </f:for>
-                        </label>
+                                <f:for each="{step.icon}" as="icon">
+                                    <f:if condition="{data.ndz_onboardingteaser_activeslide}">
+                                        <f:then>
+                                            <ndz:inlineSvg class="w-full fill-blue{f:if(condition: '{data.ndz_onboardingteaser_activeslide - 1} != {globalStepIndex}', then: ' fill-blue-500', else: ' fill-blue')}" path="{icon.originalFile}" />
+                                        </f:then>
+                                        <f:else>
+                                            <ndz:inlineSvg class="w-full fill-blue" path="{icon.originalFile}" />
+                                        </f:else>
+                                    </f:if>
+                                </f:for>
+                            </label>
+                        </div>
                     </div>
-                </div>
+                </f:for>
             </f:for>
-        </f:for>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev after:bg-white"></div>
+        <div class="swiper-button-next after:bg-white"></div>
     </div>
 </f:section>
 

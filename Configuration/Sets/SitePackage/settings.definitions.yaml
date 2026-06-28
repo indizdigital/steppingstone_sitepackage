@@ -1,3 +1,11 @@
+categories:
+  company:
+    label: 'Company'
+  social:
+    label: 'Social Media'
+  label:
+    label: 'Labels'
+
 settings:
   page.meta.viewport:
     label: 'Meta - Viewport'
@@ -23,3 +31,63 @@ settings:
     label: 'Pageview paths'
     type: string
     default: 'EXT:stepping_stone_site_package/Resources/Private/PageView/'
+  company.street:
+    label: 'Street'
+    category: company
+    type: string
+    default: ''
+  company.city:
+    label: 'ZIP/City'
+    category: company
+    type: string
+    default: ''
+  company.phone:
+    label: 'Phone'
+    category: company
+    type: string
+    default: ''
+  company.mail:
+    label: 'Mail'
+    category: company
+    type: string
+    default: ''
+  social.xing:
+    label: 'Xing'
+    category: social
+    type: string
+    default: ''
+  social.linkedin:
+    label: 'Linkedin'
+    category: social
+    type: string
+    default: ''
+  social.twitter:
+    label: 'X/Twitter'
+    category: social
+    type: string
+    default: ''
+  social.instagram:
+    label: 'Instagram'
+    category: social
+    type: string
+    default: ''
+  social.github:
+    label: 'GitHub'
+    category: social
+    type: string
+    default: ''
+  label.iso:
+    label: 'ISO'
+    category: label
+    type: string
+    default: ''
+  label.swiss:
+    label: 'swiss made software'
+    category: label
+    type: string
+    default: ''
+  label.trainingcompany:
+    label: 'Training Company'
+    category: label
+    type: string
+    default: ''

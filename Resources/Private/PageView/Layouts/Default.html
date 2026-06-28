@@ -15,7 +15,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
                     <path d="M11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C12.8487 19 14.551 18.3729 15.9056 17.3199L19.2929 20.7071C19.6834 21.0976 20.3166 21.0976 20.7071 20.7071C21.0976 20.3166 21.0976 19.6834 20.7071 19.2929L17.3199 15.9056C18.3729 14.551 19 12.8487 19 11C19 6.58172 15.4183 3 11 3ZM5 11C5 7.68629 7.68629 5 11 5C14.3137 5 17 7.68629 17 11C17 14.3137 14.3137 17 11 17C7.68629 17 5 14.3137 5 11Z" />
                 </svg>
-                <span class="sr-only">Suchen</span>
+                <span class="sr-only"><f:translate key="search" extensionName="SteppingStoneSitePackage" /></span>
             </button>
             <button class="ndz-btn ndz-btn-square text-blue bg-transparent xl:hidden" data-nav-open>
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="17" viewBox="0 0 22 17" class="fill-current">
@@ -26,8 +26,8 @@
             <div class="ndz-search fixed top-[var(--h-header-sm)] inset-x-0 bg-white overflow-y-auto text-blue md:top-[var(--h-header-md)] xl:top-[var(--h-header-xl)]" data-search>
                 <div class="relative py-20 px-5 h-full max-w-[1440px] mx-auto md:py-40 md:px-10 lg:px-20">
                     <form class="w-3/4 mx-auto" action="search" pageUid="{settings.searchPid}">
-                        <div class="ndz-input-field">
-                            <input class="py-2 text-3xl md:text-4.5xl lg:text-6xl" type="text" name="search[sword]" placeholder="Search" />
+                        <div class="bg-white py-1 outline-none border-b border-grey-200 focus-within:border-blue">
+                            <input class="py-2 text-3xl md:text-4.5xl" type="text" name="search[sword]" placeholder="<f:translate key='search' extensionName='SteppingStoneSitePackage' />" />
                         </div>
                         <!-- <button type="submit">Suchen</button> -->
                     </form>
@@ -36,7 +36,7 @@
             <div class="ndz-mobilenav absolute top-[var(--h-header-sm)] inset-x-0 bg-white overflow-y-auto text-blue md:top-[var(--h-header-md)] xl:static xl:h-auto xl:overflow-y-visible xl:bg-transparent" data-nav>
                 <div class="p-5 max-w-[1440px] mx-auto lg:px-15 xl:p-0">
                     <div class="divide-y divide-blue/5 xl:divide-none xl:flex xl:flex-col xl:flex-col-reverse xl:gap-8">
-                        <nav aria-label="Hauptnavigation">
+                        <nav aria-label="<f:translate key='mainmenu' extensionName='SteppingStoneSitePackage' />">
                             <ul class="ndz-mainmenu-container">
                                 <f:for each="{mainnavigation}" as="mainnavigationItem">
                                     <li class="ndz-mainmenu-item">
@@ -48,7 +48,7 @@
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
                                                     <path d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.5303 11.1161C16.0185 11.6043 16.0185 12.3957 15.5303 12.8839L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z" />
                                                 </svg>
-                                                <span class="sr-only">Aufklappen</span>
+                                                <span class="sr-only"><f:translate key="expand" extensionName="SteppingStoneSitePackage" /></span>
                                             </button>
                                             <div class="ndz-submenu w-full pl-5 overflow-hidden max-h-0 xl:max-h-none xl:absolute xl:left-0 xl:top-[calc(var(--h-header-xl))] xl:bg-white xl:p-0" data-submenu>
                                                 <div class="xl:px-20 xl:py-10 xl:max-w-[1440px] xl:mx-auto xl:grid xl:grid-cols-2 xl:items-start xl:divide-x xl:divide-blue/5">
@@ -106,7 +106,7 @@
                                 </f:for>
                             </ul>
                         </nav>
-                        <nav aria-label="Metanavigation" class="divide-y divide-blue/5 xl:divide-none xl:flex xl:items-center xl:justify-end xl:gap-5 xl:-mr-[32px]">
+                        <nav aria-label="<f:translate key='metamenu' extensionName='SteppingStoneSitePackage' />" class="divide-y divide-blue/5 xl:divide-none xl:flex xl:items-center xl:justify-end xl:gap-5 xl:-mr-[32px]">
                             <ul class="py-2 pr-5 xl:flex xl:items-center xl:gap-1 xl:p-0">
                                 <f:for each="{metanavigation}" as="metanavigationItem">
                                     <li class="flex flex-wrap items-center justify-between">
@@ -119,7 +119,7 @@
                             <div class="p-5 xl:p-0">
                                 <div class="language-switcher">
                                     <label for="language-select" class="sr-only">
-                                        Sprache auswählen
+                                        <f:translate key="chooselang" extensionName="SteppingStoneSitePackage" />
                                     </label>
                                     <select id="language-select" name="language" class="js-lang-select pl-5 bg-[url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2213.99%22%20height%3D%227.89%22%20viewBox%3D%220%200%2013.99%207.89%22%3E%3Cpath%20d%3D%22M13.7.29c.39.39.39%2C1.02%2C0%2C1.41l-5.82%2C5.82c-.49.49-1.28.49-1.77%2C0L.29%2C1.7C-.1%2C1.31-.1.68.29.29.68-.1%2C1.31-.1%2C1.7.29l5.29%2C5.29L12.28.29c.39-.39%2C1.02-.39%2C1.41%2C0h.01Z%22%20style%3D%22fill%3A%23001280%3B%22%2F%3E%3C%2Fsvg%3E)] bg-no-repeat bg-left xl:uppercase" onchange="window.location.href=this.value" aria-describedby="language-select-hint">
                                         <f:for each="{languageNavigation}" as="language">
@@ -129,11 +129,6 @@
                                         </f:for>
                                     </select>
                                 </div>
-                                <!-- <select class="js-lang-select pl-5 bg-[url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2213.99%22%20height%3D%227.89%22%20viewBox%3D%220%200%2013.99%207.89%22%3E%3Cpath%20d%3D%22M13.7.29c.39.39.39%2C1.02%2C0%2C1.41l-5.82%2C5.82c-.49.49-1.28.49-1.77%2C0L.29%2C1.7C-.1%2C1.31-.1.68.29.29.68-.1%2C1.31-.1%2C1.7.29l5.29%2C5.29L12.28.29c.39-.39%2C1.02-.39%2C1.41%2C0h.01Z%22%20style%3D%22fill%3A%23001280%3B%22%2F%3E%3C%2Fsvg%3E)] bg-no-repeat bg-left">
-                                    <option value="de" data-short="DE" data-full="Deutsch" aria-label="Deutsch">DE</option>
-                                    <option value="fr" data-short="FR" data-full="Französisch" aria-label="Französisch">FR</option>
-                                    <option value="en" data-short="EN" data-full="Englisch" aria-label="Englisch">EN</option>
-                                </select> -->
                             </div>
                         </nav>
                     </div>
@@ -153,125 +148,125 @@
             <div class="px-10 col-span-4 space-y-7 xl:col-span-2">
                 <address class="not-italic space-y-5">
                     <span class="text-lg font-extrabold block xl:text-2xl">
-                        <a href="">T +41 31 332 53 63</a><br>
-                        <a href="mailto:info@stepping-stone.ch">info@stepping-stone.ch</a>
+                        <a href="tel:{settings.company.phone}"><f:translate key="phoneAbbr" extensionName="SteppingStoneSitePackage" /> {settings.company.phone}</a><br>
+                        <a href="mailto:{settings.company.mail}">{settings.company.mail}</a>
                     </span>
-                    <span class="block"><strong>stepping stone AG</strong><br>
-                    Wasserwerkgasse 7<br>
-                    CH-3011 Bern
+                    <span class="block"><strong>{language.websiteTitle}</strong><br>
+                    {settings.company.street}<br>
+                    {settings.company.city}
                     </span>
                 </address>
                 <ul class="flex items-center gap-5">
-                    <li>
-                        <button href="" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 20.44 24">
-                                <path d="M3.99,16.82c.37,0,.68-.22.94-.67,2.39-4.24,3.63-6.44,3.73-6.62l-2.38-4.15c-.25-.44-.57-.65-.96-.65H1.86c-.22,0-.38.07-.46.22-.11.15-.1.32.01.54l2.34,4.05s0,.01,0,.01L.07,16.05c-.1.18-.1.36,0,.52.1.16.25.25.45.25h3.47ZM19.91,0h-3.5c-.38,0-.69.22-.93.65-4.96,8.8-7.53,13.36-7.71,13.67l4.92,9.03c.23.44.55.65.96.65h3.47c.21,0,.37-.07.46-.22.1-.16.09-.34-.01-.54l-4.88-8.92h0S20.36.75,20.36.75c.11-.2.11-.38,0-.54-.09-.15-.24-.22-.45-.22Z"/>
-                            </svg>
-                        </button>
-                    </li>
-                    <li>
-                        <button href="" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
-                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-                            </svg>
-                        </button>
-                    </li>
-                    <li>
-                        <button href="" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
-                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-                            </svg>
-                        </button>
-                    </li>
-                    <li>
-                        <button href="" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
-                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
-                            </svg>
-                        </button>
-                    </li>
-                    <li>
-                        <button href="" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                            </svg>
-                        </button>
-                    </li>
+                    <f:if condition="{settings.social.xing}">
+                        <li>
+                            <a href="{settings.social.xing}" target="_blank" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 20.44 24">
+                                    <path d="M3.99,16.82c.37,0,.68-.22.94-.67,2.39-4.24,3.63-6.44,3.73-6.62l-2.38-4.15c-.25-.44-.57-.65-.96-.65H1.86c-.22,0-.38.07-.46.22-.11.15-.1.32.01.54l2.34,4.05s0,.01,0,.01L.07,16.05c-.1.18-.1.36,0,.52.1.16.25.25.45.25h3.47ZM19.91,0h-3.5c-.38,0-.69.22-.93.65-4.96,8.8-7.53,13.36-7.71,13.67l4.92,9.03c.23.44.55.65.96.65h3.47c.21,0,.37-.07.46-.22.1-.16.09-.34-.01-.54l-4.88-8.92h0S20.36.75,20.36.75c.11-.2.11-.38,0-.54-.09-.15-.24-.22-.45-.22Z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </f:if>
+                    <f:if condition="{settings.social.linkedin}">
+                        <li>
+                            <a href="{settings.social.linkedin}" target="_blank" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
+                                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </f:if>
+                    <f:if condition="{settings.social.twitter}">
+                        <li>
+                            <a href="{settings.social.twitter}" target="_blank" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
+                                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </f:if>
+                    <f:if condition="{settings.social.instagram}">
+                        <li>
+                            <a href="{settings.social.instagram}" target="_blank" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
+                                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </f:if>
+                    <f:if condition="{settings.social.github}">
+                        <li>
+                            <a href="{settings.social.github}" target="_blank" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </f:if>
                 </ul>
             </div>
             <div class="col-span-4 px-7 xl:col-span-2 xl:p-0 xl:space-y-20">
-                <nav aria-label="Footer Navigation" class="">
-                    <ul class="text-lg border-y border-white/20 divide-y divide-white/20 xl:grid xl:grid-cols-3 xl:gap-5 xl:p-0 xl:border-none xl:divide-none xl:text-[length:inherit]">
-                        <li class="ndz-menu-btn pl-3 pr-1 py-1.5 flex flex-wrap items-center justify-between xl:p-0 xl:block">
-                            <a class="font-extrabold" href="">Produkte</a>
-                            <button class="size-8 cursor-pointer inline-flex items-center justify-center duration-300 ease-out-expo xl:hidden" data-submenu-toggle>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-                                    <path d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.5303 11.1161C16.0185 11.6043 16.0185 12.3957 15.5303 12.8839L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z" />
-                                </svg>
-                                <span class="sr-only">Aufklappen</span>
-                            </button>
-                            <div class="ndz-submenu w-full pl-7 overflow-hidden max-h-0 text-white/60 xl:max-h-none xl:p-0 xl:opacity-100 xl:visible xl:translate-y-0" data-submenu>
-                                <ul class="space-y-2 py-2 xl:space-y-0 xl:py-0">
-                                    <li><a class="hover:text-white" href="">Cloud</a></li>
-                                    <li><a class="hover:text-white" href="">Entwicklungswerkzeuge</a></li>
-                                    <li><a class="hover:text-white" href="">Datenbanken</a></li>
-                                    <li><a class="hover:text-white" href="">Security</a></li>
-                                    <li><a class="hover:text-white" href="">Zusammenarbeit</a></li>
-                                    <li><a class="hover:text-white" href="">Künstliche Intelligenz</a></li>
-                                    <li><a class="hover:text-white" href="">Managed Services</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="ndz-menu-btn pl-3 pr-1 py-1.5 flex flex-wrap items-center justify-between xl:p-0 xl:block">
-                            <a class="font-extrabold" href="">Onboarding</a>
-                            <button class="size-8 cursor-pointer inline-flex items-center justify-center duration-300 ease-out-expo xl:hidden" data-submenu-toggle>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-                                    <path d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.5303 11.1161C16.0185 11.6043 16.0185 12.3957 15.5303 12.8839L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z" />
-                                </svg>
-                                <span class="sr-only">Aufklappen</span>
-                            </button>
-                            <div class="ndz-submenu w-full pl-7 overflow-hidden max-h-0 text-white/60 xl:max-h-none xl:p-0 xl:opacity-100 xl:visible xl:translate-y-0" data-submenu>
-                                <ul class="space-y-2 py-2 xl:space-y-0 xl:py-0">
-                                    <li><a class="hover:text-white" href="">Anforderungsanalyse</a></li>
-                                    <li><a class="hover:text-white" href="">Proof of Concept</a></li>
-                                    <li><a class="hover:text-white" href="">Projektplanung</a></li>
-                                    <li><a class="hover:text-white" href="">Automatisierung</a></li>
-                                    <li><a class="hover:text-white" href="">Datenmigration</a></li>
-                                    <li><a class="hover:text-white" href="">Inbetriebnahme</a></li>
-                                    <li><a class="hover:text-white" href="">Betrieb</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="ndz-menu-btn pl-3 pr-1 py-1.5 flex flex-wrap items-center justify-between xl:p-0 xl:block">
-                            <a class="font-extrabold" href="">Über uns</a>
-                            <button class="size-8 cursor-pointer inline-flex items-center justify-center duration-300 ease-out-expo xl:hidden" data-submenu-toggle>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-                                    <path d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.5303 11.1161C16.0185 11.6043 16.0185 12.3957 15.5303 12.8839L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z" />
-                                </svg>
-                                <span class="sr-only">Aufklappen</span>
-                            </button>
-                            <div class="ndz-submenu w-full pl-7 overflow-hidden max-h-0 text-white/60 xl:max-h-none xl:p-0 xl:opacity-100 xl:visible xl:translate-y-0" data-submenu>
-                                <ul class="space-y-2 py-2 xl:space-y-0 xl:py-0">
-                                    <li><a class="hover:text-white" href="">Team</a></li>
-                                    <li><a class="hover:text-white" href="">Karriere</a></li>
-                                    <li><a class="hover:text-white" href="">Infrastruktur</a></li>
-                                    <li><a class="hover:text-white" href="">Partner</a></li>
-                                    <li><a class="hover:text-white" href="">Referenzen</a></li>
-                                    <li><a class="hover:text-white" href="">Mitgliedschaften</a></li>
-                                    <li><a class="hover:text-white" href="">Kontakt</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="divide-y divide-blue/5 xl:hidden">
+                <div aria-label="<f:translate key='mainmenu' extensionName='SteppingStoneSitePackage' />">
+                    <nav>
+                        <ul class="text-lg border-y border-white/20 divide-y divide-white/20 xl:grid xl:grid-cols-3 xl:gap-5 xl:p-0 xl:border-none xl:divide-none xl:text-[length:inherit]">
+                            <f:for each="{mainnavigation}" as="mainnavigationItem">
+                                <li class="ndz-menu-btn pl-3 pr-1 py-1.5 flex flex-wrap items-center justify-between xl:p-0 xl:block">
+                                    <a class="font-extrabold" href="{mainnavigationItem.link}">{mainnavigationItem.title}</a>
+                                    <f:if condition="{mainnavigationItem.children} || {mainnavigationItem.data.uid} == 3">
+                                        <button class="size-8 cursor-pointer inline-flex items-center justify-center duration-300 ease-out-expo xl:hidden" data-submenu-toggle>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                                                <path d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.5303 11.1161C16.0185 11.6043 16.0185 12.3957 15.5303 12.8839L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z" />
+                                            </svg>
+                                            <span class="sr-only"><f:translate key="expand" extensionName="SteppingStoneSitePackage" /></span>
+                                        </button>
+                                        <div class="ndz-submenu w-full pl-7 overflow-hidden max-h-0 text-white/60 xl:max-h-none xl:p-0 xl:opacity-100 xl:visible xl:translate-y-0" data-submenu>
+                                            <ul class="space-y-2 py-2 xl:space-y-0 xl:py-0">
+                                                <f:if condition="{mainnavigationItem.data.uid} == 3">
+                                                    <f:then>
+                                                        <f:for each="{categories}" as="child">
+                                                            <li>
+                                                                <f:variable name="cat_uid" value="{child.uid}" />
+                                                                <f:if condition="{child.l10n_parent}">
+                                                                    <f:variable name="cat_uid" value="{child.l10n_parent}" />
+                                                                </f:if>
+                                                                <f:link.action pageUid="3" action="index" extensionName="products" controller="Product" pluginName="index" arguments="{category:cat_uid}" class="hover:text-white{f:if(condition: child.active, then:' text-white')}" target="_self" title="{child.title}">
+                                                                    {child.name}
+                                                                </f:link.action>
+                                                            </li>
+                                                        </f:for>
+                                                    </f:then>
+                                                    <f:else>
+                                                        <f:for each="{mainnavigationItem.children}" as="child">
+                                                            <li>
+                                                                <a class="hover:text-white{f:if(condition: child.active, then:' text-white')}" href="{child.link}" target="{child.target}" title="{child.data.title}">
+                                                                    {child.data.title}
+                                                                </a>
+                                                            </li>
+                                                        </f:for>
+                                                    </f:else>
+                                                </f:if>
+                                            </ul>
+                                        </div>
+                                    </f:if>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </nav>
+                    <nav aria-label="<f:translate key='metamenu' extensionName='SteppingStoneSitePackage' />" class="divide-y divide-blue/5 xl:hidden">
                         <ul class="xl:flex xl:items-center xl:p-0">
-                            <li class="flex flex-wrap items-center justify-between">
+                             <f:for each="{metanavigation}" as="metanavigationItem">
+                                <li class="flex flex-wrap items-center justify-between">
+                                    <a class="px-3 hover:bg-blue/10 rounded-lg h-9 inline-flex items-center" href="{metanavigationItem.link}" target="{metanavigationItem.target}" title="{metanavigationItem.title}">
+                                        {metanavigationItem.title}
+                                    </a>
+                                </li>
+                            </f:for>
+                            <!-- <li class="flex flex-wrap items-center justify-between">
                                 <a class="px-3 hover:bg-blue/10 rounded-lg h-9 inline-flex items-center" href="">Insights</a>
                                 <button class="p-2 size-10 cursor-pointer inline-flex items-center justify-center duration-300 ease-out-expo xl:hidden" data-submenu-toggle>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
                                         <path d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.5303 11.1161C16.0185 11.6043 16.0185 12.3957 15.5303 12.8839L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z" />
                                     </svg>
-                                    <span class="sr-only">Aufklappen</span>
+                                    <span class="sr-only"><f:translate key="expand" extensionName="SteppingStoneSitePackage" /></span>
                                 </button>
                                 <ul class="w-full pl-5 overflow-hidden duration-300 max-h-0 xl:hidden" data-submenu>
                                     <li><a class="px-5 hover:bg-blue/10 rounded-lg h-9 inline-flex items-center" href="">Neuigkeiten</a></li>
@@ -286,11 +281,11 @@
                             </li>
                             <li>
                                 <a class="px-3 hover:bg-blue/10 rounded-lg h-9 inline-flex items-center" href="">Login</a>
-                            </li>
+                            </li> -->
                         </ul>
-                    </div>
-                </nav>
-                <nav aria-label="Labels" class="hidden xl:block">
+                    </nav>
+                </div>
+                <nav aria-label="<f:translate key='labels' extensionName='SteppingStoneSitePackage' />" class="hidden xl:block">
                     <ul class="xl:flex xl:items-center xl:gap-3">
                         <li><a href="" class="block h-18 bg-white p-1.5">
                             <f:image class="size-full object-contain object-center" src="EXT:stepping_stone_site_package/Resources/Public/Images/iso27001.png" alt="ISO 27001" />
@@ -305,13 +300,16 @@
                 </nav>
             </div>
             <div class="col-span-4 px-8.5 text-white/60 flex flex-wrap divide-x divide-white/60">
-                <p class="px-1.5">© 2004 – 2006 stepping stone AG</p>
-                <nav aria-label="Rechtliches">
+                <p class="px-1.5">© 2004 – {f:format.date(date: 'now', format: 'Y')} {language.websiteTitle}</p>
+                <nav aria-label="<f:translate key='footermenu' extensionName='SteppingStoneSitePackage' />">
                     <ul class="flex flex-wrap divide-x divide-white/60">
-                        <li><a class="px-1.5 hover:text-white" href="/impressum">Impressum</a></li>
-                        <li><a class="px-1.5 hover:text-white" href="/agb">Allgemeine Geschäftsbedingungen</a></li>
-                        <li><a class="px-1.5 hover:text-white" href="/datenschutz">Datenschutzerklärung</a></li>
-                        <li><a class="px-1.5 hover:text-white" href="/avv">Auftragsverarbeitungsvereinbarung</a></li>
+                        <f:for each="{footernavigation}" as="footernavigationItem">
+                            <li>
+                                <a class="px-1.5 hover:text-white{f:if(condition: footernavigationItem.active, then:' text-white')}" href="{footernavigationItem.link}" target="{footernavigationItem.target}" title="{footernavigationItem.title}">
+                                    {footernavigationItem.title}
+                                </a>
+                            </li>
+                        </f:for>
                     </ul>
                 </nav>
             </div>

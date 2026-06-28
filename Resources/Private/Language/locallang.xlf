@@ -2,10 +2,19 @@
 <xliff version="1.0">
     <file source-language="en" datatype="plaintext" original="messages" date="2026-05-05UTC06:52:170">
         <header>
-            <authorName>Pascal Mürner</authorName>
+            <authorName>INDIZ Digital GmbH</authorName>
             <authorEmail>tech@indiz.digital</authorEmail>
         </header>
         <body>
+            <trans-unit id="search">
+                <source>Search</source>
+            </trans-unit>
+            <trans-unit id="expand">
+                <source>Aufklappen</source>
+            </trans-unit>
+            <trans-unit id="chooselang">
+                <source>Sprache auswählen</source>
+            </trans-unit>
             <trans-unit id="showmore">
                 <source>Show more</source>
             </trans-unit>
@@ -17,6 +26,18 @@
             </trans-unit>
             <trans-unit id="phoneAbbr">
                 <source>P</source>
+            </trans-unit>
+            <trans-unit id="mainmenu">
+                <source>Hauptnavigation</source>
+            </trans-unit>
+            <trans-unit id="metamenu">
+                <source>Metanavigation</source>
+            </trans-unit>
+            <trans-unit id="footermenu">
+                <source>Footernavigation</source>
+            </trans-unit>
+            <trans-unit id="labels">
+                <source>Labels</source>
             </trans-unit>
         </body>
     </file>

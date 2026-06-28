@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="de" datatype="plaintext" original="EXT:stepping_stone_site_package/Resources/Private/Language/Form/locallang.xlf">
+    <body>
+      <trans-unit id="element.steppingStoneTest.properties.label">
+        <source>Contact form</source>
+        <target>Kontaktformular</target>
+      </trans-unit>
+      <trans-unit id="element.steppingStoneTest.renderingOptions.submitButtonLabel">
+        <source>Send</source>
+        <target>Absenden</target>
+      </trans-unit>
+
+      <trans-unit id="element.name.properties.label">
+        <source>Company</source>
+        <target>Firma</target>
+      </trans-unit>
+      <trans-unit id="element.name.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Musterfirma AG</source>
+        <target>z.B. Musterfirma AG</target>
+      </trans-unit>
+
+      <trans-unit id="element.singleselect-1.properties.label">
+        <source>Title</source>
+        <target>Anrede</target>
+      </trans-unit>
+      <trans-unit id="element.singleselect-1.properties.options.Mister">
+        <source>Mister</source>
+        <target>Herr</target>
+      </trans-unit>
+      <trans-unit id="element.singleselect-1.properties.options.Miss">
+        <source>Miss</source>
+        <target>Frau</target>
+      </trans-unit>
+      <trans-unit id="element.singleselect-1.properties.options.Divers">
+        <source>Divers</source>
+        <target>Divers</target>
+      </trans-unit>
+
+      <trans-unit id="element.text-1.properties.label">
+        <source>First name</source>
+        <target>Vorname</target>
+      </trans-unit>
+      <trans-unit id="element.text-1.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Maximilian</source>
+        <target>z.B. Maximilian</target>
+      </trans-unit>
+
+      <trans-unit id="element.text-2.properties.label">
+        <source>Surname</source>
+        <target>Nachname</target>
+      </trans-unit>
+      <trans-unit id="element.text-2.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Mustermann</source>
+        <target>z.B. Mustermann</target>
+      </trans-unit>
+
+      <trans-unit id="element.text-3.properties.label">
+        <source>Address line 1</source>
+        <target>Adresszeile 1</target>
+      </trans-unit>
+      <trans-unit id="element.text-3.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Musterstrasse 12</source>
+        <target>z.B. Musterstrasse 12</target>
+      </trans-unit>
+
+      <trans-unit id="element.text-4.properties.label">
+        <source>Address line 2</source>
+        <target>Adresszeile 2</target>
+      </trans-unit>
+      <trans-unit id="element.text-4.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. 2nd floor or c/o Musterfirma AG</source>
+        <target>z.B. 2. Stock oder c/o Musterfirma AG</target>
+      </trans-unit>
+
+      <trans-unit id="element.text-5.properties.label">
+        <source>Postcode</source>
+        <target>Postleitzahl</target>
+      </trans-unit>
+      <trans-unit id="element.text-5.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. 3000</source>
+        <target>z.B. 3000</target>
+      </trans-unit>
+
+      <trans-unit id="element.text-6.properties.label">
+        <source>Location</source>
+        <target>Ort</target>
+      </trans-unit>
+      <trans-unit id="element.text-6.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Bern</source>
+        <target>z.B. Bern</target>
+      </trans-unit>
+
+      <trans-unit id="element.text-7.properties.label">
+        <source>Country</source>
+        <target>Land</target>
+      </trans-unit>
+      <trans-unit id="element.text-7.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. Switzerland</source>
+        <target>z.B. Schweiz</target>
+      </trans-unit>
+
+      <trans-unit id="element.telephone-1.properties.label">
+        <source>Mobile or phone</source>
+        <target>Mobile oder Telefon</target>
+      </trans-unit>
+      <trans-unit id="element.telephone-1.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. +41 79 123 45 67</source>
+        <target>z.B. +41 79 123 45 67</target>
+      </trans-unit>
+
+      <trans-unit id="element.email-1.properties.label">
+        <source>Email</source>
+        <target>E-Mail</target>
+      </trans-unit>
+      <trans-unit id="element.email-1.properties.fluidAdditionalAttributes.placeholder">
+        <source>e.g. maximilian.mustermann@musterfirma.ch</source>
+        <target>z.B. maximilian.mustermann@musterfirma.ch</target>
+      </trans-unit>
+
+      <trans-unit id="element.checkbox-1.properties.label">
+        <source>I have read the general terms and conditions and agree.</source>
+        <target>Ich habe die allgemeinen Geschäftsbedingungen gelesen und stimme diesen zu.</target>
+      </trans-unit>
+
+      <trans-unit id="element.checkbox-2.properties.label">
+        <source>I would like to receive the newsletter.</source>
+        <target>Ich möchte den Newsletter erhalten.</target>
+      </trans-unit>
+
+      <trans-unit id="element.textarea-1.properties.label">
+        <source>Questions or comments</source>
+        <target>Fragen oder Kommentare</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
