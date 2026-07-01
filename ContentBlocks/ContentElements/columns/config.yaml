@@ -3,6 +3,8 @@ typeName: ndz_columns
 group: stepping-stone
 prefixFields: true
 prefixType: full
+basics:
+  - TYPO3/Appearance
 fields:
   - identifier: overline
     type: Palette
@@ -26,9 +28,8 @@ fields:
     type: Palette
     fields:
       - identifier: col1
-        label: Left Column
+        label: First Column
         type: Collection
-        minitems: 1
         maxitems: 1
         fields:
           - identifier: bodytext
@@ -36,12 +37,38 @@ fields:
             enableRichtext: true
             richtextConfiguration: custom
       - identifier: col2
-        label: Right Column
+        label: Second Column
         type: Collection
-        minitems: 1
         maxitems: 1
         fields:
           - identifier: bodytext
             type: Textarea
             enableRichtext: true
             richtextConfiguration: custom
+      - identifier: col3
+        label: Third Column
+        type: Collection
+        maxitems: 1
+        displayCond: 'FIELD:colnumbers:=:3cols'
+        onChange: reload
+        fields:
+          - identifier: bodytext
+            type: Textarea
+            enableRichtext: true
+            richtextConfiguration: custom
+  - identifier: settingsTab
+    type: Tab
+    label: Settings
+  - identifier: ce_settings
+    type: Palette
+    label: Content Element Settings
+    fields:
+      - identifier: colnumbers
+        type: Select
+        label: Number of columns
+        renderType: selectSingle
+        items:
+        - label: '2 Columns'
+          value: 2cols
+        - label: '3 Colunns'
+          value: 3cols

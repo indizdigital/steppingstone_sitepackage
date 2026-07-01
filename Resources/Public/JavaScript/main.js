@@ -156,10 +156,25 @@ window.addEventListener('scroll', () => {
     lastScrollY = currentScrollY;
 });
 
+function showEmails(){
+    document.querySelectorAll("a[data-mailto-token][data-mailto-vector]").forEach(function(i){
+        
+        const n=i.dataset,o=n.mailtoToken,e=parseInt(n.mailtoVector,10)*-1;
+        let em =r(o,e)
+        if(i.querySelector(".js-encoded")){
+         i.querySelector(".js-encoded").innerHTML = em.replace(/mailto:/,"")
+        }
 
+    });
+
+    function r(t,i){let n="";for(let o=0;o<t.length;o++){const e=t.charCodeAt(o);e>=43&&e<=58?n+=c(e,43,58,i):e>=64&&e<=90?n+=c(e,64,90,i):e>=97&&e<=122?n+=c(e,97,122,i):n+=t.charAt(o)}return n}
+    function c(t,i,n,o){return t=t+o,o>0&&t>n?t=i+(t-n-1):o<0&&t<i&&(t=n-(i-t-1)),String.fromCharCode(t)}
+}
 /* INIT HIGHLIGHTJS */
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('pre code').forEach(el => {
         hljs.highlightElement(el);
     });
+
+    showEmails();
 });

@@ -7,9 +7,6 @@ TCEFORM {
 
     }
     tt_content {
-        CType {
-            #keepItems = ndz_accordion, ndz_card, ndz_carousel, ndz_columns, ndz_header, ndz_image, ndz_infobox, ndz_membershortcut, ndz_onboarding, ndz_onboardingteaser, ndz_team, ndz_text, products_index, products_product
-        }
         header_layout {
             default = 2
             removeItems = 0,4,5
@@ -31,7 +28,7 @@ mod.wizards.newContentElement.wizardItems {
         before = default
         header = stepping stone
     }
-    removeItems = lists, menu, special
+    removeItems = default, lists, menu, special
 }
 
 TCEMAIN {

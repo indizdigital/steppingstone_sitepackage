@@ -7,24 +7,47 @@
 <f:section name="Main">
     <f:if condition="{data.carousel}">
         <f:then>
-            <div class="js-carousel mb-20 -mx-5 px-5 md:-mx-10 md:px-10 lg:-mx-20 lg:px-20">
-                <f:for each="{data.image}" as="image">
-                    <div class="js-carousel-cell bg-grey-100 w-full rounded-[40px] p-[5%] md:w-[49%] md:mr-[2%]">
-                        <div class="relative h-0 pb-[65%]">
-                            <f:image image="{image}" alt="{image.name}" class="absolute w-full h-full object-contain object-center" />
-                        </div>
+            <f:asset.script identifier="swiperjs" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/swiper-bundle.min.js" />
+            <f:asset.script identifier="swiper" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-swiper.js"/>
+            <f:asset.script identifier="photoswipe-umd" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/photoswipe.umd.min.js" />
+            <f:asset.script identifier="photoswipe-lightbox-umd" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/photoswipe-lightbox.umd.min.js" />
+            <f:asset.script identifier="ndz-gallery" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-gallery.js" />
+            <div class="relative ndz-carousel-offset">
+                <div class="swiper pb-12 pswp-gallery" id="gallery-carousel-{data.uid}" data-slides-per-view="auto" data-space-between="0">
+                    <div class="swiper-wrapper">
+                        <f:for each="{data.image}" as="image" iteration="it">
+                            <div class="swiper-slide bg-grey-100 w-full rounded-[40px] p-[5%] md:w-[49%]{f:if(condition: '!{it.isLast}', then: ' mr-[2%]')}">
+                                <a href="{f:uri.image(image: image)}"
+                                   data-pswp-width="{image.originalFile.properties.width}"
+                                   data-pswp-height="{image.originalFile.properties.height}"
+                                   class="block relative h-0 pb-[65%]">
+                                    <f:image image="{image}" alt="{image.name}" class="absolute w-full h-full object-contain object-center" />
+                                </a>
+                            </div>
+                        </f:for>
                     </div>
-                </f:for>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!-- Navigation buttons ausserhalb des Swipers (overflow:hidden-safe) -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </f:then>
         <f:else>
-            <div class="grid gap-2.5 mb-20 sm:grid-cols-2 sm:gap-3 md:gap-3.5 lg:gap-4.5 xl:gap-6">
+            <f:asset.script identifier="photoswipe-umd" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/photoswipe.umd.min.js" />
+            <f:asset.script identifier="photoswipe-lightbox-umd" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/photoswipe-lightbox.umd.min.js" />
+            <f:asset.script identifier="ndz-gallery" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-gallery.js" />
+            <div class="pswp-gallery grid gap-2.5 mb-20 sm:grid-cols-2 sm:gap-3 md:gap-3.5 lg:gap-4.5 xl:gap-6" id="gallery-grid-{data.uid}">
                 <f:for each="{data.image}" as="image">
-                    <div class="bg-grey-100 w-full rounded-[40px] p-[5%]">
+                    <a href="{f:uri.image(image: image)}"
+                       data-pswp-width="{image.originalFile.properties.width}"
+                       data-pswp-height="{image.originalFile.properties.height}"
+                       class="bg-grey-100 w-full rounded-[40px] p-[5%] block">
                         <div class="relative h-0 pb-[65%]">
                             <f:image image="{image}" alt="{image.name}" class="absolute w-full h-full object-contain object-center" />
                         </div>
-                    </div>
+                    </a>
                 </f:for>
             </div>
         </f:else>

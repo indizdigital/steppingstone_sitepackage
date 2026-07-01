@@ -15,7 +15,7 @@ finishers:
     options:
       subject: 'Contact form'
       recipients:
-        tech@indiz.digital: 'stepping stone'
+        support@stepping-stone.ch: 'stepping stone'
       senderAddress: 3750497@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
@@ -26,7 +26,6 @@ finishers:
     identifier: EmailToReceiver
     defaultValue: ''
   -
-    identifier: SaveToDatabase
     options:
       table: tx_steppingstonesitepackage_form_submissions
       mode: insert
@@ -62,6 +61,21 @@ finishers:
           mapOnDatabaseColumn: newsletter
         textarea-1:
           mapOnDatabaseColumn: message
+    identifier: SaveToDatabase
+  -
+    options:
+      subject: 'Contact form'
+      recipients:
+        '{email-1}': '{text-1} {text-2}'
+      senderAddress: 3750497@customers.stepping-stone.ch
+      senderName: 'stepping stone'
+      addHtmlPart: true
+      attachUploads: true
+      title: ''
+      translation:
+        language: ''
+    identifier: EmailToSender
+    defaultValue: ''
 renderables:
   -
     renderingOptions:
@@ -384,17 +398,6 @@ renderables:
                   xl:
                     numbersOfColumnsToUse: '6'
             renderables:
-              -
-                type: Checkbox
-                identifier: checkbox-1
-                label: 'I have read the general terms and conditions and agree.'
-                properties:
-                  elementDescription: ''
-                  fluidAdditionalAttributes:
-                    required: required
-                validators:
-                  -
-                    identifier: NotEmpty
               -
                 type: Checkbox
                 identifier: checkbox-2

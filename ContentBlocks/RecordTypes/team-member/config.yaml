@@ -30,7 +30,6 @@ fields:
     label: Image
     maxitems: 1
     allowed: jpg,png
-    l10n_mode: exclude
   - identifier: link
     type: Link
     label: Link

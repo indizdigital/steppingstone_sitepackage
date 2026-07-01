@@ -3,6 +3,8 @@ typeName: ndz_card
 group: stepping-stone
 prefixFields: true
 prefixType: full
+basics:
+  - TYPO3/Appearance
 fields:
   - identifier: header
     type: Palette
@@ -46,14 +48,14 @@ fields:
           allowed: svg
   - identifier: settingsTab
     type: Tab
-    label: Appearance
+    label: Settings
   - identifier: ce_layout
     type: Palette
     label: Content Element Layout
     fields:
-      - identifier: layout
+      - identifier: cardlayout
         type: Select
-        label: Layout
+        label: Card Layout
         renderType: selectSingle
         items:
         - label: 'Grau'

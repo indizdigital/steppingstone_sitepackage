@@ -9,7 +9,7 @@
     <div class="js-accordion border-y border-gray-200 divide-y divide-gray-200">
         <f:for each="{data.items}" as="item">
             <div class="ndz-accordion-item js-accordion-item{f:if(condition: item.open, then: ' js-accordion-active')}">
-                <h2 class="text-2xl text-blue font-extrabold xl:text-3.5xl">
+                <h2 class="ndz-headline-middle">
                     <button type="button" class="js-accordion-header py-2 w-full flex items-center justify-between text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
                         {item.title}
                         <svg class="ndz-accordion-icon js-accordion-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">

@@ -3,6 +3,8 @@ typeName: ndz_image
 group: stepping-stone
 prefixFields: true
 prefixType: full
+basics:
+  - TYPO3/Appearance
 fields:
   - identifier: header
     useExistingField: true
@@ -24,10 +26,10 @@ fields:
     useExistingField: true
   - identifier: settingsTab
     type: Tab
-    label: Appearance
+    label: Settings
   - identifier: ce_layout
     type: Palette
-    label: Content Element Layout
+    label: Content Element Settings
     fields:
       - identifier: carousel
         type: Checkbox

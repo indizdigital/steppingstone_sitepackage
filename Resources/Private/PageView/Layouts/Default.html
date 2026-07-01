@@ -25,9 +25,11 @@
             </button>
             <div class="ndz-search fixed top-[var(--h-header-sm)] inset-x-0 bg-white overflow-y-auto text-blue md:top-[var(--h-header-md)] xl:top-[var(--h-header-xl)]" data-search>
                 <div class="relative py-20 px-5 h-full max-w-[1440px] mx-auto md:py-40 md:px-10 lg:px-20">
-                    <form class="w-3/4 mx-auto" action="search" pageUid="{settings.searchPid}">
+                    <form class="w-3/4 mx-auto" action="<f:uri.page pageUid='81' />" method="POST" >
                         <div class="bg-white py-1 outline-none border-b border-grey-200 focus-within:border-blue">
-                            <input class="py-2 text-3xl md:text-4.5xl" type="text" name="search[sword]" placeholder="<f:translate key='search' extensionName='SteppingStoneSitePackage' />" />
+                            <input class="py-2 text-3xl md:text-4.5xl" type="text" name="tx_phiindexedsearch_indexedsearch[sword]" placeholder="<f:translate key='search' extensionName='SteppingStoneSitePackage' />" />
+                            <input type="hidden" name="tx_phiindexedsearch_indexedsearch[controller]" value="Fulltext" />
+                            <input type="hidden" name="tx_phiindexedsearch_indexedsearch[action]" value="search" />
                         </div>
                         <!-- <button type="submit">Suchen</button> -->
                     </form>
@@ -148,54 +150,65 @@
             <div class="px-10 col-span-4 space-y-7 xl:col-span-2">
                 <address class="not-italic space-y-5">
                     <span class="text-lg font-extrabold block xl:text-2xl">
-                        <a href="tel:{settings.company.phone}"><f:translate key="phoneAbbr" extensionName="SteppingStoneSitePackage" /> {settings.company.phone}</a><br>
-                        <a href="mailto:{settings.company.mail}">{settings.company.mail}</a>
+                        <a href="tel:{settings.company.phone}" class="ndz-btn ndz-btn-link text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 -960 960 960">
+                                <path d="M777.61-140q-113.07 0-227.19-52.58-114.11-52.58-209.69-148.34-95.57-95.77-148.15-209.7Q140-664.54 140-777.61q0-18.17 12-30.28T182-820h130.46q15.15 0 26.73 9.89 11.58 9.88 14.73 24.42L376.85-668q2.38 16.38-1 28.15-3.39 11.77-12.16 19.77l-92.38 89.93q22.3 40.84 50.96 77.27 28.65 36.42 62.04 69.57 32.92 32.93 70 61.16 37.08 28.23 80.08 52.54l89.76-90.54q9.39-9.77 22.74-13.7 13.34-3.92 27.73-1.92l111.07 22.62q15.15 4 24.73 15.46t9.58 26V-182q0 18-12.11 30t-30.28 12ZM242.92-586.92l71.39-68.31q1.92-1.54 2.5-4.23.58-2.69-.19-5l-17.39-89.39q-.77-3.07-2.69-4.61-1.92-1.54-5-1.54H206q-2.31 0-3.85 1.54-1.53 1.54-1.53 3.85 3.07 41 13.42 83.3 10.34 42.31 28.88 84.39Zm348 345.69q39.77 18.54 82.96 28.35 43.2 9.8 80.73 11.65 2.31 0 3.85-1.54t1.54-3.85v-84.15q0-3.08-1.54-5t-4.61-2.69l-84-17.08q-2.31-.77-4.04-.19-1.73.58-3.66 2.5l-71.23 72Zm-348-345.69Zm348 345.69Z"/>
+                            </svg>
+                            {settings.company.phone}
+                        </a><br>
+                        <a href="mailto:{settings.company.mail}" class="ndz-btn ndz-btn-link text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 -960 960 960">
+                                <path d="M172.31-180Q142-180 121-201q-21-21-21-51.31v-455.38Q100-738 121-759q21-21 51.31-21h615.38Q818-780 839-759q21 21 21 51.31v455.38Q860-222 839-201q-21 21-51.31 21H172.31ZM800-662.31 499.46-469.92q-4.61 2.61-9.54 4.11-4.92 1.5-9.92 1.5t-9.92-1.5q-4.93-1.5-9.54-4.11L160-662.31v410q0 5.39 3.46 8.85t8.85 3.46h615.38q5.39 0 8.85-3.46t3.46-8.85v-410ZM480-520l313.85-200h-627.7L480-520ZM160-662.31v9.23-45.73 1.19V-720v22.38-1.27V-653.08v-9.23V-240v-422.31Z"/>
+                            </svg>
+                            {settings.company.mail}
+                        </a>
                     </span>
-                    <span class="block"><strong>{language.websiteTitle}</strong><br>
+                    <span class="block"><f:link.page pageUid="1"><strong>{language.websiteTitle}</strong></f:link.page><br>
                     {settings.company.street}<br>
-                    {settings.company.city}
+                    {settings.company.city}<br>
+                    <f:translate key="switzerland" extensionName="SteppingStoneSitePackage" />
                     </span>
                 </address>
                 <ul class="flex items-center gap-5">
-                    <f:if condition="{settings.social.xing}">
-                        <li>
-                            <a href="{settings.social.xing}" target="_blank" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 20.44 24">
-                                    <path d="M3.99,16.82c.37,0,.68-.22.94-.67,2.39-4.24,3.63-6.44,3.73-6.62l-2.38-4.15c-.25-.44-.57-.65-.96-.65H1.86c-.22,0-.38.07-.46.22-.11.15-.1.32.01.54l2.34,4.05s0,.01,0,.01L.07,16.05c-.1.18-.1.36,0,.52.1.16.25.25.45.25h3.47ZM19.91,0h-3.5c-.38,0-.69.22-.93.65-4.96,8.8-7.53,13.36-7.71,13.67l4.92,9.03c.23.44.55.65.96.65h3.47c.21,0,.37-.07.46-.22.1-.16.09-.34-.01-.54l-4.88-8.92h0S20.36.75,20.36.75c.11-.2.11-.38,0-.54-.09-.15-.24-.22-.45-.22Z"/>
-                                </svg>
-                            </a>
-                        </li>
-                    </f:if>
                     <f:if condition="{settings.social.linkedin}">
                         <li>
-                            <a href="{settings.social.linkedin}" target="_blank" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
+                            <a href="{settings.social.linkedin}" target="_blank" class="ndz-btn ndz-btn-circle bg-white/10">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
                                     <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
                                 </svg>
                             </a>
                         </li>
                     </f:if>
-                    <f:if condition="{settings.social.twitter}">
-                        <li>
-                            <a href="{settings.social.twitter}" target="_blank" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
-                                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-                                </svg>
-                            </a>
-                        </li>
-                    </f:if>
                     <f:if condition="{settings.social.instagram}">
                         <li>
-                            <a href="{settings.social.instagram}" target="_blank" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
+                            <a href="{settings.social.instagram}" target="_blank" class="ndz-btn ndz-btn-circle bg-white/10">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
                                     <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
                                 </svg>
                             </a>
                         </li>
                     </f:if>
+                    <f:if condition="{settings.social.twitter}">
+                        <li>
+                            <a href="{settings.social.twitter}" target="_blank" class="ndz-btn ndz-btn-circle bg-white/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
+                                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </f:if>
+                    <f:if condition="{settings.social.xing}">
+                        <li>
+                            <a href="{settings.social.xing}" target="_blank" class="ndz-btn ndz-btn-circle bg-white/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 20.44 24">
+                                    <path d="M3.99,16.82c.37,0,.68-.22.94-.67,2.39-4.24,3.63-6.44,3.73-6.62l-2.38-4.15c-.25-.44-.57-.65-.96-.65H1.86c-.22,0-.38.07-.46.22-.11.15-.1.32.01.54l2.34,4.05s0,.01,0,.01L.07,16.05c-.1.18-.1.36,0,.52.1.16.25.25.45.25h3.47ZM19.91,0h-3.5c-.38,0-.69.22-.93.65-4.96,8.8-7.53,13.36-7.71,13.67l4.92,9.03c.23.44.55.65.96.65h3.47c.21,0,.37-.07.46-.22.1-.16.09-.34-.01-.54l-4.88-8.92h0S20.36.75,20.36.75c.11-.2.11-.38,0-.54-.09-.15-.24-.22-.45-.22Z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </f:if>
                     <f:if condition="{settings.social.github}">
                         <li>
-                            <a href="{settings.social.github}" target="_blank" class="cursor-pointer text-center align-middle select-none text-white bg-white/10 rounded-full size-10 inline-flex items-center justify-center p-3">
+                            <a href="{settings.social.github}" target="_blank" class="ndz-btn ndz-btn-circle bg-white/10">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 16 16">
                                     <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
                                 </svg>
@@ -285,7 +298,7 @@
                         </ul>
                     </nav>
                 </div>
-                <nav aria-label="<f:translate key='labels' extensionName='SteppingStoneSitePackage' />" class="hidden xl:block">
+                <!-- <nav aria-label="<f:translate key='labels' extensionName='SteppingStoneSitePackage' />" class="hidden xl:block">
                     <ul class="xl:flex xl:items-center xl:gap-3">
                         <li><a href="" class="block h-18 bg-white p-1.5">
                             <f:image class="size-full object-contain object-center" src="EXT:stepping_stone_site_package/Resources/Public/Images/iso27001.png" alt="ISO 27001" />
@@ -297,7 +310,7 @@
                             <f:image class="size-full object-contain object-center" src="EXT:stepping_stone_site_package/Resources/Public/Images/berufsbildung.png" alt="Berufsbildung" />
                         </a></li>
                     </ul>
-                </nav>
+                </nav> -->
             </div>
             <div class="col-span-4 px-8.5 text-white/60 flex flex-wrap divide-x divide-white/60">
                 <p class="px-1.5">© 2004 – {f:format.date(date: 'now', format: 'Y')} {language.websiteTitle}</p>

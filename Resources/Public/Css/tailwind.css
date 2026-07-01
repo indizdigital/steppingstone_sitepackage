@@ -1,6 +1,7 @@
 @import "./fonts.css";
 @import "./flickity.css";
 @import "./swiper-bundle.css" layer(base);
+@import "./photoswipe.css" layer(base);
 @import "../JavaScript/highlight/styles/default.css";
 @import "tailwindcss" source("../../../../../../vendor");
 @source inline("{,sm:,md:,lg:,xl}{grid-cols}-{1..12} {,sm:,md:,lg:,xl}{col-span}-{1..12} {md:,}{col-start,col-end}-{1..13} {md:,}{order}-{1..10} mt-[var-(--mt)]");
@@ -34,6 +35,7 @@
     --text-lg--line-height: calc(1.5/1.125);
     --text-xl--line-height: calc(1.75/1.25);
     --text-1.5xl: 1.375rem;
+    --text-1.5xl--line-height: calc(1.75/1.375);
     --text-2xl--line-height: calc(2/1.5);
     --text-2.5xl: 1.625rem;
     --text-3xl--line-height: calc(2.25/1.875);
@@ -186,7 +188,7 @@
         @apply text-3xl font-extrabold text-blue hyphens-auto md:text-4.5xl lg:text-6xl;
     }
     .ndz-headline-middle {
-        @apply text-3xl text-blue font-extrabold md:text-4xl;
+        @apply text-2xl text-blue font-extrabold lg:text-3xl lg:text-4xl;
     }
     .ndz-headline-small {
         @apply text-xl text-blue font-extrabold lg:text-2xl xl:text-3xl;
@@ -259,7 +261,7 @@
         @apply bg-transparent outline-grey-200 text-blue;
     }
     .ndz-btn-circle {
-        @apply p-2 size-10 justify-center rounded-full;
+        @apply p-3 size-10 justify-center rounded-full;
     }
     .ndz-btn-square {
         @apply p-2 size-10 justify-center rounded-md;
@@ -375,6 +377,10 @@
     .swiper-button-disabled {
         @apply opacity-0;
     }
+    .swiper-navigation-disabled ~ .swiper-button-prev,
+    .swiper-navigation-disabled ~ .swiper-button-next {
+        @apply !hidden;
+    }
     .ndz-carousel-offset .swiper-button-prev {
         @apply -left-15;
     }
@@ -384,7 +390,7 @@
 
     /* ACCORDION */
     .ndz-accordion-icon {
-        @apply size-8 flex-none transition-transform duration-500 ease-out-expo lg:size-12;
+        @apply size-6 sm:size-8 flex-none transition-transform duration-500 ease-out-expo lg:size-12;
     }
     .ndz-accordion-item.js-accordion-active .ndz-accordion-icon {
         @apply rotate-180;
@@ -523,7 +529,8 @@ figure.table {
 .frame-type-insights_tease {
     @apply space-y-3 lg:space-y-5 xl:space-y-8;
 }
-.frame-type-ndz_text {
+.frame-type-ndz_text,
+.frame-type-ndz_textimage {
     @apply space-y-1 md:space-y-2 xl:space-y-3;
 }
 .frame-type-ndz_onboardingteaser {

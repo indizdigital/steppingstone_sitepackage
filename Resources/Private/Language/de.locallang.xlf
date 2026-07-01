@@ -50,6 +50,9 @@
                 <source>Labels</source>
                 <target>Labels</target>
             </trans-unit>
+            <trans-unit id="switzerland">
+                <target>Schweiz</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

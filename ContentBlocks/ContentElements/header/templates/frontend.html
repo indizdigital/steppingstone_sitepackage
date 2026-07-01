@@ -7,7 +7,7 @@
 <f:switch expression="{data.ndz_header_type}">
 
     <f:case value="blue">
-        <section class="ndz-header-default flex items-center gap-5 px-5 -mx-5 py-10 md:px-10 md:-mx-10 lg:px-20 lg:-mx-20 xl:gap-10">
+        <section class="ndz-header-default flex items-center gap-5 py-5 px-5 -mx-5 md:py-10 md:px-10 md:-mx-10 lg:px-20 lg:-mx-20 xl:gap-10">
             <f:if condition="{data.icon.0}">
                 <f:then>
                     <div class="w-1/4 max-w-45 flex-none">
@@ -21,7 +21,7 @@
                 </f:else>
             </f:if>
             <div class="flex-1">
-                <h1 class="font-bold text-3.5xl xl:text-5.5xl mb-1 xl:mb-5">{data.header}</h1>
+                <h1 class="ndz-headline-large text-white mb-3 xl:mb-5">{data.header}</h1>
                 <p class="font-bold xl:text-2.5xl">{data.text}</p>
             </div>
         </section>
@@ -42,7 +42,7 @@
                 </f:else>
             </f:if>
             <div class="flex-1">
-                <h1 class="font-bold text-3.5xl xl:text-5.5xl mb-1 xl:mb-5">{data.header}</h1>
+                <h1 class="ndz-headline-large mb-3 xl:mb-5">{data.header}</h1>
                 <p class="font-bold xl:text-2.5xl">{data.text}</p>
             </div>
         </section>

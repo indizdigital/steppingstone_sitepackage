@@ -3,6 +3,8 @@ typeName: ndz_team
 group: stepping-stone
 prefixFields: true
 prefixType: full
+basics:
+  - TYPO3/Appearance
 fields:
   - identifier: heading
     type: Palette

@@ -3,6 +3,8 @@ typeName: ndz_header
 group: stepping-stone
 prefixFields: true
 prefixType: full
+basics:
+  - TYPO3/Appearance
 fields:
   - identifier: type
     type: Select

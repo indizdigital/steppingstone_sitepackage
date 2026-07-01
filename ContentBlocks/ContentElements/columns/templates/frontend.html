@@ -7,17 +7,40 @@
 
 <f:layout name="Default" />
 <f:section name="Main">
-    <div class="grid grid-cols-1 gap-x-12 gap-y-5 sm:grid-cols-2">
-        <div class="ndz-rte">
-            <f:for each="{data.col1}" as="content">
-                <f:format.html>{content.bodytext}</f:format.html>    
-            </f:for>
-        </div>
-        <div class="ndz-rte">
-            <f:for each="{data.col2}" as="content">
-                <f:format.html>{content.bodytext}</f:format.html>    
-            </f:for>
-        </div>
-    </div>
+    <f:if condition="{data.ndz_columns_colnumbers} == '2cols'">
+        <f:then>
+            <div class="grid grid-cols-1 gap-x-12 gap-y-5 sm:grid-cols-2">
+                <div class="ndz-rte">
+                    <f:for each="{data.col1}" as="content">
+                        <f:format.html>{content.bodytext}</f:format.html>    
+                    </f:for>
+                </div>
+                <div class="ndz-rte">
+                    <f:for each="{data.col2}" as="content">
+                        <f:format.html>{content.bodytext}</f:format.html>    
+                    </f:for>
+                </div>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="grid grid-cols-1 gap-x-12 sm:grid-cols-2 gap-y-5 md:grid-cols-3">
+                <div class="ndz-rte">
+                    <f:for each="{data.col1}" as="content">
+                        <f:format.html>{content.bodytext}</f:format.html>    
+                    </f:for>
+                </div>
+                <div class="ndz-rte">
+                    <f:for each="{data.col2}" as="content">
+                        <f:format.html>{content.bodytext}</f:format.html>    
+                    </f:for>
+                </div>
+                <div class="ndz-rte">
+                    <f:for each="{data.col3}" as="content">
+                        <f:format.html>{content.bodytext}</f:format.html>    
+                    </f:for>
+                </div>
+            </div>
+        </f:else>
+    </f:if>
 </f:section>
 </html>

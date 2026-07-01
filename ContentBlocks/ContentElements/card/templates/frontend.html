@@ -13,7 +13,7 @@
                 <div class="swiper pb-12" data-slides-per-view="auto" data-space-between="0">
                     <div class="swiper-wrapper">
                         <f:for each="{data.cards}" as="card" iteration="it">
-                            <div class="swiper-slide ndz-card ndz-card-{data.ndz_card_layout} {f:if(condition: '{card.link.url}', then: 'ndz-card-link')} h-auto w-[49%] md:w-[32%] min-h-full{f:if(condition: '{data.ndz_card_columns} == 4cols', then: ' lg:w-[23.5%]')}{f:if(condition: '!{it.isLast}', then: ' mr-[2%]')}">
+                            <div class="swiper-slide ndz-card ndz-card-{data.ndz_card_cardlayout} {f:if(condition: '{card.link.url}', then: 'ndz-card-link')} h-auto w-full md:w-[32%] min-h-full{f:if(condition: '{data.ndz_card_columns} == 4cols', then: ' lg:w-[23.5%]')}{f:if(condition: '!{it.isLast}', then: ' mr-[2%]')}">
                                 <f:if condition="{card.link.url}">
                                     <f:link.typolink parameter="{card.link}" class="absolute inset-0 z-10"><span class="sr-only">Link</span></f:link.typolink>
                                 </f:if>
@@ -32,7 +32,7 @@
                                     </div>
                                 </f:if>
                                 <div>
-                                    <h3 class="font-extrabold {f:if(condition: '{data.ndz_card_columns} == 4cols', then: 'xl:text-1.5xl', else: 'text-3xl')}">{card.title}</h3>
+                                    <h3 class="font-extrabold hyphens-auto {f:if(condition: '{data.ndz_card_columns} == 4cols', then: 'xl:text-1.5xl', else: 'text-3xl')}">{card.title}</h3>
                                     <f:if condition="{card.subtitle}">
                                         <p>{card.subtitle}</p>
                                     </f:if>
@@ -57,7 +57,7 @@
         <f:else>
             <div class="grid grid-cols-2 gap-2.5 mb-20 sm:gap-3 md:grid-cols-3 md:gap-3.5 lg:gap-4.5 xl:gap-6 {f:if(condition: '{data.ndz_card_columns} == 4cols', then: 'lg:grid-cols-4')}">
                 <f:for each="{data.cards}" as="card">
-                    <div class="ndz-card ndz-card-{data.ndz_card_layout} {f:if(condition: '{card.link.url}', then: 'ndz-card-link')}">
+                    <div class="ndz-card ndz-card-{data.ndz_card_cardlayout} {f:if(condition: '{card.link.url}', then: 'ndz-card-link')}">
                         <f:if condition="{card.icon}">
                             <div class="relative {f:if(condition: '{data.ndz_card_iconsize} == large', then: ' w-[65%] max-w-[167px]', else: ' w-[20%] max-w-[74px]')}">
                                 <span class="relative h-0 pb-[100%] bg-white rounded-full flex items-center justify-center">
@@ -73,7 +73,7 @@
                             </div>
                         </f:if>
                         <div>
-                            <h3 class="font-extrabold {f:if(condition: '{data.ndz_card_columns} == 4cols', then: 'xl:text-1.5xl', else: 'text-3xl')}">{card.title}</h3>
+                            <h3 class="font-extrabold hyphens-auto {f:if(condition: '{data.ndz_card_columns} == 4cols', then: 'xl:text-1.5xl', else: 'text-3xl')}">{card.title}</h3>
                             <f:if condition="{card.subtitle}">
                                 <p>{card.subtitle}</p>
                             </f:if>

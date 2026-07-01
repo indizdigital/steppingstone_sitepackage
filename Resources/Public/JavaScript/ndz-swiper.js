@@ -35,7 +35,7 @@ document.querySelectorAll(".swiper").forEach(el => {
         } : false,
 
         breakpoints: {
-            768: {
+            1280: {
                 navigation: { enabled: true },
             }
         },

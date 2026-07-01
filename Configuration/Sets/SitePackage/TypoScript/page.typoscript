@@ -4,7 +4,7 @@
 page = PAGE
 page {
     typeNum = 0
-    shortcutIcon = EXT:stepping_stone_site_package/Resources/Public/Icons/favicon.ico
+    shortcutIcon = EXT:stepping_stone_site_package/Resources/Public/Icons/Favicon/favicon.ico
     bodyTagCObject = TEXT
     bodyTagCObject {
         value = <body class="ndz-body">
@@ -79,7 +79,27 @@ page {
     }
 
     includeJS {
+    }
 
+    headerData {
+        10 = COA
+        10.10 = TEXT 
+        10.10.value = <script defer src="
+        10.11 = TEXT
+        10.11.data = site:settings.analyticsscript
+        10.12 = TEXT
+        10.12.wrap = " data-website-id="|"></script>
+        10.12.data = site:settings.websiteid
+        
+        
+        11 = COA
+        11.10 = TEXT 
+        11.10.value = <script defer src="
+        11.11 = TEXT
+        11.11.data = site:settings.analyticsrecorder
+        11.12 = TEXT
+        11.12.wrap = " data-website-id="|"></script>
+        11.12.data = site:settings.websiteid
     }
 
     includeJSFooterlibs {
@@ -118,3 +138,12 @@ module.tx_form {
         }
     }
 }
+
+lib.parseFunc_RTE.tags.link = TEXT
+lib.parseFunc_RTE.tags.link {
+    current = 1
+    typolink.parameter.data = parameters : allParams
+    typolink.extTarget = _blank
+}
+
+lib.parseFunc_RTE.externalBlocks.pre.stripNL = 1

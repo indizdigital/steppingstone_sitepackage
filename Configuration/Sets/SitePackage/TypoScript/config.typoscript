@@ -29,6 +29,8 @@ config {
     index_metatags = 1
     headerComment = {$config.headerComment}
     spamProtectEmailAddresses = -2
+    spamProtectEmailAddresses_atSubst = (at)
+    spamProtectEmailAddresses_lastDotSubst = (dot)
 
     // Disable Image Upscaling
     noScaleUp = 1

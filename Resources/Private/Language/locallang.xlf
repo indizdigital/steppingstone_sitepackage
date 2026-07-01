@@ -39,6 +39,9 @@
             <trans-unit id="labels">
                 <source>Labels</source>
             </trans-unit>
+            <trans-unit id="switzerland">
+                <source>Switzerland</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
