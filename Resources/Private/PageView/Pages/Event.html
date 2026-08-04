@@ -1,0 +1,62 @@
+<f:layout name="Default" />
+<f:section name="Main">
+<div class="mt-5 space-y-3 grid grid-cols-1 gap-y-5 text-blue md:grid-cols-6 md:gap-x-12 lg:mt-20 lg:gap-y-5">
+    <div class="space-y-3 md:col-span-3 md:row-start-1">
+        <f:render partial="Content" arguments="{records: content.top.records}"/>
+        <f:if condition="{events}">
+            <div class="space-y-2">
+                <f:for each="{events}" as="event">
+                    <p>
+                        <span class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="fill-current">
+                                <path d="M680-200h-80q-17 0-28.5-11.5T560-240q0-17 11.5-28.5T600-280h80v-80q0-17 11.5-28.5T720-400q17 0 28.5 11.5T760-360v80h80q17 0 28.5 11.5T880-240q0 17-11.5 28.5T840-200h-80v80q0 17-11.5 28.5T720-80q-17 0-28.5-11.5T680-120v-80Zm-480 40q-33 0-56.5-23.5T120-240v-480q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h240v-40q0-17 11.5-28.5T600-880q17 0 28.5 11.5T640-840v40h40q33 0 56.5 23.5T760-720v200q0 17-11.5 28.5T720-480q-17 0-28.5-11.5T680-520v-40H200v320h240q17 0 28.5 11.5T480-200q0 17-11.5 28.5T440-160H200Zm0-480h480v-80H200v80Zm0 0v-80 80Z"/>
+                            </svg>
+                            <strong>{event.data.location}, {event.data.startdate -> f:format.date(format:'l, d. F')} ab {event.data.startdate -> f:format.date(format:'H:i')} Uhr</strong>
+                        </span>
+                    </p>
+                </f:for>
+                <p>
+                    <a href="#c772" class="flex gap-2 text-orange">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="fill-blue">
+                            <path d="M440-313v-447q0-17 11.5-28.5T480-800q17 0 28.5 11.5T520-760v447l196-196q12-12 28-11.5t28 12.5q11 12 11.5 28T772-452L508-188q-6 6-13 8.5t-15 2.5q-8 0-15-2.5t-13-8.5L188-452q-11-11-11-27.5t11-28.5q12-12 28.5-12t28.5 12l195 195Z"/>
+                        </svg>
+                        <strong>Zur Anmeldung</strong>
+                    </a>
+                </p>
+            </div>
+        </f:if>
+    </div>
+    <aside class="space-y-5 md:col-span-3 md:col-start-4 md:row-span-2 md:row-start-1 lg:space-y-20">
+        <f:render partial="Content" arguments="{records: content.aside.records}"/>
+        <f:if condition="{events}">
+            <div class="space-y-10">
+                <f:for each="{events}" as="event">
+                    <div class="ndz-rte">
+                        <h2>{event.data.location}</h2>
+                        <p><strong>{event.data.startdate -> f:format.date(format:'l, d. F Y')}<br>{event.data.venue}</strong><br>{event.data.address}, {event.data.zip} {event.data.location}<br></p>
+                        <p><strong>Anreise</strong><br>{event.data.description}</p>
+                        <f:for each="{event.map}" as="image">
+                            <f:image
+                                image="{image}"
+                                width="768c"
+                                srcset="
+                                    {f:uri.image(image:image, width:'400c')} 400w,
+                                    {f:uri.image(image:image, width:'768c')} 768w,
+                                    {f:uri.image(image:image, width:'1536c')} 1536w
+                                "
+                                sizes="(max-width: 767px) 100vw, (max-width: 1439px) 50vw, 616px"
+                                loading="lazy"
+                                alt="{image.alternative}"
+                            />
+                        </f:for>
+                    </div>
+                </f:for>
+            </div>
+        </f:if>
+    </aside>
+    <div class="md:col-span-3 md:col-start-1 md:row-start-2">
+        <f:render partial="Content" arguments="{records: content.main.records}"/>
+    </div>
+</div>
+<f:render partial="Content" arguments="{records: content.bottom.records}"/>
+</f:section>

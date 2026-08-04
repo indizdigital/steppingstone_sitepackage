@@ -1,0 +1,54 @@
+#
+# BACKENDLAYOUT: EVENT
+#
+mod {
+    web_layout {
+        BackendLayouts {
+            event {
+                title = LLL:EXT:stepping_stone_site_package/Resources/Private/Language/locallang_be.xlf:backend_layout.event
+                icon = EXT:stepping_stone_site_package/Resources/Public/Icons/BackendLayouts/event.svg
+                config {
+                    backend_layout {
+                        colCount = 2
+                        rowCount = 3
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Top
+                                        colPos = 1
+                                        identifier = top
+                                    }
+                                    2 {
+                                        name = Aside
+                                        colPos = 2
+                                        identifier = aside
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = Main
+                                        colPos = 0
+                                        identifier = main
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
+                                        name = Bottom
+                                        colPos = 3
+                                        identifier = bottom
+                                        colspan = 2
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

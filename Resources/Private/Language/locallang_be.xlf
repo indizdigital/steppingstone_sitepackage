@@ -18,6 +18,9 @@
             <trans-unit id="backend_layout.onboarding.detail">
                 <source>Onboarding Detail</source>
             </trans-unit>
+            <trans-unit id="backend_layout.event">
+                <source>Event</source>
+            </trans-unit>
             <trans-unit id="backend_layout.column.stage">
                 <source>Stage</source>
             </trans-unit>

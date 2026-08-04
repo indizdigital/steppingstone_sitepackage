@@ -52,6 +52,24 @@ page {
                 levels = 1
                 as = footernavigation
             }
+            50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            50 {
+                table = tx_ndz_event
+                 pidInList = 95
+                 uidInList {
+                     data = page:pageRecord.ndz_eventpage_event_select
+                }
+                as = events
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references {
+                            fieldName = map
+                        }
+                        as = map
+                    }
+                }
+            }
         }
     }
 

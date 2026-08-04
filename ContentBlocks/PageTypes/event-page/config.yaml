@@ -1,0 +1,11 @@
+name: ndz/event-page
+typeName: 1784733515
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: event_select
+    type: Relation
+    label: Events
+    allowed: 'tx_ndz_event'
+    minitems: 1
+    maxitems: 5

@@ -8,84 +8,29 @@ TYPO3:
         allowDeleteFromExtensionPaths: true
       formManager:
         selectablePrototypesConfiguration:
-          990:
-            identifier: standardExamples
+          10:
+            identifier: standard
             label: 'Standard'
             newFormTemplates:
               100:
-                templatePath: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/BasicContactFormExample.form.yaml'
-                label: 'Basic'
-              200:
-                templatePath: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/UploadFormExample.form.yaml'
-                label: 'Upload'
-          991:
-            identifier: prettyEmailTemplates
-            label: 'Pretty'
-            newFormTemplates:
-              100:
-                templatePath: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/CustomFluidEmailExample.form.yaml'
-                label: 'Custom Fluid'
-          992:
-            identifier: complaintForm
-            label: 'Complaint'
-            newFormTemplates:
-              100:
-                templatePath: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/CustomPrototypeExample.form.yaml'
-                label: 'Custom Prototype'
+                templatePath: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/contact.form.yaml'
+                label: 'Contact'
+              101:
+                templatePath: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/event.form.yaml'
+                label: 'Event'
       prototypes:
-        standardExamples:
-          __inheritances:
-            10: 'TYPO3.CMS.Form.prototypes.standard'
-          formEditor:
-            translationFiles:
-              20: 'EXT:form_examples/Resources/Private/Language/Database.xlf'
-          formElementsDefinition:
-            Form:
-              renderingOptions:
-                translation:
-                  translationFiles:
-                    # index "10" is reserved for the default translation file.
-                    20: 'EXT:form_examples/Resources/Private/Language/Form/locallang_general.xlf'
-                    30: 'EXT:form_examples/Resources/Private/Language/Form/locallang_specific.xlf'
-                    40: 'EXT:form_examples/Resources/Private/Language/Form/locallang_custom.xlf'
-                templateRootPaths:
-                  90: 'EXT:form_examples/Resources/Private/Frontend/Templates/Standard/'
-                partialRootPaths:
-                  90: 'EXT:form_examples/Resources/Private/Frontend/Partials/Standard/'
-                layoutRootPaths:
-                  90: 'EXT:form_examples/Resources/Private/Frontend/Layouts/Standard/'
-              formEditor:
-                editors:
-                  # Add "form styling" select field in form editor:
-                  500:
-                    identifier: formStyleClass
-                    templateName: Inspector-SingleSelectEditor
-                    label: formEditor.elements.Form.editor.formStyleClass.label
-                    propertyPath: renderingOptions.formStyleClass
-                    selectOptions:
-                      10:
-                        value: ''
-                        label: formEditor.elements.Form.editor.formStyleClass.default.label
-                      20:
-                        value: survey
-                        label: formEditor.elements.Form.editor.formStyleClass.survey.label
-                      30:
-                        value: subscription
-                        label: formEditor.elements.Form.editor.formStyleClass.subscription.label
-        complaintForm:
-          __inheritances:
-            10: 'TYPO3.CMS.Form.prototypes.standard'
+        standard:
           finishersDefinition:
             EmailToReceiver:
               options:
                 templateName: 'Default'
                 templateRootPaths:
-                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Templates/Finishers/Email/'
+                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/Finishers/Email/'
             EmailToSender:
               options:
                 templateName: 'Default'
                 templateRootPaths:
-                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Templates/Finishers/Email/'
+                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/Finishers/Email/'
           formElementsDefinition:
             Form:
               renderingOptions:
@@ -93,11 +38,11 @@ TYPO3:
                   translationFiles:
                     20: 'EXT:stepping_stone_site_package/Resources/Private/Language/Form/locallang.xlf'
                 templateRootPaths:
-                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Templates/ComplaintForm/'
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/'
                 partialRootPaths:
-                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Partials/ComplaintForm/'
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Partials/'
                 layoutRootPaths:
-                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Layouts/ComplaintForm/'
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Layouts/'
             GridRow:
               properties:
                 elementClassAttribute: 'grid gap-y-5 gap-x-2 grid-cols-6 md:grid-cols-12 md:gap-x-10'
@@ -126,3 +71,62 @@ TYPO3:
             SingleSelect:
               properties:
                 elementClassAttribute: 'custom-select'
+        event:
+          __inheritances:
+            10: 'TYPO3.CMS.Form.prototypes.standard'
+          formElementsDefinition:
+            Form:
+              renderingOptions:
+                translation:
+                  translationFiles:
+                    20: 'EXT:stepping_stone_site_package/Resources/Private/Language/Form/locallang.xlf'
+                templateRootPaths:
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/'
+                partialRootPaths:
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Partials/'
+                layoutRootPaths:
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Layouts/'
+            GridRow:
+              properties:
+                elementClassAttribute: 'grid gap-y-5 grid-cols-1'
+                gridColumnClassAutoConfiguration:
+                  viewPorts:
+                    xs:
+                      classPattern: 'col-span-{@numbersOfColumnsToUse}'
+                    sm:
+                      classPattern: 'sm:col-span-{@numbersOfColumnsToUse}'
+                    md:
+                      classPattern: 'md:col-span-{@numbersOfColumnsToUse}'
+                    lg:
+                      classPattern: 'lg:col-span-{@numbersOfColumnsToUse}'
+                    xl:
+                      classPattern: 'xl:col-span-{@numbersOfColumnsToUse}'
+                    xxl:
+                      classPattern: 'xxl:col-span-{@numbersOfColumnsToUse}'
+            GridColumn:
+              properties:
+                gridSize:
+                  xs: 6
+                  sm: 6
+                  md: 12
+                  lg: 12
+                  xl: 12
+                  xxl: 12
+            SingleSelect:
+              properties:
+                elementClassAttribute: 'custom-select'
+          finishersDefinition:
+            Ics:
+              implementationClassName: 'IndizDigitalGmbh\SteppingStoneSitePackage\Form\Finisher\IcsFinisher'
+            EventEmailToReceiver:
+              implementationClassName: 'IndizDigitalGmbh\SteppingStoneSitePackage\Form\Finisher\EventEmailFinisher'
+              options:
+                templateName: 'Default'
+                templateRootPaths:
+                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/Finishers/Email/'
+            EventEmailToSender:
+              implementationClassName: 'IndizDigitalGmbh\SteppingStoneSitePackage\Form\Finisher\EventEmailFinisher'
+              options:
+                templateName: 'Default'
+                templateRootPaths:
+                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/Finishers/Email/'

@@ -1,0 +1,148 @@
+renderingOptions:
+  submitButtonLabel: Send
+type: Form
+identifier: registration
+label: Registration
+prototypeName: event
+finishers:
+  -
+    options:
+      message: 'Oops! No email was sent. Anyway, have a great day! ????'
+      contentElementUid: '554'
+    identifier: Confirmation
+
+  -
+    identifier: Ics
+
+  -
+    identifier: EventEmailToReceiver
+    options:
+      subject: 'Event'
+      recipients:
+        tech@indiz.digital: 'stepping stone'
+      senderAddress: 3750497@customers.stepping-stone.ch
+      senderName: 'stepping stone'
+      addHtmlPart: true
+      attachUploads: true
+      translation:
+        language: default
+      title: ''
+
+  -
+    identifier: EventEmailToSender
+    options:
+      subject: 'Event'
+      recipients:
+        '{email}': '{firstname} {surname}'
+      senderAddress: 3750497@customers.stepping-stone.ch
+      senderName: 'stepping stone'
+      addHtmlPart: true
+      attachUploads: true
+      title: ''
+      translation:
+        language: ''
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Next step'
+    type: Page
+    identifier: page-1
+    label: ''
+    renderables:
+      -
+        type: GridRow
+        identifier: gridrow-1
+        label: 'Grid: Row'
+        renderables:
+          -
+            defaultValue: ''
+            type: Text
+            identifier: company
+            label: Company
+          -
+            defaultValue: ''
+            type: Text
+            identifier: firstname
+            label: 'First name'
+            properties:
+              elementDescription: ''
+              fluidAdditionalAttributes:
+                required: required
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Text
+            identifier: surname
+            label: Surname
+            properties:
+              elementDescription: ''
+              fluidAdditionalAttributes:
+                required: required
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            properties:
+              optionProvider: pageEvents
+              fluidAdditionalAttributes:
+                required: required
+              prependOptionLabel: 'Please select'
+            type: SingleSelect
+            identifier: venue
+            label: Venue
+            defaultValue: ''
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            properties:
+              options:
+                decline: "Unfortunately, I can't attend"
+                1: '1 person'
+                2: '2 people'
+                3: '3 people'
+                4: '4 people'
+                5: '5 people'
+              fluidAdditionalAttributes:
+                required: required
+              prependOptionLabel: 'Please select'
+            type: SingleSelect
+            identifier: numberofpeople
+            label: 'Number of people'
+            defaultValue: ''
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Telephone
+            identifier: mobileorphone
+            label: 'Mobile or phone'
+            properties:
+              elementDescription: ''
+          -
+            defaultValue: ''
+            type: Email
+            identifier: email
+            label: Email
+            properties:
+              elementDescription: ''
+              fluidAdditionalAttributes:
+                required: required
+            validators:
+              -
+                identifier: EmailAddress
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Textarea
+            identifier: comment
+            label: Comment
+            properties:
+              fluidAdditionalAttributes:
+                placeholder: 'Please provide the names of any accompanying persons or any additional information.'
+              elementDescription: ''
