@@ -155,6 +155,9 @@
       <trans-unit id="element.numberofpeople.properties.prependOptionLabel">
         <target>Bitte wählen</target>
       </trans-unit>
+      <trans-unit id="element.registration.renderingOptions.submitButtonLabel">
+        <target>Senden</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -8,7 +8,7 @@ finishers:
   -
     options:
       message: 'Oops! No email was sent. Anyway, have a great day! ????'
-      contentElementUid: '779'
+      contentElementUid: '799'
     identifier: Confirmation
 
   -
@@ -20,7 +20,7 @@ finishers:
       subject: 'Event'
       recipients:
         tech@indiz.digital: 'stepping stone'
-      senderAddress: 3750497@customers.stepping-stone.ch
+      senderAddress: 3750511@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
       attachUploads: true
@@ -34,7 +34,7 @@ finishers:
       subject: 'Event'
       recipients:
         '{email}': '{firstname} {surname}'
-      senderAddress: 3750497@customers.stepping-stone.ch
+      senderAddress: 3750511@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
       attachUploads: true
