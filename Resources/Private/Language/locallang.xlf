@@ -42,6 +42,27 @@
             <trans-unit id="switzerland">
                 <source>Switzerland</source>
             </trans-unit>
+            <trans-unit id="day1">
+                <source>Monday</source>
+            </trans-unit>
+            <trans-unit id="day2">
+                <source>Tuesday</source>
+            </trans-unit>
+            <trans-unit id="day3">
+                <source>Wednesday</source>
+            </trans-unit>
+            <trans-unit id="day4">
+                <source>Thursday</source>
+            </trans-unit>
+            <trans-unit id="day5">
+                <source>Friday</source>
+            </trans-unit>
+            <trans-unit id="day6">
+                <source>Saturday</source>
+            </trans-unit>
+            <trans-unit id="day7">
+                <source>Sunday</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

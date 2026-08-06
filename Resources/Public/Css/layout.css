@@ -241,6 +241,9 @@ https://flickity.metafizzy.co
 .flickity-page-dots .dot.is-selected {
   background: #001280;
 }
+.ndz-items-left{
+  align-items: left;
+}
 @layer base {
   :root {
     --swiper-theme-color: #007aff;
@@ -5790,7 +5793,9 @@ figure.table {
     padding: calc(var(--spacing) * 10);
   }
   @media (width >= 64rem) {
-    padding-inline: calc(var(--spacing) * 20);
+    margin-inline: calc(var(--spacing) * -10);
+    padding-inline: calc(var(--spacing) * 10);
+    width: 110%;
   }
 }
 .frame-type-form_formframework .actions {

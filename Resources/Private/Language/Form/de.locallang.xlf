@@ -132,6 +132,29 @@
         <source>Questions or comments</source>
         <target>Fragen oder Kommentare</target>
       </trans-unit>
+
+      <trans-unit id="element.comment.properties.label">
+        <target>Kommentare</target>
+      </trans-unit>
+
+      <trans-unit id="element.comment.properties.placeholder">
+        <target>Bitte Namen der Begleitpersonen oder weitere Hinweise angeben</target>
+      </trans-unit>
+
+      <trans-unit id="element.venue.properties.label">
+        <target>Ort</target>
+      </trans-unit>
+
+      <trans-unit id="element.venue.properties.prependOptionLabel">
+        <target>Bitte wählen</target>
+      </trans-unit>
+
+      <trans-unit id="element.numberofpeople.properties.label">
+        <target>Anzahl Personen</target>
+      </trans-unit>
+      <trans-unit id="element.numberofpeople.properties.prependOptionLabel">
+        <target>Bitte wählen</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -35,21 +35,39 @@
             </div>
         </f:then>
         <f:else>
-            <f:asset.script identifier="photoswipe-umd" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/photoswipe.umd.min.js" />
-            <f:asset.script identifier="photoswipe-lightbox-umd" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/photoswipe-lightbox.umd.min.js" />
-            <f:asset.script identifier="ndz-gallery" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-gallery.js" />
-            <div class="pswp-gallery grid gap-2.5 mb-20 sm:grid-cols-2 sm:gap-3 md:gap-3.5 lg:gap-4.5 xl:gap-6" id="gallery-grid-{data.uid}">
-                <f:for each="{data.image}" as="image">
-                    <a href="{f:uri.image(image: image)}"
-                       data-pswp-width="{image.originalFile.properties.width}"
-                       data-pswp-height="{image.originalFile.properties.height}"
-                       class="bg-grey-100 w-full rounded-[40px] p-[5%] block">
-                        <div class="relative h-0 pb-[65%]">
-                            <f:image image="{image}" alt="{image.name}" class="absolute w-full h-full object-contain object-center" />
-                        </div>
-                    </a>
-                </f:for>
-            </div>
+            <f:variable name="imgcount"><f:count>{data.image}</f:count></f:variable>
+            <f:if condition="{imgcount} == 1">
+                <f:then>
+                    <div class="pswp-gallery mb-20" id="gallery-grid-{data.uid}">
+                        <f:for each="{data.image}" as="image">
+                            <a href="{f:uri.image(image: image)}"
+                            data-pswp-width="{image.originalFile.properties.width}"
+                            data-pswp-height="{image.originalFile.properties.height}"
+                            class=" w-full rounded-[40px] block">
+                                <div class="relative h-0 pb-[65%]">
+                                    <f:image image="{image}" alt="{image.name}" class="absolute w-full h-full object-contain object-center" />
+                                </div>
+                            </a>
+                        </f:for>
+                    </div></f:then>
+                <f:else>
+                    <f:asset.script identifier="photoswipe-umd" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/photoswipe.umd.min.js" />
+                    <f:asset.script identifier="photoswipe-lightbox-umd" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/photoswipe-lightbox.umd.min.js" />
+                    <f:asset.script identifier="ndz-gallery" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-gallery.js" />
+                    <div class="pswp-gallery grid gap-2.5 mb-20 sm:grid-cols-2 sm:gap-3 md:gap-3.5 lg:gap-4.5 xl:gap-6" id="gallery-grid-{data.uid}">
+                        <f:for each="{data.image}" as="image">
+                            <a href="{f:uri.image(image: image)}"
+                            data-pswp-width="{image.originalFile.properties.width}"
+                            data-pswp-height="{image.originalFile.properties.height}"
+                            class="bg-grey-100 w-full rounded-[40px] p-[5%] block">
+                                <div class="relative h-0 pb-[65%]">
+                                    <f:image image="{image}" alt="{image.name}" class="absolute w-full h-full object-contain object-center" />
+                                </div>
+                            </a>
+                        </f:for>
+                    </div>
+                </f:else>
+            </f:if>
         </f:else>
     </f:if>
 </f:section>

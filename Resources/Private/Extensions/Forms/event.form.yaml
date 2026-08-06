@@ -8,7 +8,7 @@ finishers:
   -
     options:
       message: 'Oops! No email was sent. Anyway, have a great day! ????'
-      contentElementUid: '554'
+      contentElementUid: '779'
     identifier: Confirmation
 
   -

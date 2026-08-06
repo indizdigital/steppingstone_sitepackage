@@ -11,7 +11,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="fill-current">
                                 <path d="M680-200h-80q-17 0-28.5-11.5T560-240q0-17 11.5-28.5T600-280h80v-80q0-17 11.5-28.5T720-400q17 0 28.5 11.5T760-360v80h80q17 0 28.5 11.5T880-240q0 17-11.5 28.5T840-200h-80v80q0 17-11.5 28.5T720-80q-17 0-28.5-11.5T680-120v-80Zm-480 40q-33 0-56.5-23.5T120-240v-480q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h240v-40q0-17 11.5-28.5T600-880q17 0 28.5 11.5T640-840v40h40q33 0 56.5 23.5T760-720v200q0 17-11.5 28.5T720-480q-17 0-28.5-11.5T680-520v-40H200v320h240q17 0 28.5 11.5T480-200q0 17-11.5 28.5T440-160H200Zm0-480h480v-80H200v80Zm0 0v-80 80Z"/>
                             </svg>
-                            <strong>{event.data.location}, {event.data.startdate -> f:format.date(format:'l, d. F')} ab {event.data.startdate -> f:format.date(format:'H:i')} Uhr</strong>
+                            <f:variable name="day" value="{event.data.startdate -> f:format.date(format:'N')}" />
+                            <strong>{event.data.location}, <f:translate key="day{day}" extensionName="stepping_stone_site_package" />, {event.data.startdate -> f:format.date(format:'d. F')} ab {event.data.startdate -> f:format.date(format:'H:i')} Uhr</strong>
                         </span>
                     </p>
                 </f:for>
@@ -33,9 +34,11 @@
                 <f:for each="{events}" as="event">
                     <div class="ndz-rte">
                         <h2>{event.data.location}</h2>
-                        <p><strong>{event.data.startdate -> f:format.date(format:'l, d. F Y')}<br>{event.data.venue}</strong><br>{event.data.address}, {event.data.zip} {event.data.location}<br></p>
+                        <f:variable name="day" value="{event.data.startdate -> f:format.date(format:'N')}" />
+                        <p><strong><f:translate key="day{day}" extensionName="stepping_stone_site_package" />, {event.data.startdate -> f:format.date(format:'d. F Y')}<br>{event.data.venue}</strong><br>{event.data.address}, {event.data.zip} {event.data.location}<br></p>
                         <p><strong>Anreise</strong><br>{event.data.description}</p>
                         <f:for each="{event.map}" as="image">
+                            <div>
                             <f:image
                                 image="{image}"
                                 width="768c"
@@ -47,7 +50,7 @@
                                 sizes="(max-width: 767px) 100vw, (max-width: 1439px) 50vw, 616px"
                                 loading="lazy"
                                 alt="{image.alternative}"
-                            />
+                            /></div>
                         </f:for>
                     </div>
                 </f:for>

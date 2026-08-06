@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace IndizDigitalGmbh\SteppingStoneSitePackage\Form;
 
+use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Domain\Repository\PageRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -36,7 +37,6 @@ final class EventSelectOptionsProvider
          */
         $eventUids = $page['ndz_eventpage_event_select'] ?? [];
 
-
         if (!$eventUids) {
             return [];
         }
@@ -55,7 +55,6 @@ final class EventSelectOptionsProvider
             );
         }
 
-
         if ($eventUids === []) {
             return [];
         }
@@ -70,6 +69,7 @@ final class EventSelectOptionsProvider
             ->select(
                 'uid',
                 'startdate',
+                'enddate',
                 'location'
             )
             ->from('tx_ndz_event')
@@ -93,10 +93,19 @@ final class EventSelectOptionsProvider
         $options = [];
 
 
+        $languageId = (int)GeneralUtility::makeInstance(Context::class)
+            ->getPropertyFromAspect('language', 'id', 0);
+        $locale = $languageId === 1 ? 'de_CH' : 'en_US';
+
+
         foreach ($events as $event) {
 
             $date = new \DateTime(
                 '@' . $event['startdate']
+            );
+
+            $enddate = new \DateTime(
+                '@' . $event['enddate']
             );
 
             $date->setTimezone(
@@ -104,22 +113,40 @@ final class EventSelectOptionsProvider
                     date_default_timezone_get()
                 )
             );
+            $enddate->setTimezone(
+                new \DateTimeZone(
+                    date_default_timezone_get()
+                )
+            );
 
 
             $formatter = new \IntlDateFormatter(
-                'de_CH',
+                $locale,
                 \IntlDateFormatter::FULL,
                 \IntlDateFormatter::NONE,
                 'Europe/Zurich',
                 \IntlDateFormatter::GREGORIAN,
                 'EEEE, d. MMMM yyyy'
             );
+            $timeformatter = new \IntlDateFormatter(
+                $locale,
+                \IntlDateFormatter::FULL,
+                \IntlDateFormatter::NONE,
+                'Europe/Zurich',
+                \IntlDateFormatter::GREGORIAN,
+                'H:mm'
+            );
 
 
             $options[(string)$event['uid']] =
                 $event['location']
                 . ', '
-                . $formatter->format($date);
+                . $formatter->format($date)
+                . ' ('
+                . $timeformatter->format($date)
+                .'-'
+                . $timeformatter->format($enddate)
+                .')';
         }
 
 
