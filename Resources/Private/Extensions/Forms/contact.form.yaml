@@ -15,7 +15,7 @@ finishers:
     options:
       subject: 'Contact form'
       recipients:
-        tech@indiz.digital: 'stepping stone'
+        events@stepping-stone.ch: 'stepping stone'
       senderAddress: 3750511@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
