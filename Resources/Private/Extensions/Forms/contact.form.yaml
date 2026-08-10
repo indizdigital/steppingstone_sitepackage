@@ -15,7 +15,7 @@ finishers:
     options:
       subject: 'Contact form'
       recipients:
-        support@stepping-stone.ch: 'stepping stone'
+        tech@indiz.digital: 'stepping stone'
       senderAddress: 3750511@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
@@ -33,41 +33,39 @@ finishers:
         pid:
           value: 80
       elements:
-        name:
-          mapOnDatabaseColumn: company
         company:
-          mapOnDatabaseColumn: title
+          mapOnDatabaseColumn: company
         title:
-          mapOnDatabaseColumn: first_name
+          mapOnDatabaseColumn: title
         firstname:
-          mapOnDatabaseColumn: last_name
+          mapOnDatabaseColumn: first_name
         lastname:
+          mapOnDatabaseColumn: last_name
+        address-1:
           mapOnDatabaseColumn: address_line_1
-        text-4:
+        address-2:
           mapOnDatabaseColumn: address_line_2
-        text-5:
+        postcode:
           mapOnDatabaseColumn: postcode
-        text-6:
+        location:
           mapOnDatabaseColumn: location
-        text-7:
+        country:
           mapOnDatabaseColumn: country
-        telephone-1:
+        mobileorphone:
           mapOnDatabaseColumn: phone
-        email-1:
+        email:
           mapOnDatabaseColumn: email
-        checkbox-1:
-          mapOnDatabaseColumn: terms_accepted
-        checkbox-2:
+        receivenewsletter:
           mapOnDatabaseColumn: newsletter
-        textarea-1:
+        questionsorcomments:
           mapOnDatabaseColumn: message
     identifier: SaveToDatabase
   -
     options:
       subject: 'Contact form'
       recipients:
-        '{email-1}': '{text-1} {text-2}'
-      senderAddress: 3750497@customers.stepping-stone.ch
+        '{email}': '{firstname} {lastname}'
+      senderAddress: 3750511@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
       attachUploads: true

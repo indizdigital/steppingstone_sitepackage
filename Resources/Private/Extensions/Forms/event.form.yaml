@@ -41,6 +41,32 @@ finishers:
       title: ''
       translation:
         language: ''
+
+  -
+    identifier: SaveToDatabase
+    options:
+      table: tx_steppingstonesitepackage_form_event
+      mode: insert
+      databaseColumnMappings:
+        pid:
+          value: 95
+      elements:
+        company:
+          mapOnDatabaseColumn: company
+        firstname:
+          mapOnDatabaseColumn: firstname
+        surname:
+          mapOnDatabaseColumn: surname
+        venue:
+          mapOnDatabaseColumn: venue
+        numberofpeople:
+          mapOnDatabaseColumn: numberofpeople
+        mobileorphone:
+          mapOnDatabaseColumn: mobileorphone
+        email:
+          mapOnDatabaseColumn: email
+        comment:
+          mapOnDatabaseColumn: comment
 renderables:
   -
     renderingOptions:
