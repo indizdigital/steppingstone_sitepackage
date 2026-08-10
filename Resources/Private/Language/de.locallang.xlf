@@ -86,8 +86,11 @@
             <trans-unit id="day7">
                 <target>Sonntag</target>
             </trans-unit>
-            <trans-unit id="element.registration.renderingOptions.submitButtonLabel">
-                <target>Senden</target>
+            <trans-unit id="toregister">
+                <target>Zur Anmeldung</target>
+            </trans-unit>
+            <trans-unit id="directions">
+                <target>Anreise</target>
             </trans-unit>
         </body>
     </file>

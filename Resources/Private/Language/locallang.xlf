@@ -63,6 +63,12 @@
             <trans-unit id="day7">
                 <source>Sunday</source>
             </trans-unit>
+            <trans-unit id="toregister">
+                <source>Zur Anmeldung</source>
+            </trans-unit>
+            <trans-unit id="directions">
+                <source>Anreise</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

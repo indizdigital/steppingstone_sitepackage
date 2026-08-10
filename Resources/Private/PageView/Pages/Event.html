@@ -17,11 +17,11 @@
                     </p>
                 </f:for>
                 <p>
-                    <a href="#c772" class="flex gap-2 text-orange">
+                    <a id="gotoform" class="flex gap-2 text-orange">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="fill-blue">
                             <path d="M440-313v-447q0-17 11.5-28.5T480-800q17 0 28.5 11.5T520-760v447l196-196q12-12 28-11.5t28 12.5q11 12 11.5 28T772-452L508-188q-6 6-13 8.5t-15 2.5q-8 0-15-2.5t-13-8.5L188-452q-11-11-11-27.5t11-28.5q12-12 28.5-12t28.5 12l195 195Z"/>
                         </svg>
-                        <strong>Zur Anmeldung</strong>
+                        <strong><f:translate key="toregister" extensionName="stepping_stone_site_package" /></strong>
                     </a>
                 </p>
             </div>
@@ -36,7 +36,7 @@
                         <h2>{event.data.location}</h2>
                         <f:variable name="day" value="{event.data.startdate -> f:format.date(format:'N')}" />
                         <p><strong><f:translate key="day{day}" extensionName="stepping_stone_site_package" />, {event.data.startdate -> f:format.date(format:'d. F Y')}<br>{event.data.venue}</strong><br>{event.data.address}, {event.data.zip} {event.data.location}<br></p>
-                        <p><strong>Anreise</strong><br>{event.data.description}</p>
+                        <p><strong><f:translate key="directions" extensionName="stepping_stone_site_package" /></strong><br>{event.data.description}</p>
                         <f:for each="{event.map}" as="image">
                             <div>
                             <f:image

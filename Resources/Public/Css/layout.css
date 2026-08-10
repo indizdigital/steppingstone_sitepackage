@@ -241,9 +241,6 @@ https://flickity.metafizzy.co
 .flickity-page-dots .dot.is-selected {
   background: #001280;
 }
-.ndz-items-left{
-  align-items: left;
-}
 @layer base {
   :root {
     --swiper-theme-color: #007aff;
