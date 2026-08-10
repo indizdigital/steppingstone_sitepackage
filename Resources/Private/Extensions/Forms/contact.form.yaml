@@ -39,7 +39,7 @@ finishers:
           mapOnDatabaseColumn: title
         firstname:
           mapOnDatabaseColumn: first_name
-        lastname:
+        surname:
           mapOnDatabaseColumn: last_name
         address-1:
           mapOnDatabaseColumn: address_line_1
@@ -64,7 +64,7 @@ finishers:
     options:
       subject: 'Contact form'
       recipients:
-        '{email}': '{firstname} {lastname}'
+        '{email}': '{firstname} {surname}'
       senderAddress: 3750511@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
