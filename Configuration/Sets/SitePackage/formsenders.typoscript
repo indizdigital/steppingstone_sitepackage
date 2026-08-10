@@ -1,0 +1,47 @@
+[request && request.getNormalizedParams().getHttpHost() == "wwwtest.stepping-stone.ch"]
+    plugin.tx_form.settings.formDefinitionOverrides {
+        registration {
+            finishers {
+                2 {
+                    options {
+                        senderAddress = TEXT
+                        senderAddress.value = 3750497@customers.stepping-stone.ch
+                        recipients >
+                        recipients{
+                        tech\@indiz\.digital = Philipp Holzmann
+                        }
+                    }
+                }
+                3 {
+                    options {
+                        senderAddress = TEXT
+                        senderAddress.value = 3750497@customers.stepping-stone.ch
+                    }
+                }
+            }
+        }
+    }
+
+    plugin.tx_form.settings.formDefinitionOverrides {
+        contact {
+            finishers {
+                1 {
+                    options {
+                        senderAddress = TEXT
+                        senderAddress.value = 3750497@customers.stepping-stone.ch
+                        recipients >
+                        recipients{
+                        tech\@indiz\.digital = Philipp Holzmann
+                        }
+                    }
+                }
+                3 {
+                    options {
+                        senderAddress = TEXT
+                        senderAddress.value = 3750497@customers.stepping-stone.ch
+                    }
+                }
+            }
+        }
+    }
+[GLOBAL]
