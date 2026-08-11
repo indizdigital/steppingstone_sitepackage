@@ -155,6 +155,24 @@
       <trans-unit id="element.numberofpeople.properties.prependOptionLabel">
         <target>Bitte wählen</target>
       </trans-unit>
+      <trans-unit id="element.numberofpeople.properties.options.decline">
+        <target>Leider kann ich nicht teilnehmen</target>
+      </trans-unit>
+      <trans-unit id="element.numberofpeople.properties.options.1">
+        <target>1 Person</target>
+      </trans-unit>
+      <trans-unit id="element.numberofpeople.properties.options.2">
+        <target>2 Personen</target>
+      </trans-unit>
+      <trans-unit id="element.numberofpeople.properties.options.3">
+        <target>3 Personen</target>
+      </trans-unit>
+      <trans-unit id="element.numberofpeople.properties.options.4">
+        <target>4 Personen</target>
+      </trans-unit>
+      <trans-unit id="element.numberofpeople.properties.options.5">
+        <target>5 Personen</target>
+      </trans-unit>
       <trans-unit id="element.registration.renderingOptions.submitButtonLabel">
         <target>Senden</target>
       </trans-unit>

@@ -112,16 +112,16 @@
         <source>1 person</source>
       </trans-unit>
       <trans-unit id="element.numberofpeople.properties.options.2">
-        <source>2 person</source>
+        <source>2 people</source>
       </trans-unit>
       <trans-unit id="element.numberofpeople.properties.options.3">
-        <source>3 person</source>
+        <source>3 people</source>
       </trans-unit>
       <trans-unit id="element.numberofpeople.properties.options.4">
-        <source>4 person</source>
+        <source>4 people</source>
       </trans-unit>
       <trans-unit id="element.numberofpeople.properties.options.5">
-        <source>5 person</source>
+        <source>5 people</source>
       </trans-unit>
 
       <trans-unit id="element.readtermsandconditions.properties.label">

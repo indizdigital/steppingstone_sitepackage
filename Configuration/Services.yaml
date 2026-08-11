@@ -3,3 +3,6 @@ services:
     resource: '../Classes/*'
     autowire: true
     autoconfigure: true
+
+  IndizDigitalGmbh\SteppingStoneSitePackage\Middleware\BrowserLanguageRedirectMiddleware:
+    public: false

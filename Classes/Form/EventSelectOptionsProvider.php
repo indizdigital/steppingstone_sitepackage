@@ -102,22 +102,7 @@ final class EventSelectOptionsProvider
 
             $date = new \DateTime(
                 '@' . $event['startdate']
-            );
-
-            $enddate = new \DateTime(
-                '@' . $event['enddate']
-            );
-
-            $date->setTimezone(
-                new \DateTimeZone(
-                    date_default_timezone_get()
-                )
-            );
-            $enddate->setTimezone(
-                new \DateTimeZone(
-                    date_default_timezone_get()
-                )
-            );
+            ); 
 
 
             $formatter = new \IntlDateFormatter(
@@ -128,24 +113,15 @@ final class EventSelectOptionsProvider
                 \IntlDateFormatter::GREGORIAN,
                 'EEEE, d. MMMM yyyy'
             );
-            $timeformatter = new \IntlDateFormatter(
-                $locale,
-                \IntlDateFormatter::FULL,
-                \IntlDateFormatter::NONE,
-                'Europe/Zurich',
-                \IntlDateFormatter::GREGORIAN,
-                'H:mm'
-            );
-
 
             $options[(string)$event['uid']] =
                 $event['location']
                 . ', '
                 . $formatter->format($date)
                 . ' ('
-                . $timeformatter->format($date)
+                . date('H:i',$event['startdate'])
                 .'-'
-                . $timeformatter->format($enddate)
+                . date('H:i',$event['enddate'])
                 .')';
         }
 

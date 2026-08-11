@@ -64,10 +64,10 @@
                 <source>Sunday</source>
             </trans-unit>
             <trans-unit id="toregister">
-                <source>Zur Anmeldung</source>
+                <source>Registration</source>
             </trans-unit>
             <trans-unit id="directions">
-                <source>Anreise</source>
+                <source>Arrival</source>
             </trans-unit>
         </body>
     </file>

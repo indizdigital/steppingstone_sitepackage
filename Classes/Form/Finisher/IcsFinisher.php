@@ -94,11 +94,28 @@ final class IcsFinisher extends AbstractFinisher
             'VERSION:2.0',
             'PRODID:-//stepping stone//Event//DE',
             'CALSCALE:GREGORIAN',
+            'BEGIN:VTIMEZONE',
+            'TZID:Europe/Zurich',
+            'BEGIN:DAYLIGHT',
+            'TZOFFSETFROM:+0100',
+            'TZOFFSETTO:+0200',
+            'TZNAME:CEST',
+            'DTSTART:19700329T020000',
+            'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU',
+            'END:DAYLIGHT',
+            'BEGIN:STANDARD',
+            'TZOFFSETFROM:+0200',
+            'TZOFFSETTO:+0100',
+            'TZNAME:CET',
+            'DTSTART:19701025T030000',
+            'RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU',
+            'END:STANDARD',
+            'END:VTIMEZONE',
             'BEGIN:VEVENT',
             'UID:' . $event['uid'] . '@stepping-stone.ch',
             'DTSTAMP:' . $this->formatDate(time()),
-            'DTSTART:' . $this->formatDate((int)$event['startdate']),
-            'DTEND:' . $this->formatDate((int)$event['enddate']),
+            'DTSTART;TZID=Europe/Zurich:' . $this->formatLocalDate((int)$event['startdate']),
+            'DTEND;TZID=Europe/Zurich:' . $this->formatLocalDate((int)$event['enddate']),
             'SUMMARY:' . $this->escape($event['title']),
             'LOCATION:' . $this->escape($event['location']),
             'DESCRIPTION:' . $this->escape($event['description']),
@@ -109,10 +126,25 @@ final class IcsFinisher extends AbstractFinisher
     }
 
 
+    // $timestamp here is a true "now" epoch (time()), so it's genuinely UTC.
     private function formatDate(int $timestamp): string
     {
         return gmdate(
             'Ymd\THis\Z',
+            $timestamp
+        );
+    }
+
+
+    // $event['startdate']/['enddate'] are naive timestamps whose digits, read
+    // as UTC, already give the intended Europe/Zurich wall-clock time (see
+    // EventSelectOptionsProvider, which relies on the same behaviour). So we
+    // extract the raw digits via gmdate() and tag them with TZID instead of
+    // relabeling them as real UTC.
+    private function formatLocalDate(int $timestamp): string
+    {
+        return gmdate(
+            'Ymd\THis',
             $timestamp
         );
     }
