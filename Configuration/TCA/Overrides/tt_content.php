@@ -45,9 +45,9 @@ ExtensionManagementUtility::addTCAcolumns('tt_content', [
     ],
 ]);
 
-ExtensionManagementUtility::addToAllTCAtypes(
-    'tt_content',
-    'header_style',
-    '',
-    'after:header_layout'
-);
+// ExtensionManagementUtility::addToAllTCAtypes(
+//     'tt_content',
+//     'header_style',
+//     '',
+//     'after:header_layout'
+// );
