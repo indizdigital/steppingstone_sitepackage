@@ -158,6 +158,9 @@
     textarea {
         @apply resize-none min-h-40;
     }
+    button {
+        @apply select-text;
+    }
     .ndz-rte > *:first-child {
         @apply mt-0;
     }

@@ -21,7 +21,11 @@ final class IcsFinisher extends AbstractFinisher
         // Deine Select-Option "venue" enthält aktuell die Event-UID
         $eventUid = (int)($formValues['venue'] ?? 0);
 
-
+        //if abmeldung omit the ics file
+        if(isset($formValues["numberofpeople"]) && $formValues["numberofpeople"] == "decline"){
+            return;
+        }
+        
         if (!$eventUid) {
             return;
         }

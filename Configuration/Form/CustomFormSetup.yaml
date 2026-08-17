@@ -21,6 +21,8 @@ TYPO3:
       prototypes:
         standard:
           finishersDefinition:
+            PrefillTimestamps:
+              implementationClassName: 'IndizDigitalGmbh\SteppingStoneSitePackage\Form\Finisher\PrefillTimestampsFinisher'
             EmailToReceiver:
               options:
                 templateName: 'Default'

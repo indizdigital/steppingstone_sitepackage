@@ -12,114 +12,56 @@ use TYPO3\CMS\Core\Http\RedirectResponse;
 
 final class BrowserLanguageRedirectMiddleware implements MiddlewareInterface
 {
-    public function process(
-        ServerRequestInterface $request,
-        RequestHandlerInterface $handler
-    ): ResponseInterface {
-        $site = $request->getAttribute('site');
+        private const COOKIE_NAME = 'langDetected';
 
-        if ($site === null) {
-            return $handler->handle($request);
+    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
+    {
+        // Map to site language base
+        $map = [
+            'de' => '/de/',
+            'en' => '/en/',
+        ];
+
+        $uri = (string)$request->getUri()->getPath();
+
+        // No language segment in the path (e.g. site root) - redirect to the known/detected language
+        if (rtrim($uri, '/') === '') {
+            error_log($uri." by uri ",3,"/var/www/typo3/default/htdocs/vendor/indiz-digital-gmbh/stepping-stone-site-package/error.log");
+            
+            $cookies = $request->getCookieParams();
+
+            if (isset($cookies[self::COOKIE_NAME])) {
+                $target = $cookies[self::COOKIE_NAME];
+                error_log($uri." by cookie",3,"/var/www/typo3/default/htdocs/vendor/indiz-digital-gmbh/stepping-stone-site-package/error.log");
+            
+            } else {
+                error_log($uri." by browser",3,"/var/www/typo3/default/htdocs/vendor/indiz-digital-gmbh/stepping-stone-site-package/error.log");
+            
+                $acceptLang = $request->getHeaderLine('Accept-Language');
+                $preferred = substr($acceptLang, 0, 2) ?: 'en';
+                $target = $map[$preferred] ?? '/en/';
+            }
+            
+
+            $cookie = self::COOKIE_NAME . '=' . $target . '; Path=/; SameSite=Lax';
+
+            return (new RedirectResponse($target, 302))
+                ->withAddedHeader('Set-Cookie', $cookie);
         }
-
-        $path = $request->getUri()->getPath();
-
-        // Prüfen, ob die URL bereits einen Sprachpräfix enthält
-        foreach ($site->getLanguages() as $siteLanguage) {
-            $base = trim((string)$siteLanguage->getBase(), '/');
-
-            if ($base !== '' && (
-                $path === '/' . $base ||
-                str_starts_with($path, '/' . $base . '/')
-            )) {
-                // Sprache ist bereits Bestandteil der URL
-                return $handler->handle($request);
-            }
-        }
-
-        // Browser-Sprache ermitteln
-        $language = $this->getBrowserLanguage(
-            $request->getHeaderLine('Accept-Language')
-        );
-
-        if ($language === null) {
-            return $handler->handle($request);
-        }
-
-        // Passende Site Language suchen
-        foreach ($site->getLanguages() as $siteLanguage) {
-            if (
-                $siteLanguage->getLocale()->getLanguageCode() !== $language
-            ) {
-                continue;
-            }
-
-            $base = trim((string)$siteLanguage->getBase(), '/');
-
-            if ($base === '') {
-                return $handler->handle($request);
-            }
-
-            // Ursprünglichen Pfad hinter dem Sprachpräfix anhängen
-            $targetPath = '/' . $base . $path;
-
-            // Doppelte Slashes vermeiden
-            $targetPath = preg_replace('#/+#', '/', $targetPath);
-
-            // Query-String übernehmen
-            $query = $request->getUri()->getQuery();
-
-            if ($query !== '') {
-                $targetPath .= '?' . $query;
-            }
-
-            return new RedirectResponse(
-                $targetPath,
-                302
-            );
+        
+        // A language segment is already present in the path - keep the cookie in sync, no redirect
+        $langCode = ltrim(substr($uri, 0, 3), '/');
+        
+        if(isset($map[$langCode])){
+            $target = $map[$langCode];
+            
+            error_log($uri." ".$langCode."  ",3,"/var/www/typo3/default/htdocs/vendor/indiz-digital-gmbh/stepping-stone-site-package/error.log");
+            $cookie = self::COOKIE_NAME . '=' . $target . '; Path=/; SameSite=Lax';
+             return $handler->handle($request)
+            ->withAddedHeader('Set-Cookie', $cookie);
         }
 
         return $handler->handle($request);
     }
 
-    private function getBrowserLanguage(string $acceptLanguage): ?string
-    {
-        if ($acceptLanguage === '') {
-            return null;
-        }
-
-        $languages = [];
-
-        foreach (explode(',', $acceptLanguage) as $language) {
-            $parts = explode(';', trim($language));
-
-            $code = strtolower(trim($parts[0]));
-
-            if ($code === '' || $code === '*') {
-                continue;
-            }
-
-            $quality = 1.0;
-
-            if (
-                isset($parts[1])
-                && preg_match('/q=([0-9.]+)/', $parts[1], $matches)
-            ) {
-                $quality = (float)$matches[1];
-            }
-
-            if ($quality > 0) {
-                $languages[$code] = $quality;
-            }
-        }
-
-        arsort($languages);
-
-        foreach ($languages as $language => $quality) {
-            // de-CH → de
-            return explode('-', $language)[0];
-        }
-
-        return null;
-    }
 }

@@ -10,7 +10,6 @@ finishers:
       message: 'Oops! No email was sent. Anyway, have a great day! ????'
       contentElementUid: '799'
     identifier: Confirmation
-
   -
     identifier: Ics
 
@@ -43,6 +42,8 @@ finishers:
         language: ''
 
   -
+    identifier: PrefillTimestamps
+  -
     identifier: SaveToDatabase
     options:
       table: tx_steppingstonesitepackage_form_event
@@ -50,6 +51,10 @@ finishers:
       databaseColumnMappings:
         pid:
           value: 95
+        crdate:
+          value: '{PrefillTimestamps.crdate}'
+        tstamp:
+          value: '{PrefillTimestamps.tstamp}'
       elements:
         company:
           mapOnDatabaseColumn: company

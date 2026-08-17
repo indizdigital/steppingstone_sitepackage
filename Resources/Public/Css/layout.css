@@ -4477,15 +4477,6 @@ code.hljs {
       }
     }
   }
-  .xl\:space-y-20 {
-    @media (width >= 80rem) {
-      :where(& > :not(:last-child)) {
-        --tw-space-y-reverse: 0;
-        margin-block-start: calc(calc(var(--spacing) * 20) * var(--tw-space-y-reverse));
-        margin-block-end: calc(calc(var(--spacing) * 20) * calc(1 - var(--tw-space-y-reverse)));
-      }
-    }
-  }
   .xl\:gap-x-8 {
     @media (width >= 80rem) {
       column-gap: calc(var(--spacing) * 8);
@@ -4849,6 +4840,10 @@ code.hljs {
   textarea {
     min-height: calc(var(--spacing) * 40);
     resize: none;
+  }
+  button {
+    -webkit-user-select: text;
+    user-select: text;
   }
   .ndz-rte > *:first-child {
     margin-top: calc(var(--spacing) * 0);
@@ -5790,9 +5785,7 @@ figure.table {
     padding: calc(var(--spacing) * 10);
   }
   @media (width >= 64rem) {
-    margin-inline: calc(var(--spacing) * -10);
-    padding-inline: calc(var(--spacing) * 10);
-    width: 110%;
+    padding-inline: calc(var(--spacing) * 20);
   }
 }
 .frame-type-form_formframework .actions {
