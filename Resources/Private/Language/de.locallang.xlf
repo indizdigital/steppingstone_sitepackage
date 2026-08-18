@@ -34,6 +34,14 @@
                 <source>P</source>
                 <target>T</target>
             </trans-unit>
+            <trans-unit id="home">
+                <source>Home</source>
+                <target>Startseite</target>
+            </trans-unit>
+            <trans-unit id="navigation">
+                <source>Navigation</source>
+                <target>Navigation</target>
+            </trans-unit>
             <trans-unit id="mainmenu">
                 <source>Hauptnavigation</source>
                 <target>Hauptnavigation</target>

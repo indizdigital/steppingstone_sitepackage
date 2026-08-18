@@ -27,6 +27,12 @@
             <trans-unit id="phoneAbbr">
                 <source>P</source>
             </trans-unit>
+            <trans-unit id="home">
+                <source>Home</source>
+            </trans-unit>
+            <trans-unit id="navigation">
+                <source>Navigation</source>
+            </trans-unit>
             <trans-unit id="mainmenu">
                 <source>Hauptnavigation</source>
             </trans-unit>
