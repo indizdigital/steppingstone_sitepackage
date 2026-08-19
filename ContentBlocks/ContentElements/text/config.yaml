@@ -28,6 +28,12 @@ fields:
     useExistingField: true
     enableRichtext: true
     richtextConfiguration: default
-  - identifier: link
-    type: Link
-    label: Link
+  - identifier: button
+    type: Palette
+    fields:
+    - identifier: link
+      type: Link
+      label: Link
+    - identifier: linktext
+      type: Text
+      label: Linktext

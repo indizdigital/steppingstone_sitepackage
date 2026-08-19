@@ -91,9 +91,13 @@ document.querySelectorAll('.ndz-mainmenu-btn').forEach(btn => {
         document.querySelectorAll('.ndz-submenu.js-submenu-open').forEach(s => {
             s.classList.remove('js-submenu-open');
         });
+        document.querySelectorAll('.ndz-mainmenu-btn[aria-haspopup="true"]').forEach(b => {
+            b.setAttribute('aria-expanded', 'false');
+        });
 
         if (!isOpen) {
             submenu.classList.add('js-submenu-open');
+            btn.setAttribute('aria-expanded', 'true');
         }
     });
 });
@@ -104,6 +108,9 @@ document.addEventListener('click', (e) => {
     if (!e.target.closest('.ndz-mainmenu-item')) {
         document.querySelectorAll('.ndz-submenu.js-submenu-open').forEach(s => {
             s.classList.remove('js-submenu-open');
+        });
+        document.querySelectorAll('.ndz-mainmenu-btn[aria-haspopup="true"]').forEach(b => {
+            b.setAttribute('aria-expanded', 'false');
         });
     }
 });
@@ -119,6 +126,9 @@ window.addEventListener('resize', () => {
     if (window.innerWidth < 1280) {
         document.querySelectorAll('.ndz-submenu.js-submenu-open').forEach(s => {
             s.classList.remove('js-submenu-open');
+        });
+        document.querySelectorAll('.ndz-mainmenu-btn[aria-haspopup="true"]').forEach(b => {
+            b.setAttribute('aria-expanded', 'false');
         });
     }
 });
