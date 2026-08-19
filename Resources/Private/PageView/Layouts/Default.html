@@ -257,7 +257,7 @@
                                                     <f:else>
                                                         <f:for each="{mainnavigationItem.children}" as="child">
                                                             <li>
-                                                                <a class="hover:text-white{f:if(condition: child.active, then:' text-white')}" href="{child.link}" target="{child.target}" title="{child.data.title}">
+                                                                <a class="hover:text-white{f:if(condition: child.active, then:' text-white')}" href="{child.link}" target="{child.target}">
                                                                     {child.data.title}
                                                                 </a>
                                                             </li>
@@ -275,7 +275,7 @@
                         <ul class="xl:flex xl:items-center xl:p-0">
                              <f:for each="{metanavigation}" as="metanavigationItem">
                                 <li class="flex flex-wrap items-center justify-between">
-                                    <a class="px-3 hover:bg-blue/10 rounded-lg h-9 inline-flex items-center" href="{metanavigationItem.link}" target="{metanavigationItem.target}" title="{metanavigationItem.title}">
+                                    <a class="px-3 hover:bg-blue/10 rounded-lg h-9 inline-flex items-center" href="{metanavigationItem.link}" target="{metanavigationItem.target}">
                                         {metanavigationItem.title}
                                     </a>
                                 </li>
@@ -325,7 +325,7 @@
                     <ul class="flex flex-wrap divide-x divide-white/60">
                         <f:for each="{footernavigation}" as="footernavigationItem">
                             <li>
-                                <a class="px-1.5 hover:text-white{f:if(condition: footernavigationItem.active, then:' text-white')}" href="{footernavigationItem.link}" target="{footernavigationItem.target}" title="{footernavigationItem.title}">
+                                <a class="px-1.5 hover:text-white{f:if(condition: footernavigationItem.active, then:' text-white')}" href="{footernavigationItem.link}" target="{footernavigationItem.target}">
                                     {footernavigationItem.title}
                                 </a>
                             </li>
