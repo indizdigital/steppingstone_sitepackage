@@ -25,6 +25,7 @@
                                 <p>{step.bodytext}</p>
                                 <p class="mt-1 lg:mt-3">
                                     <f:link.typolink class="ndz-btn ndz-btn-circle bg-white text-blue xl:pointer-events-auto" parameter="{step.link}">
+                                        <span class="sr-only"><f:translate key="showmore" extensionName="SteppingStoneSitePackage" /></span>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.9 14" class="fill-current max-h-full">
                                             <path d="M.29.29C.68-.1,1.32-.1,1.71.29l5.82,5.82c.49.49.49,1.28,0,1.77L1.71,13.71c-.39.39-1.02.39-1.41,0-.39-.39-.39-1.02,0-1.41l5.29-5.29L.29,1.71C-.1,1.32-.1.68.29.29Z"/>
                                         </svg>
@@ -32,7 +33,7 @@
                                 </p>
                             </div>
                             <f:link.typolink class="hidden absolute inset-0 pointer-events-auto xl:block" parameter="{step.link}">
-                                <span class="sr-only">Link</span>
+                                <span class="sr-only"><f:translate key="showmore" extensionName="SteppingStoneSitePackage" /></span>
                             </f:link.typolink>
                         </div>
                         <f:for each="{step.icon}" as="icon">
