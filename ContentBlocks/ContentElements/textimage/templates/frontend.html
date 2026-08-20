@@ -5,9 +5,11 @@
     data-namespace-typo3-fluid="true"
 >
 <f:layout name="Default" />
+<f:section name="Header" />
 <f:section name="Main">
-    <div class="grid grid-cols-3 gap-5 space-y-5 xl:space-y-10">
-        <div class="col-span-3 md:col-span-1">
+    <div class="grid grid-cols-6 gap-5 space-y-5 xl:space-y-10">
+        <div class="col-span-6 space-y-3 md:col-span-3 md:space-y-5">
+            <f:render partial="Header/All" arguments="{_all}" />
             <f:if condition="{data.bodytext}">
                 <div class="ndz-rte">
                     <f:format.html>{data.bodytext}</f:format.html>
@@ -24,7 +26,7 @@
                 </p>
             </f:if>
         </div>
-        <div class="col-span-3 md:col-span-2">
+        <div class="col-span-6 md:col-span-3">
             <f:for each="{data.image}" as="image">
                 <f:image
                     image="{image}"
@@ -35,7 +37,7 @@
                         {f:uri.image(image:image, width:'840c')} 840w,
                         {f:uri.image(image:image, width:'1700c')} 1700w
                     "
-                    sizes="(max-width: 639px) 100vw, (max-width: 1023px) 44vw, (max-width: 1439px) 29vw, 414px"
+                    sizes="(max-width: 767px) 100vw, (max-width: 1439px) 50vw, 630px"
                     loading="lazy"
                     alt="{image.alternative}"
                 />
