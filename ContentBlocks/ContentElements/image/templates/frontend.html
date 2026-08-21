@@ -21,7 +21,7 @@
                                    data-pswp-width="{image.originalFile.properties.width}"
                                    data-pswp-height="{image.originalFile.properties.height}"
                                    class="block relative h-0 pb-[65%]">
-                                    <f:image image="{image}" alt="{image.name}" class="absolute w-full h-full object-contain object-center" />
+                                    <f:image image="{image}" alt="{image.alternative}" class="absolute w-full h-full object-contain object-center" />
                                 </a>
                             </div>
                         </f:for>
@@ -45,11 +45,12 @@
                             data-pswp-height="{image.originalFile.properties.height}"
                             class=" w-full rounded-[40px] block">
                                 <div class="relative h-0 pb-[65%]">
-                                    <f:image image="{image}" alt="{image.name}" class="absolute w-full h-full object-contain object-center" />
+                                    <f:image image="{image}" alt="{image.alternative}" class="absolute w-full h-full object-contain object-center" />
                                 </div>
                             </a>
                         </f:for>
-                    </div></f:then>
+                    </div>
+                </f:then>
                 <f:else>
                     <f:asset.script identifier="photoswipe-umd" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/photoswipe.umd.min.js" />
                     <f:asset.script identifier="photoswipe-lightbox-umd" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/photoswipe-lightbox.umd.min.js" />
@@ -61,7 +62,7 @@
                             data-pswp-height="{image.originalFile.properties.height}"
                             class="bg-grey-100 w-full rounded-[40px] p-[5%] block">
                                 <div class="relative h-0 pb-[65%]">
-                                    <f:image image="{image}" alt="{image.name}" class="absolute w-full h-full object-contain object-center" />
+                                    <f:image image="{image}" alt="{image.alternative}" class="absolute w-full h-full object-contain object-center" />
                                 </div>
                             </a>
                         </f:for>
