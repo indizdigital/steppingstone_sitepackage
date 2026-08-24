@@ -473,6 +473,59 @@
         @apply w-full h-full rotate-y-180;
     }
 
+    /* COOKIE BANNER */
+    .ndz-cookiebanner {
+        @apply fixed inset-x-0 bottom-0 z-50 bg-white shadow-xl translate-y-full opacity-0 invisible duration-500 ease-out-expo xl:inset-x-auto xl:right-5 xl:bottom-5 xl:max-w-md xl:rounded-xl;
+    }
+    .ndz-cookiebanner.js-cookiebanner-open {
+        @apply translate-y-0 opacity-100 visible;
+    }
+    .ndz-cookiebanner-inner {
+        @apply p-5 space-y-5 md:p-8;
+    }
+    .ndz-cookiebanner-text {
+        @apply text-grey space-y-3;
+    }
+    .ndz-cookiebanner-text a {
+        @apply text-blue hover:underline;
+    }
+    .ndz-cookiebanner-actions {
+        @apply flex flex-wrap gap-3;
+    }
+    .ndz-cookiebanner-settings-toggle {
+        @apply flex items-center gap-2;
+    }
+    .ndz-cookiebanner-settings-icon {
+        @apply size-5 flex-none transition-transform duration-500 ease-out-expo;
+    }
+    .ndz-cookiebanner.js-cookiebanner-settings-open .ndz-cookiebanner-settings-icon {
+        @apply rotate-180;
+    }
+    .ndz-cookiebanner-settings {
+        @apply grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out-expo invisible;
+    }
+    .ndz-cookiebanner.js-cookiebanner-settings-open .ndz-cookiebanner-settings {
+        @apply grid-rows-[1fr] visible;
+    }
+    .ndz-cookiebanner-settings-inner {
+        @apply overflow-hidden;
+    }
+    .ndz-cookiebanner-category {
+        @apply flex items-start gap-3 py-3 border-t border-grey-200;
+    }
+    .ndz-cookiebanner-category-label {
+        @apply flex-1;
+    }
+    .ndz-cookiebanner-category-title {
+        @apply block font-extrabold text-grey-900;
+    }
+    .ndz-cookiebanner-category-desc {
+        @apply block text-sm text-grey;
+    }
+    .ndz-cookiebanner-category input[type=checkbox] {
+        @apply mt-1;
+    }
+
 }
 
 /* RTE */

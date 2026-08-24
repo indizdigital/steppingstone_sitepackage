@@ -13,6 +13,7 @@ use TYPO3\CMS\Core\Http\RedirectResponse;
 final class BrowserLanguageRedirectMiddleware implements MiddlewareInterface
 {
         private const COOKIE_NAME = 'langDetected';
+        private const CONSENT_COOKIE_NAME = 'ndz-cookie-consent';
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
@@ -43,25 +44,47 @@ final class BrowserLanguageRedirectMiddleware implements MiddlewareInterface
             }
             
 
-            $cookie = self::COOKIE_NAME . '=' . $target . '; Path=/; SameSite=Lax';
+            $response = new RedirectResponse($target, 302);
 
-            return (new RedirectResponse($target, 302))
-                ->withAddedHeader('Set-Cookie', $cookie);
+            if ($this->hasConsent($request)) {
+                $cookie = self::COOKIE_NAME . '=' . $target . '; Path=/; SameSite=Lax';
+                $response = $response->withAddedHeader('Set-Cookie', $cookie);
+            }
+
+            return $response;
         }
-        
+
         // A language segment is already present in the path - keep the cookie in sync, no redirect
         $langCode = ltrim(substr($uri, 0, 3), '/');
-        
+
         if(isset($map[$langCode])){
             $target = $map[$langCode];
-            
+
             error_log($uri." ".$langCode."  ",3,"/var/www/typo3/default/htdocs/vendor/indiz-digital-gmbh/stepping-stone-site-package/error.log");
-            $cookie = self::COOKIE_NAME . '=' . $target . '; Path=/; SameSite=Lax';
-             return $handler->handle($request)
-            ->withAddedHeader('Set-Cookie', $cookie);
+            $response = $handler->handle($request);
+
+            if ($this->hasConsent($request)) {
+                $cookie = self::COOKIE_NAME . '=' . $target . '; Path=/; SameSite=Lax';
+                $response = $response->withAddedHeader('Set-Cookie', $cookie);
+            }
+
+            return $response;
         }
 
         return $handler->handle($request);
+    }
+
+    private function hasConsent(ServerRequestInterface $request): bool
+    {
+        $raw = $request->getCookieParams()[self::CONSENT_COOKIE_NAME] ?? null;
+
+        if ($raw === null) {
+            return false;
+        }
+
+        $consent = json_decode($raw, true);
+
+        return is_array($consent) && ($consent['necessary'] ?? false) === true;
     }
 
 }

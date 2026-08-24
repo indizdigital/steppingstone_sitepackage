@@ -44,7 +44,7 @@
                             <ul class="ndz-mainmenu-container">
                                 <f:for each="{mainnavigation}" as="mainnavigationItem">
                                     <li class="ndz-mainmenu-item">
-                                        <a class="ndz-mainmenu-btn {f:if(condition: mainnavigationItem.active, then:'ndz-mainmenu-btn-active')}" href="{mainnavigationItem.link}" target="{mainnavigationItem.target}" {f:if(condition: '{mainnavigationItem.children} || {mainnavigationItem.data.uid} == 3', then: 'aria-haspopup="true" aria-expanded="false"')}>
+                                        <a class="ndz-mainmenu-btn {f:if(condition: mainnavigationItem.active, then:'ndz-mainmenu-btn-active')}" href="{mainnavigationItem.link}"{f:if(condition: mainnavigationItem.target, then:' target="{mainnavigationItem.target}"')}{f:if(condition: '{mainnavigationItem.children} || {mainnavigationItem.data.uid} == 3', then: ' aria-haspopup="true" aria-expanded="false"')}>
                                             {mainnavigationItem.title}
                                         </a>
                                         <f:if condition="{mainnavigationItem.children} || {mainnavigationItem.data.uid} == 3">
@@ -95,7 +95,7 @@
                                                             <ul class="xl:px-10 xl:grid xl:auto-cols-fr xl:grid-flow-col xl:grid-rows-4 xl:gap-5">
                                                                 <f:for each="{mainnavigationItem.children}" as="child">
                                                                     <li>
-                                                                        <a class="ndz-submenu-btn {f:if(condition: child.active, then:'ndz-submenu-btn-active')}" href="{child.link}" target="{child.target}">
+                                                                        <a class="ndz-submenu-btn {f:if(condition: child.active, then:'ndz-submenu-btn-active')}" href="{child.link}"{f:if(condition: child.target, then:' target="{child.target}"')}>
                                                                             {child.data.title}
                                                                         </a>
                                                                     </li>
@@ -114,7 +114,7 @@
                             <ul class="py-2 pr-5 xl:flex xl:items-center xl:gap-1 xl:p-0">
                                 <f:for each="{metanavigation}" as="metanavigationItem">
                                     <li class="flex flex-wrap items-center justify-between">
-                                        <a class="ndz-metamenu-btn {f:if(condition: metanavigationItem.active, then:'ndz-metamenu-btn-active')}" href="{metanavigationItem.link}" target="{metanavigationItem.target}">
+                                        <a class="ndz-metamenu-btn{f:if(condition: metanavigationItem.active, then:' ndz-metamenu-btn-active')}" href="{metanavigationItem.link}"{f:if(condition: metanavigationItem.target, then:' target="{metanavigationItem.target}"')}>
                                             {metanavigationItem.title}
                                         </a>
                                     </li>
@@ -336,3 +336,56 @@
         </div>
     </div>
 </footer>
+<div class="ndz-cookiebanner" data-cookiebanner>
+    <div class="ndz-cookiebanner-inner">
+        <div class="ndz-cookiebanner-text">
+            <p>
+                Wir verwenden Cookies, um unsere Website und unseren Service zu optimieren.
+                Weitere Informationen findest du in unserer
+                <f:link.page pageUid="65" >Datenschutzerklärung</f:link.page>.
+            </p>
+        </div>
+
+        <div class="ndz-cookiebanner-actions">
+            <button type="button" class="ndz-btn" data-cookiebanner-accept-all>Alle akzeptieren</button>
+            <button type="button" class="ndz-btn ndz-btn-outline" data-cookiebanner-reject>Ablehnen</button>
+            <button type="button" class="ndz-btn ndz-btn-link ndz-cookiebanner-settings-toggle hidden" data-cookiebanner-settings-toggle aria-expanded="false">
+                Einstellungen
+                <svg class="ndz-cookiebanner-settings-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8.29 5.29a1 1 0 0 1 1.42 0l5.82 5.83a1 1 0 0 1 0 1.42l-5.82 5.82a1 1 0 0 1-1.42-1.42L13.59 12 8.29 6.71a1 1 0 0 1 0-1.42Z" transform="rotate(90 12 12)"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="ndz-cookiebanner-settings">
+            <div class="ndz-cookiebanner-settings-inner">
+                <div class="ndz-cookiebanner-category">
+                    <input type="checkbox" id="cookie-necessary" checked disabled data-cookiebanner-category="necessary">
+                    <label class="ndz-cookiebanner-category-label" for="cookie-necessary">
+                        <span class="ndz-cookiebanner-category-title">Notwendig</span>
+                        <span class="ndz-cookiebanner-category-desc">Für den Betrieb der Website erforderlich, kann nicht deaktiviert werden.</span>
+                    </label>
+                </div>
+                <div class="ndz-cookiebanner-category">
+                    <input type="checkbox" id="cookie-statistics" data-cookiebanner-category="statistics">
+                    <label class="ndz-cookiebanner-category-label" for="cookie-statistics">
+                        <span class="ndz-cookiebanner-category-title">Statistik</span>
+                        <span class="ndz-cookiebanner-category-desc">Hilft uns zu verstehen, wie Besucher die Website nutzen.</span>
+                    </label>
+                </div>
+                <div class="ndz-cookiebanner-category">
+                    <input type="checkbox" id="cookie-marketing" data-cookiebanner-category="marketing">
+                    <label class="ndz-cookiebanner-category-label" for="cookie-marketing">
+                        <span class="ndz-cookiebanner-category-title">Marketing</span>
+                        <span class="ndz-cookiebanner-category-desc">Wird verwendet, um Besuchern relevante Anzeigen zu zeigen.</span>
+                    </label>
+                </div>
+
+                <div class="ndz-cookiebanner-actions">
+                    <button type="button" class="ndz-btn" data-cookiebanner-save>Auswahl speichern</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

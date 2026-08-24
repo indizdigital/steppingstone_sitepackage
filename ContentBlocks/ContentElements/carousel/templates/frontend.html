@@ -53,17 +53,12 @@
                                             image="{image}"
                                             width="756c"
                                             fileExtension="webp"
-                                            srcset="
-                                                {f:uri.image(image:image, width:'250c', fileExtension: 'webp')} 250w,
-                                                {f:uri.image(image:image, width:'500c', fileExtension: 'webp')} 500w,
-                                                {f:uri.image(image:image, width:'756c', fileExtension: 'webp')} 756w,
-                                            "
+                                            srcset="{f:uri.image(image:image, width:'250c', fileExtension: 'webp')} 250w, {f:uri.image(image:image, width:'500c', fileExtension: 'webp')} 500w, {f:uri.image(image:image, width:'756c', fileExtension: 'webp')} 756w"
                                             sizes="(max-width:767px) 30vw, 380px"
                                             loading="lazy"
                                             alt="{image.alternative}"
                                         />
                                     </f:for>
-                                    <!-- <f:image class="object-contain w-full h-full" image="{slide.image.0}" alt="{slide.title}" /> -->
                                 </f:if>
                                 <f:if condition="{slide.icon}">
                                     <div class="absolute bottom-[2%] right-0 w-[34%] h-0 pb-[34%] bg-white text-blue rounded-full">
