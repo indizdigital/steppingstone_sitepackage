@@ -9,6 +9,7 @@
 <f:section name="Main">
     <f:asset.script identifier="swiperjs" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/swiper-bundle.min.js" />
     <f:asset.script identifier="swiper" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-swiper.js"/>
+    <f:asset.script identifier="flip" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-flip.js"/>
     <div class="swiper ndz-carousel-stones mt-8 -mx-5 md:mt-12 md:-mx-10 lg:-mx-20" data-initial-slide="{data.ndz_onboardingteaser_activeslide - 1}" data-loop="true" data-space-between="10">
         <f:variable name="globalStepIndex" value="-1" />
         <div class="swiper-wrapper items-stretch">
@@ -17,19 +18,24 @@
                     <f:variable name="globalStepIndex" value="{globalStepIndex + 1}" />
                     <div class="swiper-slide h-auto ndz-onboarding-stonewidth-{step.tomd - step.frommd} flex items-center justfiy-stretch pt-10 pb-20">
                         <f:if condition="{stepIt.isFirst}"><div class="absolute top-0 left-0 text-blue font-extrabold pl-4 min-h-20 border-l border-blue">{category.title}</div></f:if>
-                        <div class="ndz-flipbox w-full">
-                            <input type="checkbox" id="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}" class="ndz-flipbox-check">
-                            <label class="text-white ndz-flipbox-inner" for="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}">
+                        <div class="js-flipbox ndz-flipbox w-full">
+                            <input type="checkbox" id="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}" class="js-flipbox-check ndz-flipbox-check">
+                            <div  class="text-white ndz-flipbox-inner">
                                 <div class="ndz-flipbox-front p-[12%] flex flex-col justify-center text-xl lg:text-3xl xl:text-4.5xl">
                                     <div{f:if(condition: step.offsettext, then: ' style=\'margin-top:{step.offsettext}%;\'')}>
                                         <h3 class="ndz-headline-small text-white hyphens-auto"><f:format.nl2br>{step.title}</f:format.nl2br></h3>
                                     </div>
+                                    <label class="absolute inset-0" for="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}">
+                                        <span class="sr-only">
+                                            <f:translate key="expand" extensionName="SteppingStoneSitePackage" />
+                                        </span>
+                                    </label>
                                 </div>
-                                <div class="ndz-flipbox-back p-[12%] flex flex-col justify-center text-xs lg:text-sm xl:text-lg">
+                                <div class="js-flipbox-back ndz-flipbox-back p-[12%] flex flex-col justify-center text-xs lg:text-sm xl:text-lg">
                                     <div{f:if(condition: step.offsettext, then: ' style=\'margin-top:{step.offsettext}%;\'')}>
                                         <p>{step.bodytext}</p>
                                         <p class="mt-1 lg:mt-3">
-                                            <f:link.typolink class="ndz-btn ndz-btn-circle bg-white text-blue size-8 lg:size-10 xl:pointer-events-auto" parameter="{step.link}">
+                                            <f:link.typolink class="ndz-btn ndz-btn-circle bg-white text-blue size-8 relative z-10 lg:size-10 xl:pointer-events-auto" parameter="{step.link}">
                                                <span class="sr-only"><f:translate key="showmore" extensionName="SteppingStoneSitePackage" /></span>
                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.9 14" class="fill-current max-h-full" aria-hidden="true">
                                                     <path d="M.29.29C.68-.1,1.32-.1,1.71.29l5.82,5.82c.49.49.49,1.28,0,1.77L1.71,13.71c-.39.39-1.02.39-1.41,0-.39-.39-.39-1.02,0-1.41l5.29-5.29L.29,1.71C-.1,1.32-.1.68.29.29Z"/>
@@ -51,7 +57,7 @@
                                         </f:else>
                                     </f:if>
                                 </f:for>
-                            </label>
+                            </div>
                         </div>
                     </div>
                 </f:for>

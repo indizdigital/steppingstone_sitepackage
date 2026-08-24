@@ -1622,6 +1622,9 @@ code.hljs {
   .z-10 {
     z-index: 10;
   }
+  .z-20 {
+    z-index: 20;
+  }
   .z-30 {
     z-index: 30;
   }
@@ -5610,7 +5613,7 @@ code.hljs {
   .ndz-flipbox-check {
     display: none;
   }
-  .ndz-flipbox-check:checked + .ndz-flipbox-inner {
+  .ndz-flipbox-check:checked ~ .ndz-flipbox-inner {
     --tw-rotate-y: rotateY(180deg);
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
     @media (width >= 80rem) {

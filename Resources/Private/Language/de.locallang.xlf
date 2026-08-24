@@ -11,11 +11,15 @@
                 <target>Suchen</target>
             </trans-unit>
             <trans-unit id="expand">
-                <source>Aufklappen</source>
+                <source>Expand</source>
                 <target>Aufklappen</target>
             </trans-unit>
+            <trans-unit id="close">
+                <source>Close</source>
+                <target>Schliessen</target>
+            </trans-unit>
             <trans-unit id="chooselang">
-                <source>Sprache auswählen</source>
+                <source>Choose language</source>
                 <target>Sprache auswählen</target>
             </trans-unit>
             <trans-unit id="showmore">
@@ -43,7 +47,7 @@
                 <target>Navigation</target>
             </trans-unit>
             <trans-unit id="mainmenu">
-                <source>Hauptnavigation</source>
+                <source>Main navigation</source>
                 <target>Hauptnavigation</target>
             </trans-unit>
             <trans-unit id="metamenu">

@@ -456,7 +456,7 @@
     .ndz-flipbox-check {
         @apply hidden;
     }
-    .ndz-flipbox-check:checked + .ndz-flipbox-inner {
+    .ndz-flipbox-check:checked ~ .ndz-flipbox-inner {
         @apply rotate-y-180 xl:rotate-y-0;
     }
     .ndz-flipbox:hover .ndz-flipbox-inner {

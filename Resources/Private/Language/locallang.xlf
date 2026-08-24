@@ -10,10 +10,13 @@
                 <source>Search</source>
             </trans-unit>
             <trans-unit id="expand">
-                <source>Aufklappen</source>
+                <source>Expand</source>
+            </trans-unit>
+            <trans-unit id="close">
+                <source>Close</source>
             </trans-unit>
             <trans-unit id="chooselang">
-                <source>Sprache auswählen</source>
+                <source>Choose language</source>
             </trans-unit>
             <trans-unit id="showmore">
                 <source>Show more</source>
@@ -34,7 +37,7 @@
                 <source>Navigation</source>
             </trans-unit>
             <trans-unit id="mainmenu">
-                <source>Hauptnavigation</source>
+                <source>Main Navigation</source>
             </trans-unit>
             <trans-unit id="metamenu">
                 <source>Metanavigation</source>
