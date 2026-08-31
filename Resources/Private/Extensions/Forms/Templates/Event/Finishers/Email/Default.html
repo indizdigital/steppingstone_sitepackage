@@ -1,0 +1,77 @@
+<f:layout name="SystemEmailEvent" />
+<f:section name="Title">{title}</f:section>
+<f:section name="Main">
+    <f:variable name="attendance" value="1" />
+    <f:variable name="firstname" value="" />
+    <f:variable name="surname" value="" />
+    <f:variable name="event" value="" />
+    <formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+
+        <f:if condition="{formValue.element.identifier} == 'numberofpeople' && {formValue.value} == 'decline'">
+            <f:then>
+                <f:variable name="attendance" value="0" />
+            </f:then>
+        </f:if>
+        <f:if condition="{formValue.element.identifier} == 'firstname'">
+            <f:then>
+                <f:variable name="firstname" value="{formValue.value}" />
+            </f:then>
+        </f:if>
+    </formvh:renderAllFormValues>
+    <f:variable name="name" value="{firstname} {surname}" />
+   <f:if condition="{attendance}">
+    <f:then>
+        <f:format.raw><f:translate key="attendance" extensionName="stepping_stone_site_package" arguments="{0:name}" /></f:format.raw>
+        <br/><br/>
+        <table>
+            <formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+                <tr>
+                    <f:if condition="{formValue.isSection}">
+                        <f:then>
+                            <td colspan="2"><strong>{formvh:translateElementProperty(element: formValue.element, property: 'label')}</strong></td>
+                        </f:then>
+                        <f:else>
+                            <td valign="top" align="left"><strong>{formvh:translateElementProperty(element: formValue.element, property: 'label')}</strong></td>
+                            <td valign="top" align="left">
+                                <f:if condition="{formValue.value}">
+                                    <f:then>
+                                        <f:if condition="{formValue.isMultiValue}">
+                                            <f:then>
+                                                <table cellspacing="0" border="0">
+                                                    <f:for each="{formValue.processedValue}" as="value">
+                                                        <tr>
+                                                            <td>{value}</td>
+                                                        </tr>
+                                                    </f:for>
+                                                </table>
+                                            </f:then>
+                                            <f:else>
+                                                <table cellspacing="0" border="0">
+                                                    <tr>
+                                                        <td><f:format.nl2br>{formValue.processedValue}</f:format.nl2br></td>
+                                                    </tr>
+                                                </table>
+                                            </f:else>
+                                        </f:if>
+                                    </f:then>
+                                    <f:else>
+                                        -
+                                    </f:else>
+                                </f:if>
+                            </td>
+                        </f:else>
+                    </f:if>
+                </tr>
+            </formvh:renderAllFormValues>
+        </table>
+    </f:then>
+    <f:else>
+        <f:format.raw><f:translate key="no_attendance" extensionName="stepping_stone_site_package" arguments="{0:name}" /></f:format.raw>
+    </f:else>
+   </f:if>
+   <br>
+   <br>
+   <f:format.raw>
+        <f:translate key="greetings" extensionName="stepping_stone_site_package" />
+   </f:format.raw>
+</f:section>

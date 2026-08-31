@@ -1,15 +1,16 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers"
      data-namespace-typo3-fluid="true">
-<section class="space-y-5 md:space-y-8" aria-labelledby="contact-person">
+<f:asset.script identifier="flip" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-flip.js"/>
+<section class="space-y-5 md:space-y-8">
     <f:render partial="Header/All" arguments="{data:data, settings:settings}" />
     <div class="grid gap-5 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-3 lg:gap-y-20">
         <f:for each="{data.record_select}" as="record" iteration="it">
             <f:if condition="{record._name} == 'ndz/team-member'">
                 <div class="space-y-3">
-                    <div class="ndz-flipbox space-y-5 md:space-y-8">
-                        <input type="checkbox" id="ndz-flipbox-flipme-{it.cycle}" class="ndz-flipbox-check">
-                        <label class="ndz-flipbox-inner h-0 pb-[100%]" for="ndz-flipbox-flipme-{it.cycle}">
+                    <div class="js-flipbox ndz-flipbox space-y-5 md:space-y-8">
+                        <input type="checkbox" id="ndz-flipbox-flipme-{it.cycle}" class="js-flipbox-check ndz-flipbox-check">
+                        <div class="ndz-flipbox-inner h-0 pb-[100%]">
                             <f:for each="{record.image}" as="image">
                                 <div class="ndz-flipbox-front backface-visible">
                                     <f:image
@@ -26,9 +27,14 @@
                                         loading="lazy"
                                         alt="{image.alternative}"
                                     />
+                                    <label class="absolute inset-0" for="ndz-flipbox-flipme-{it.cycle}">
+                                        <span class="sr-only">
+                                            <f:translate key="expand" extensionName="SteppingStoneSitePackage" />
+                                        </span>
+                                    </label>
                                 </div>
                             </f:for>
-                            <div class="ndz-flipbox-back bg-blue/90 leading-6.5 p-5 flex items-end">
+                            <div class="js-flipbox-back ndz-flipbox-back bg-blue/90 leading-6.5 p-5 flex items-end">
                                 <address class="not-italic">
                                     <f:if condition="{record.mobile}">
                                         <div>
@@ -63,10 +69,10 @@
                                     </f:if>
                                 </address>
                             </div>
-                        </label>
+                        </div>
                     </div>
                     <div>
-                        <h2 class="ndz-headline-small" id="contact-person">{record.first_name} {record.last_name}</h2>
+                        <h2 class="ndz-headline-small">{record.first_name} {record.last_name}</h2>
                         <p class="text-blue">{record.function}</p>
                     </div>
                 </div>
@@ -94,7 +100,7 @@
                         </div>
                     </f:for>
                     <div class="leading-7">
-                        <h3 class="font-extrabold mb-10" id="contact-person">{record.title}</h3>
+                        <h3 class="font-extrabold mb-10">{record.title}</h3>
                         <address class="not-italic">
                             <div>
                                 <!-- <svg aria-hidden="true" focusable="false"></svg> -->

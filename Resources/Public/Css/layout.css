@@ -1622,9 +1622,6 @@ code.hljs {
   .z-10 {
     z-index: 10;
   }
-  .z-20 {
-    z-index: 20;
-  }
   .z-30 {
     z-index: 30;
   }
@@ -2445,6 +2442,9 @@ code.hljs {
   }
   .overflow-y-auto {
     overflow-y: auto;
+  }
+  .scroll-smooth {
+    scroll-behavior: smooth;
   }
   .rounded {
     border-radius: 0.25rem;
@@ -4669,6 +4669,9 @@ code.hljs {
   --swiper-navigation-sides-offset: 10px;
 }
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   .ndz-body {
     display: flex;
     min-height: 100dvh;
@@ -4729,7 +4732,6 @@ code.hljs {
     appearance: none;
   }
   input[type="number"] {
-    text-align: right;
     -moz-appearance: textfield;
   }
   input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
@@ -5924,7 +5926,10 @@ figure.table {
     padding: calc(var(--spacing) * 10);
   }
   @media (width >= 64rem) {
-    padding-inline: calc(var(--spacing) * 20);
+    margin-inline: calc(var(--spacing) * -10);
+  }
+  @media (width >= 64rem) {
+    width: 110%;
   }
 }
 .frame-type-form_formframework .actions {

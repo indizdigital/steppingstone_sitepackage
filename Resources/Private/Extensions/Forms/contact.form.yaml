@@ -15,7 +15,8 @@ finishers:
     options:
       subject: 'Contact form'
       recipients:
-        events@stepping-stone.ch: 'stepping stone'
+        # events@stepping-stone.ch: 'stepping stone'
+        tech@indiz.digital: 'stepping stone'
       senderAddress: 3750511@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
@@ -71,7 +72,7 @@ finishers:
       attachUploads: true
       title: ''
       translation:
-        language: ''
+        language: default
     identifier: EmailToSender
     defaultValue: ''
 renderables:
@@ -121,7 +122,7 @@ renderables:
                 Miss: Miss
                 Divers: Divers
               fluidAdditionalAttributes:
-                autocomplete: ''
+                autocomplete: honorific-prefix
                 required: required
               gridColumnClassAutoConfiguration:
                 viewPorts:
@@ -137,6 +138,7 @@ renderables:
                     numbersOfColumnsToUse: '6'
                   xs:
                     numbersOfColumnsToUse: '6'
+              prependOptionLabel: 'Please select'
             type: SingleSelect
             identifier: title
             label: Title
@@ -243,15 +245,20 @@ renderables:
                 placeholder: 'e.g. 2. Stock oder c/o. Musterfirma AG'
           -
             defaultValue: ''
-            type: Text
-            identifier: postcode
-            label: Postcode
             properties:
               fluidAdditionalAttributes:
+                step: 1
+                placeholder: 'e.g. 3000'
                 min: '1000'
                 max: '9999'
                 required: required
-                placeholder: 'e.g. 3000'
+              validationErrorMessages:
+                -
+                  code: 1221563685
+                  message: 'Der Postcode ist nicht korrekt'
+                -
+                  code: 1221561046
+                  message: 'Der Postcode ist nicht korrekt'
               gridColumnClassAutoConfiguration:
                 viewPorts:
                   xs:
@@ -264,14 +271,12 @@ renderables:
                     numbersOfColumnsToUse: '2'
                   xl:
                     numbersOfColumnsToUse: '2'
-              validationErrorMessages:
-                -
-                  code: 1221563685
-                  message: 'Der Postcode ist nicht korrekt'
-                -
-                  code: 1221561046
-                  message: 'Der Postcode ist nicht korrekt'
+            type: Number
+            identifier: postcode
+            label: Postcode
             validators:
+              -
+                identifier: Number
               -
                 options:
                   minimum: '1000'

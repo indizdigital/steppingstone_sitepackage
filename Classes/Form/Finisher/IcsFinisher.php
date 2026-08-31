@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace IndizDigitalGmbh\SteppingStoneSitePackage\Form\Finisher;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Domain\Repository\PageRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher;
 
@@ -77,7 +78,7 @@ final class IcsFinisher extends AbstractFinisher
         )->getQueryBuilderForTable('tx_ndz_event');
 
 
-        return $queryBuilder
+        $event = $queryBuilder
             ->select('*')
             ->from('tx_ndz_event')
             ->where(
@@ -88,6 +89,16 @@ final class IcsFinisher extends AbstractFinisher
             )
             ->executeQuery()
             ->fetchAssociative() ?: null;
+
+        if ($event === null) {
+            return null;
+        }
+
+        // Der obige Query liefert immer den Default-Sprache-Datensatz.
+        // Das Overlay ersetzt übersetzbare Felder (u.a. description) durch
+        // die Werte der aktuell im Frontend aktiven Sprache.
+        return GeneralUtility::makeInstance(PageRepository::class)
+            ->getLanguageOverlay('tx_ndz_event', $event);
     }
 
 
@@ -121,7 +132,7 @@ final class IcsFinisher extends AbstractFinisher
             'DTSTART;TZID=Europe/Zurich:' . $this->formatLocalDate((int)$event['startdate']),
             'DTEND;TZID=Europe/Zurich:' . $this->formatLocalDate((int)$event['enddate']),
             'SUMMARY:' . $this->escape($event['title']),
-            'LOCATION:' . $this->escape($event['location']),
+            'LOCATION:' . $this->escape($this->buildLocation($event)),
             'DESCRIPTION:' . $this->escape($event['description']),
             'END:VEVENT',
             'END:VCALENDAR',
@@ -140,17 +151,36 @@ final class IcsFinisher extends AbstractFinisher
     }
 
 
-    // $event['startdate']/['enddate'] are naive timestamps whose digits, read
-    // as UTC, already give the intended Europe/Zurich wall-clock time (see
-    // EventSelectOptionsProvider, which relies on the same behaviour). So we
-    // extract the raw digits via gmdate() and tag them with TZID instead of
-    // relabeling them as real UTC.
+    // $event['startdate']/['enddate'] are real UTC epochs (e.g. 18:00 Europe/Zurich
+    // input is stored as 16:00 UTC). Convert to the target zone's wall-clock time
+    // instead of reading the raw UTC digits, so DTSTART/DTEND match the intended
+    // local time when paired with TZID=Europe/Zurich.
     private function formatLocalDate(int $timestamp): string
     {
-        return gmdate(
-            'Ymd\THis',
-            $timestamp
-        );
+        return (new \DateTimeImmutable('@' . $timestamp))
+            ->setTimezone(new \DateTimeZone('Europe/Zurich'))
+            ->format('Ymd\THis');
+    }
+
+
+    // Aufbau des LOCATION-Felds als eine durchgehend kommagetrennte Adresse
+    // ("venue, address, postcode location"), ohne eingebetteten Zeilenumbruch,
+    // damit Apple Maps den Text beim Import als eine Adresse geokodieren und
+    // die Kartenvorschau anzeigen kann.
+    private function buildLocation(array $event): string
+    {
+        $venue = (string)($event['venue'] ?? '');
+        $address = (string)($event['address'] ?? '');
+        $zip = (string)($event['zip'] ?? '');
+        $location = (string)($event['location'] ?? '');
+
+        $parts = [
+            $venue,
+            $address,
+            trim($zip . ' ' . $location),
+        ];
+
+        return implode(', ', array_filter($parts, static fn (string $part): bool => $part !== ''));
     }
 
 

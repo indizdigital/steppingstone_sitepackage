@@ -16,6 +16,9 @@
         <source>e.g. Musterfirma AG</source>
       </trans-unit>
 
+      <trans-unit id="element.title.properties.prependOptionLabel">
+        <source>Please select</source>
+      </trans-unit>
       <trans-unit id="element.title.properties.label">
         <source>Title</source>
       </trans-unit>

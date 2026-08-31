@@ -9,7 +9,7 @@ class PrefillTimestampsFinisher extends AbstractFinisher
 {
     protected function executeInternal(): void
     {
-        $now = time();
+        $now = (new \DateTimeImmutable('now', new \DateTimeZone('Europe/Zurich')))->getTimestamp();
         $this->finisherContext->getFinisherVariableProvider()->add('PrefillTimestamps', 'crdate', $now);
         $this->finisherContext->getFinisherVariableProvider()->add('PrefillTimestamps', 'tstamp', $now);
     }

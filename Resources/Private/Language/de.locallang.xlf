@@ -66,13 +66,13 @@
                 <target>Schweiz</target>
             </trans-unit>
             <trans-unit id="attendance">
-                <target><![CDATA[Guten Tag %s<br><br>Vielen Dank für Ihre Anmeldung zum Schichtwechsel 2026.<br/><br/>Wir freuen uns, Sie beim Anlass Open Source Open Future 2026 – Agentic AI im Praxistest begrüssen zu dürfen.]]></target>
+                <target><![CDATA[Guten Tag %s<br><br>Vielen Dank für Ihre Anmeldung zum Open Source Open Future 2026 Anlass.<br/><br/>Wir freuen uns darauf, Sie persönlich begrüssen zu dürfen.]]></target>
             </trans-unit>
             <trans-unit id="attendance_after">
-                <target><![CDATA[Weitere Informationen zum Programm und zur Anreise finden Sie auf: www.stepping-stone.ch/schichtwechsel<br/><br/>Falls Sie Fragen haben oder Ihre Anmel- dung anpassen möchten, können Sie uns gerne kontaktieren.]]></target>
+                <target><![CDATA[Weitere Informationen zum Programm und zur Anreise finden Sie auf: www.stepping-stone.ch/de/open-future<br/><br/>Falls Sie Fragen haben oder Ihre Anmeldung anpassen möchten, können Sie uns gerne kontaktieren.]]></target>
             </trans-unit>
             <trans-unit id="no_attendance">
-                <target><![CDATA[Guten Tag %s<br><br>Vielen Dank für Ihre Rückmeldung.<br/><br/> Schade, dass Sie am Schichtwechsel 2026 nicht teilnehmen können. Wir hoffen, Sie bei einer nächsten Gelegenheit wieder begrüssen zu dürfen.]]></target>
+                <target><![CDATA[Guten Tag %s<br><br>Vielen Dank für Ihre Rückmeldung.<br/><br/> Schade, dass Sie am Open Source Open Future 2026 Anlass nicht teilnehmen können. Wir hoffen, Sie bei einer nächsten Gelegenheit wieder begrüssen zu dürfen.]]></target>
             </trans-unit>
             <trans-unit id="greetings">
                 <target><![CDATA[Freundliche Grüsse<br>stepping stone AG]]></target>

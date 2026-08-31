@@ -4,6 +4,7 @@
     xmlns:ndz="http://typo3.org/ns/IndizDigitalGmbh/SteppingStoneSitePackage/ViewHelpers"
     data-namespace-typo3-fluid="true"
 >
+<f:asset.script identifier="flip" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-flip.js"/>
 <f:for each="{data.categories}" as="category" iteration="catIt">
     <div class="relative grid grid-cols-12 gap-1 js-stones-cat">
         <div class="text-blue col-start-1 col-end-13 mb-10 space-y-3{f:if(condition: catIt.isOdd, then: ' md:col-start-7 md:order-2', else: ' md:col-end-7')} md:mb-28 md:space-y-5 xl:space-y-8 xl:mb-40">
@@ -12,15 +13,20 @@
         </div>
         <f:for each="{category.steps}" as="step" iteration="stepIt">
             <div class="-mx-4 md:-mx-8 lg:-mx-16 flex flex-col col-start-{step.from} col-end-{step.to} md:col-start-{step.frommd} md:col-end-{step.tomd}{f:if(condition: '{catIt.isOdd} && {stepIt.isFirst}', then: ' md:order-1')}{f:if(condition: '{catIt.isOdd} && !{stepIt.isFirst}', then: ' md:order-{ndz:mathAdd(a: stepIt.cycle, b: 1)}')}{f:if(condition: step.offset, then: ' md:-mt-[var(--mt)]')} js-stone" style="--mt:{step.offset}%;">
-                <div class="ndz-flipbox">
-                    <input type="checkbox" id="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}" class="ndz-flipbox-check">
-                    <label class="text-white ndz-flipbox-inner" for="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}">
+                <div class="js-flipbox ndz-flipbox">
+                    <input type="checkbox" id="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}" class="js-flipbox-check ndz-flipbox-check">
+                    <div class="text-white ndz-flipbox-inner">
                         <div class="ndz-flipbox-front p-[12%] flex flex-col justify-center text-xl lg:text-3xl xl:text-4.5xl">
                             <div{f:if(condition: step.offsettext, then: ' style=\'margin-top:{step.offsettext}%;\'')}>
                                 <h3 class="ndz-headline-small text-white hyphens-auto"><f:format.nl2br>{step.title}</f:format.nl2br></h3>
                             </div>
+                            <label class="absolute inset-0" for="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}">
+                                <span class="sr-only">
+                                    <f:translate key="expand" extensionName="SteppingStoneSitePackage" />
+                                </span>
+                            </label>
                         </div>
-                        <div class="ndz-flipbox-back p-[12%] flex flex-col justify-center text-xs lg:text-sm xl:text-xl">
+                        <div class="js-flipbox-back ndz-flipbox-back p-[12%] flex flex-col justify-center text-xs lg:text-sm xl:text-xl">
                             <div{f:if(condition: step.offsettext, then: ' style=\'margin-top:{step.offsettext}%;\'')}>
                                 <p>{step.bodytext}</p>
                                 <p class="mt-1 lg:mt-3">
@@ -39,7 +45,7 @@
                         <f:for each="{step.icon}" as="icon">
                             <ndz:inlineSvg class="fill-blue" path="{icon.originalFile}" />
                         </f:for>
-                    </label>
+                    </div>
                 </div>
             </div>
         </f:for>

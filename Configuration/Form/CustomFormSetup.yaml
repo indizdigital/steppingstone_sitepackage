@@ -2,20 +2,26 @@ TYPO3:
   CMS:
     Form:
       persistenceManager:
+        allowedFileMounts:
+          10: ~
         allowedExtensionPaths:
           10: EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/
         allowSaveToExtensionPaths: true
         allowDeleteFromExtensionPaths: true
       formManager:
         selectablePrototypesConfiguration:
-          10:
+          100:
             identifier: standard
             label: 'Standard'
             newFormTemplates:
               100:
                 templatePath: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/contact.form.yaml'
                 label: 'Contact'
-              101:
+          200:
+            identifier: event
+            label: 'Event'
+            newFormTemplates:
+              100:
                 templatePath: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/event.form.yaml'
                 label: 'Event'
       prototypes:
@@ -27,12 +33,12 @@ TYPO3:
               options:
                 templateName: 'Default'
                 templateRootPaths:
-                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/Finishers/Email/'
+                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Templates/Standard/Finishers/Email/'
             EmailToSender:
               options:
                 templateName: 'Default'
                 templateRootPaths:
-                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/Finishers/Email/'
+                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Templates/Standard/Finishers/Email/'
           formElementsDefinition:
             Form:
               renderingOptions:
@@ -40,11 +46,11 @@ TYPO3:
                   translationFiles:
                     20: 'EXT:stepping_stone_site_package/Resources/Private/Language/Form/locallang.xlf'
                 templateRootPaths:
-                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/'
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Templates/Standard/'
                 partialRootPaths:
-                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Partials/'
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Partials/Standard/'
                 layoutRootPaths:
-                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Layouts/'
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Layouts/Standard/'
             GridRow:
               properties:
                 elementClassAttribute: 'grid gap-y-5 gap-x-2 grid-cols-6 md:grid-cols-12 md:gap-x-10'
@@ -83,11 +89,11 @@ TYPO3:
                   translationFiles:
                     20: 'EXT:stepping_stone_site_package/Resources/Private/Language/Form/locallang.xlf'
                 templateRootPaths:
-                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/'
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Templates/Standard/'
                 partialRootPaths:
-                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Partials/'
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Partials/Standard/'
                 layoutRootPaths:
-                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Layouts/'
+                  100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Layouts/Standard/'
             GridRow:
               properties:
                 elementClassAttribute: 'grid gap-y-5 grid-cols-1'
@@ -125,10 +131,10 @@ TYPO3:
               options:
                 templateName: 'Default'
                 templateRootPaths:
-                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/Finishers/Email/'
+                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Templates/Event/Finishers/Email/'
             EventEmailToSender:
               implementationClassName: 'IndizDigitalGmbh\SteppingStoneSitePackage\Form\Finisher\EventEmailFinisher'
               options:
                 templateName: 'Default'
                 templateRootPaths:
-                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Standard/Templates/Finishers/Email/'
+                  20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Templates/Event/Finishers/Email/'

@@ -20,7 +20,7 @@
                         <f:if condition="{stepIt.isFirst}"><div class="absolute top-0 left-0 text-blue font-extrabold pl-4 min-h-20 border-l border-blue">{category.title}</div></f:if>
                         <div class="js-flipbox ndz-flipbox w-full">
                             <input type="checkbox" id="ndz-flipbox-flipme-{catIt.cycle}-{stepIt.cycle}" class="js-flipbox-check ndz-flipbox-check">
-                            <div  class="text-white ndz-flipbox-inner">
+                            <div class="text-white ndz-flipbox-inner">
                                 <div class="ndz-flipbox-front p-[12%] flex flex-col justify-center text-xl lg:text-3xl xl:text-4.5xl">
                                     <div{f:if(condition: step.offsettext, then: ' style=\'margin-top:{step.offsettext}%;\'')}>
                                         <h3 class="ndz-headline-small text-white hyphens-auto"><f:format.nl2br>{step.title}</f:format.nl2br></h3>

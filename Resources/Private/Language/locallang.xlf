@@ -51,6 +51,18 @@
             <trans-unit id="switzerland">
                 <source>Switzerland</source>
             </trans-unit>
+            <trans-unit id="attendance">
+                <source><![CDATA[Hello %s<br><br>Thank you very much for registering for the Open Source Open Future 2026 event.<br/><br/>We look forward to welcoming you in person.]]></source>
+            </trans-unit>
+            <trans-unit id="attendance_after">
+                <source><![CDATA[Further information on the programme and how to get there can be found under: www.stepping-stone.ch/en/open-future.<br/><br/>If you have any questions or would like to amend your registration, please do not hesitate to contact us.]]></source>
+            </trans-unit>
+            <trans-unit id="no_attendance">
+                <source><![CDATA[Hello %s<br><br>Thank you very much for your response.<br/><br/> We’re sorry to hear that you are unable to attend Open Soruce Open Future 2026 event. We hope to welcome you again at a future date.]]></source>
+            </trans-unit>
+            <trans-unit id="greetings">
+                <source><![CDATA[Kind regards<br>stepping stone Ltd]]></source>
+            </trans-unit>
             <trans-unit id="day1">
                 <source>Monday</source>
             </trans-unit>

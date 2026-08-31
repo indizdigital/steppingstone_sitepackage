@@ -72,6 +72,9 @@
 }
 
 @layer base {
+    html {
+        @apply scroll-smooth;
+    }
     .ndz-body {
         @apply antialiased font-sans text-grey flex flex-col min-h-dvh lg:text-lg;
     }
@@ -112,7 +115,6 @@
         @apply appearance-none;
     }
     input[type="number"] {
-        @apply text-right;
         -moz-appearance: textfield;
     }
     input[type="number"]::-webkit-outer-spin-button,
@@ -606,7 +608,7 @@ figure.table {
     @apply text-white;
 } 
 .frame-type-form_formframework {
-    @apply p-5 bg-gray-100 md:p-10 lg:px-20;
+    @apply p-5 bg-gray-100 md:p-10 lg:-mx-10 lg:w-[110%];
 }
 
 /* FORM */

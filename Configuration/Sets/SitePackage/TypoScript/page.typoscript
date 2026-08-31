@@ -165,3 +165,55 @@ lib.parseFunc_RTE.tags.link {
 }
 
 lib.parseFunc_RTE.externalBlocks.pre.stripNL = 1
+
+
+plugin.tx_seo {
+   config {
+      xmlSitemap {
+         sitemaps {
+            products {
+               provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+               config {
+                  table = tx_products_domain_model_product
+                  sortField = name
+                  lastModifiedField = tstamp
+                  //additionalWhere = no_index = 0 AND canonical_link = ''
+                  pid = 2
+                  url {
+                     pageId = 3
+                     fieldToParameterMap {
+                        uid = tx_products_index[product]
+                        categories = tx_products_index[maincat]
+                     }
+                     additionalGetParameters {
+                        tx_products_index.controller = Product
+                        tx_products_index.action = show
+                     }
+                     useCacheHash = 1
+                  }
+               }
+            }
+           	insights {
+               provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+               config {
+                  table = tx_products_domain_model_insight
+                  sortField = datetime
+                  lastModifiedField = tstamp
+                  pid = 61
+                  url {
+                     pageId = 7
+                     fieldToParameterMap {
+                        uid = tx_insights_view[insight]
+                     }
+                     additionalGetParameters {
+                        tx_insights_view.controller = Insight
+                        tx_insights_view.action = show
+                     }
+                     useCacheHash = 1
+                  }
+               }
+            }
+         }
+      }
+   }
+}

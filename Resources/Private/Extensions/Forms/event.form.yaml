@@ -1,3 +1,4 @@
+
 renderingOptions:
   submitButtonLabel: Send
 type: Form
@@ -7,18 +8,17 @@ prototypeName: event
 finishers:
   -
     options:
-      message: 'Oops! No email was sent. Anyway, have a great day! ????'
+      message: ''
       contentElementUid: '799'
     identifier: Confirmation
   -
     identifier: Ics
-
   -
     identifier: EventEmailToReceiver
     options:
       subject: 'Event'
       recipients:
-        events@stepping-stone.ch: 'stepping stone'
+        tech@indiz.digital: 'stepping stone'
       senderAddress: 3750511@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
@@ -26,13 +26,13 @@ finishers:
       translation:
         language: default
       title: ''
-
   -
     identifier: EventEmailToSender
     options:
       subject: 'Event'
       recipients:
-        '{email}': '{firstname} {surname}'
+        pascal@indiz.digital: '{firstname} {surname}'
+        #'{email}': '{firstname} {surname}'
       senderAddress: 3750511@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
@@ -40,7 +40,6 @@ finishers:
       title: ''
       translation:
         language: ''
-
   -
     identifier: PrefillTimestamps
   -
@@ -121,6 +120,8 @@ renderables:
               fluidAdditionalAttributes:
                 required: required
               prependOptionLabel: 'Please select'
+              options:
+                '': ''
             type: SingleSelect
             identifier: venue
             label: Venue

@@ -20,6 +20,10 @@
         <target>z.B. Musterfirma AG</target>
       </trans-unit>
 
+      <trans-unit id="element.title.properties.prependOptionLabel">
+        <source>Please select</source>
+        <target>Bitte wählen</target>
+      </trans-unit>
       <trans-unit id="element.title.properties.label">
         <source>Title</source>
         <target>Anrede</target>
