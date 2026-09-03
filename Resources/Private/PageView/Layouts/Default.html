@@ -147,9 +147,9 @@
         </div>
 </main>
 <footer class="text-white mt-10 xl:text-sm xl:mt-20">
-    <div class="py-10 max-w-[1440px] h-full mx-auto bg-blue md:p-10">
+    <div class="px-5 py-10 max-w-[1440px] h-full mx-auto bg-blue md:p-10 lg:px-20">
         <div class="grid grid-cols-4 space-y-8">
-            <div class="px-10 col-span-4 space-y-7 xl:col-span-2">
+            <div class="col-span-4 space-y-7 xl:col-span-2">
                 <address class="not-italic space-y-5">
                     <span class="text-lg font-extrabold block xl:text-2xl">
                         <a href="tel:{settings.company.phone -> f:replace(search: ' ', replace: '')}" class="ndz-btn ndz-btn-link text-white">
@@ -224,8 +224,8 @@
                     </f:if>
                 </ul>
             </div>
-            <div class="col-span-4 px-7 xl:col-span-2 xl:p-0 space-y-5">
-                <div>
+            <div class="col-span-4 xl:col-span-2 space-y-5">
+                <div class="-mx-3 xl:mx-0">
                     <nav aria-label="<f:translate key='mainmenu' extensionName='SteppingStoneSitePackage' />">
                         <ul class="text-lg border-y border-white/20 divide-y divide-white/20 xl:grid xl:grid-cols-3 xl:gap-5 xl:p-0 xl:border-none xl:divide-none xl:text-[length:inherit]">
                             <f:for each="{mainnavigation}" as="mainnavigationItem">
@@ -305,9 +305,10 @@
                         </ul>
                     </nav>
                 </div>
-                <nav aria-label="<f:translate key='labels' extensionName='SteppingStoneSitePackage' />" class="">
-                    <ul class="flex xl:items-center xl:gap-3">
-                        <li><f:link.page pageUid="90" class="block h-18 p-1.5">
+                <nav aria-label="<f:translate key='labels' extensionName='SteppingStoneSitePackage' />" class="space-y-3">
+                    <h2 class="font-bold"><f:translate key='certifications' extensionName='SteppingStoneSitePackage' /></h2>
+                    <ul class="flex flex-wrap gap-5 xl:items-center">
+                        <li><f:link.page pageUid="90" class="block h-18">
                             <f:image class="size-full object-contain object-center" src="EXT:stepping_stone_site_package/Resources/Public/Images/27001_white_RGB.svg" alt="ISO 27001" />
                         </f:link.page></li>
                         <!--<li><a href="" class="block h-18 bg-white p-1.5">
@@ -319,7 +320,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="col-span-4 px-8.5 text-white/60 flex flex-wrap divide-x divide-white/60">
+            <div class="col-span-4 text-white/60 flex flex-wrap divide-x divide-white/60">
                 <p class="px-1.5">© 2004 – {f:format.date(date: 'now', format: 'Y')} {language.websiteTitle}</p>
                 <nav aria-label="<f:translate key='footermenu' extensionName='SteppingStoneSitePackage' />">
                     <ul class="flex flex-wrap divide-x divide-white/60">

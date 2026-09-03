@@ -77,6 +77,9 @@
             <trans-unit id="greetings">
                 <target><![CDATA[Freundliche Grüsse<br>stepping stone AG]]></target>
             </trans-unit>
+            <trans-unit id="certifications">
+                <target>Zertifizierungen</target>
+            </trans-unit>
             <trans-unit id="day1">
                 <target>Montag</target>
             </trans-unit>

@@ -63,6 +63,9 @@
             <trans-unit id="greetings">
                 <source><![CDATA[Kind regards<br>stepping stone Ltd]]></source>
             </trans-unit>
+            <trans-unit id="certifications">
+                <source>Certifications</source>
+            </trans-unit>
             <trans-unit id="day1">
                 <source>Monday</source>
             </trans-unit>
