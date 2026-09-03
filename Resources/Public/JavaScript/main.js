@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 var gotoform_anchor = document.getElementById("gotoform");
 if(gotoform_anchor){
-    gotoform_anchor.href = "#" + document.querySelector(".frame-type-form_formframework").id;
+    gotoform_anchor.href = "#" + document.querySelector(".frame-type-form_formframework a[id]").id;
 }
 
 /* COOKIE BANNER */

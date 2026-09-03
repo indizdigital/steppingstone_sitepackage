@@ -1571,6 +1571,9 @@ code.hljs {
   .end\! {
     inset-inline-end: var(--spacing) !important;
   }
+  .-top-\[100px\] {
+    top: calc(100px * -1);
+  }
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
@@ -2680,15 +2683,6 @@ code.hljs {
   }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
-  }
-  .px-7 {
-    padding-inline: calc(var(--spacing) * 7);
-  }
-  .px-8\.5 {
-    padding-inline: calc(var(--spacing) * 8.5);
-  }
-  .px-10 {
-    padding-inline: calc(var(--spacing) * 10);
   }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
@@ -4450,11 +4444,6 @@ code.hljs {
   .xl\:gap-1 {
     @media (width >= 80rem) {
       gap: calc(var(--spacing) * 1);
-    }
-  }
-  .xl\:gap-3 {
-    @media (width >= 80rem) {
-      gap: calc(var(--spacing) * 3);
     }
   }
   .xl\:gap-5 {
