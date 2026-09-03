@@ -1,4 +1,5 @@
 <f:layout name="Default" />
+{namespace ndz=IndizDigitalGmbh\SteppingStoneSitePackage\ViewHelpers}
 <f:section name="Main">
 <div class="mt-5 space-y-3 grid grid-cols-1 gap-y-5 text-blue md:grid-cols-6 md:gap-x-12 lg:mt-20 lg:gap-y-5">
     <div class="space-y-3 md:col-span-3 md:row-start-1">
@@ -14,6 +15,23 @@
                             <f:variable name="day" value="{event.data.startdate -> f:format.date(format:'N')}" />
                             <strong>{event.data.location}, <f:translate key="day{day}" extensionName="stepping_stone_site_package" />, {event.data.startdate -> f:format.date(format:'j. F')} ab {event.data.startdate -> f:format.date(format:'H:i')} Uhr</strong>
                         </span>
+                        <f:switch expression="{event.data.status}">
+                            <f:case value="stillavailable">
+                                <span class="uppercase -rotate-[5deg] ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightgreen text-green">
+                                    <f:translate key="status.stillavailable" extensionName="stepping_stone_site_package" />
+                                </span>
+                            </f:case>
+                            <f:case value="fewleft">
+                                <span class="uppercase -rotate-[5deg] ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightbrown text-brown">
+                                    <f:translate key="status.fewleft" extensionName="stepping_stone_site_package" />
+                                </span>
+                            </f:case>
+                            <f:case value="fullybooked">
+                                <span class="uppercase -rotate-[5deg] ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightred text-red">
+                                    <f:translate key="status.fullybooked" extensionName="stepping_stone_site_package" />
+                                </span>
+                            </f:case>
+                        </f:switch>
                     </p>
                 </f:for>
                 <p>
@@ -34,8 +52,83 @@
                 <f:for each="{events}" as="event">
                     <div class="ndz-rte">
                         <h2>{event.data.location}</h2>
+                        <f:switch expression="{event.data.status}">
+                            <f:case value="stillavailable">
+                                <span class="uppercase -rotate-[5deg] -mt-3 -ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightgreen text-green lg:-mt-5 xl:-mt-9">
+                                    <f:translate key="status.stillavailable" extensionName="stepping_stone_site_package" />
+                                </span>
+                            </f:case>
+                            <f:case value="fewleft">
+                                <span class="uppercase -rotate-[5deg] -mt-3 -ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightbrown text-brown lg:-mt-5 xl:-mt-9">
+                                    <f:translate key="status.fewleft" extensionName="stepping_stone_site_package" />
+                                </span>
+                            </f:case>
+                            <f:case value="fullybooked">
+                                <span class="uppercase -rotate-[5deg] -mt-3 -ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightred text-red lg:-mt-5 xl:-mt-9">
+                                    <f:translate key="status.fullybooked" extensionName="stepping_stone_site_package" />
+                                </span>
+                            </f:case>
+                        </f:switch>
                         <f:variable name="day" value="{event.data.startdate -> f:format.date(format:'N')}" />
                         <p><strong><f:translate key="day{day}" extensionName="stepping_stone_site_package" />, {event.data.startdate -> f:format.date(format:'j. F Y')}<br>{event.data.venue}</strong><br>{event.data.address}, {event.data.zip} {event.data.location}<br></p>
+                        <f:if condition="{event.data.statustext} || {event.data.statuslink}">
+                            <f:switch expression="{event.data.status}">
+                                <f:case value="stillavailable">
+                                    <div class="rounded-md px-5 bg-lightgreen text-green flow-root">
+                                        <f:format.html>{event.data.statustext}</f:format.html>
+                                        <f:if condition="{event.data.statuslink}">
+                                            <p>
+                                                <f:link.typolink class="flex gap-2 text-green" parameter="{event.data.statuslink}">
+                                                    <f:if condition="{f:contains(value: '#', subject: event.data.statuslink)} && {ndz:isLinkToCurrentPage(link: event.data.statuslink, currentPageUid: page.id)}">
+                                                        <f:then>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="fill-current">
+                                                                <path d="M440-313v-447q0-17 11.5-28.5T480-800q17 0 28.5 11.5T520-760v447l196-196q12-12 28-11.5t28 12.5q11 12 11.5 28T772-452L508-188q-6 6-13 8.5t-15 2.5q-8 0-15-2.5t-13-8.5L188-452q-11-11-11-27.5t11-28.5q12-12 28.5-12t28.5 12l195 195Z"></path>
+                                                            </svg>
+                                                        </f:then>
+                                                        <f:else>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="-rotate-90 fill-current">
+                                                                <path d="M440-313v-447q0-17 11.5-28.5T480-800q17 0 28.5 11.5T520-760v447l196-196q12-12 28-11.5t28 12.5q11 12 11.5 28T772-452L508-188q-6 6-13 8.5t-15 2.5q-8 0-15-2.5t-13-8.5L188-452q-11-11-11-27.5t11-28.5q12-12 28.5-12t28.5 12l195 195Z"></path>
+                                                            </svg>
+                                                        </f:else>
+                                                    </f:if>
+                                                    {event.data.statuslinktext}
+                                                </f:link.typolink>
+                                            </p>
+                                        </f:if>
+                                    </div>
+                                </f:case>
+                                <f:case value="fewleft">
+                                    <div class="rounded-md px-5 bg-lightbrown text-brown flow-root">
+                                        <f:format.html>{event.data.statustext}</f:format.html>
+                                        <f:if condition="{event.data.statuslink}">
+                                            <p>
+                                                <f:link.typolink class="flex gap-2 text-brown" parameter="{event.data.statuslink}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="fill-current">
+                                                        <path d="M440-313v-447q0-17 11.5-28.5T480-800q17 0 28.5 11.5T520-760v447l196-196q12-12 28-11.5t28 12.5q11 12 11.5 28T772-452L508-188q-6 6-13 8.5t-15 2.5q-8 0-15-2.5t-13-8.5L188-452q-11-11-11-27.5t11-28.5q12-12 28.5-12t28.5 12l195 195Z"></path>
+                                                    </svg>
+                                                    {event.data.statuslinktext}
+                                                </f:link.typolink>
+                                            </p>
+                                        </f:if>
+                                    </div>
+                                </f:case>
+                                <f:case value="fullybooked">
+                                    <div class="rounded-md px-5 bg-lightred text-red flow-root">
+                                        <f:format.html>{event.data.statustext}</f:format.html>
+                                        <f:if condition="{event.data.statuslink}">
+                                            <p>
+                                                <f:link.typolink class="flex gap-2 text-red" parameter="{event.data.statuslink}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="fill-current">
+                                                        <path d="M440-313v-447q0-17 11.5-28.5T480-800q17 0 28.5 11.5T520-760v447l196-196q12-12 28-11.5t28 12.5q11 12 11.5 28T772-452L508-188q-6 6-13 8.5t-15 2.5q-8 0-15-2.5t-13-8.5L188-452q-11-11-11-27.5t11-28.5q12-12 28.5-12t28.5 12l195 195Z"></path>
+                                                    </svg>
+                                                    {event.data.statuslinktext}
+                                                </f:link.typolink>
+                                            </p>
+                                        </f:if>
+                                    </div>
+                                </f:case>
+                            </f:switch>
+                        </f:if>
                         <p><strong><f:translate key="directions" extensionName="stepping_stone_site_package" /></strong><br>{event.data.description}</p>
                         <f:for each="{event.map}" as="image">
                             <div>

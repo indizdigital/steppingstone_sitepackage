@@ -18,7 +18,7 @@ finishers:
     options:
       subject: 'Event'
       recipients:
-        tech@indiz.digital: 'stepping stone'
+        events@stepping-stone.ch: 'stepping stone'
       senderAddress: 3750511@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
@@ -31,8 +31,7 @@ finishers:
     options:
       subject: 'Event'
       recipients:
-        pascal@indiz.digital: '{firstname} {surname}'
-        #'{email}': '{firstname} {surname}'
+        '{email}': '{firstname} {surname}'
       senderAddress: 3750511@customers.stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true

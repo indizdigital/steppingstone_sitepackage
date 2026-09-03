@@ -82,6 +82,12 @@ final class EventSelectOptionsProvider
                     )
                 )
             )
+            ->andWhere(
+                $queryBuilder->expr()->neq(
+                    'status',
+                    $queryBuilder->createNamedParameter('fullybooked')
+                )
+            )
             ->orderBy(
                 'startdate',
                 'ASC'

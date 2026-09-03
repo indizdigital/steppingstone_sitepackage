@@ -9,18 +9,21 @@ fields:
     type: Text
     label: Title
     required: true
-  - identifier: startdate
-    type: DateTime
-    format: datetime
-    label: Start date
-    default: '2023-02-11 12:00:00'
-    required: true
-  - identifier: enddate
-    type: DateTime
-    format: datetime
-    label: End date
-    default: '2023-02-11 12:00:00'
-    required: true
+  - identifier: date
+    type: Palette
+    fields:
+    - identifier: startdate
+      type: DateTime
+      format: datetime
+      label: Start date
+      default: '2023-02-11 12:00:00'
+      required: true
+    - identifier: enddate
+      type: DateTime
+      format: datetime
+      label: End date
+      default: '2023-02-11 12:00:00'
+      required: true
   - identifier: venue
     type: Text
     label: Venue
@@ -49,3 +52,41 @@ fields:
     label: Map
     maxitems: 1
     allowed: jpg,jpeg,webp,gif,png
+  - identifier: settings
+    type: Tab
+    label: Settings
+  - identifier: statussection
+    type: Palette
+    label: Status Section
+    fields:
+    - identifier: status
+      type: Select
+      renderType: selectSingle
+      label: Status
+      l10n_mode: exclude
+      l10n_display: defaultAsReadonly
+      items:
+        - label: 'Default'
+          value: 
+        - label: 'Spots still available'
+          value: stillavailable
+        - label: 'Only a few spots left'
+          value: fewleft
+        - label: 'Fully booked'
+          value: fullybooked
+    - type: Linebreak
+    - identifier: statustext
+      type: Textarea
+      label: Statustext
+      enableRichtext: true
+      richtextConfiguration: default
+    - type: Linebreak
+    - identifier: statuslink
+      type: Link
+      label: Link
+      allowedTypes:
+        - page
+        - url
+    - identifier: statuslinktext
+      type: Text
+      label: Linktext

@@ -90,6 +90,15 @@
             <trans-unit id="directions">
                 <source>Arrival</source>
             </trans-unit>
+            <trans-unit id="status.stillavailable">
+                <source>Places still available</source>
+            </trans-unit>
+            <trans-unit id="status.fewleft">
+                <source>Only a few places left</source>
+            </trans-unit>
+            <trans-unit id="status.fullybooked">
+                <source>Fully booked</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

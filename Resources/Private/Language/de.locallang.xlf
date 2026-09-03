@@ -104,6 +104,15 @@
             <trans-unit id="directions">
                 <target>Anreise</target>
             </trans-unit>
+            <trans-unit id="status.stillavailable">
+                <target>Noch freie Plätze</target>
+            </trans-unit>
+            <trans-unit id="status.fewleft">
+                <target>Noch wenige Plätze</target>
+            </trans-unit>
+            <trans-unit id="status.fullybooked">
+                <target>Ausgebucht</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

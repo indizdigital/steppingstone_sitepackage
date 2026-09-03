@@ -1868,6 +1868,15 @@ code.hljs {
   .me-auto {
     margin-inline-end: auto;
   }
+  .-mt-2 {
+    margin-top: calc(var(--spacing) * -2);
+  }
+  .-mt-3 {
+    margin-top: calc(var(--spacing) * -3);
+  }
+  .-mt-9 {
+    margin-top: calc(var(--spacing) * -9);
+  }
   .-mt-10 {
     margin-top: calc(var(--spacing) * -10);
   }
@@ -1934,8 +1943,14 @@ code.hljs {
   .mb-20 {
     margin-bottom: calc(var(--spacing) * 20);
   }
+  .-ml-3 {
+    margin-left: calc(var(--spacing) * -3);
+  }
   .ml-0 {
     margin-left: calc(var(--spacing) * 0);
+  }
+  .ml-3 {
+    margin-left: calc(var(--spacing) * 3);
   }
   .ml-6 {
     margin-left: calc(var(--spacing) * 6);
@@ -2101,6 +2116,9 @@ code.hljs {
   .w-auto {
     width: auto;
   }
+  .w-fit {
+    width: fit-content;
+  }
   .w-full {
     width: 100%;
   }
@@ -2166,6 +2184,12 @@ code.hljs {
   .translate-y-1\/2 {
     --tw-translate-y: calc(1 / 2 * 100%);
     translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-rotate-90 {
+    rotate: calc(90deg * -1);
+  }
+  .-rotate-\[5deg\] {
+    rotate: calc(5deg * -1);
   }
   .rotate-45 {
     rotate: 45deg;
@@ -2443,9 +2467,6 @@ code.hljs {
   .overflow-y-auto {
     overflow-y: auto;
   }
-  .scroll-smooth {
-    scroll-behavior: smooth;
-  }
   .rounded {
     border-radius: 0.25rem;
   }
@@ -2551,6 +2572,15 @@ code.hljs {
   }
   .bg-lightblue {
     background-color: var(--color-lightblue);
+  }
+  .bg-lightbrown {
+    background-color: var(--color-lightbrown);
+  }
+  .bg-lightgreen {
+    background-color: var(--color-lightgreen);
+  }
+  .bg-lightred {
+    background-color: var(--color-lightred);
   }
   .bg-slate-100 {
     background-color: var(--color-slate-100);
@@ -2876,11 +2906,20 @@ code.hljs {
   .text-blue-900 {
     color: var(--color-blue-900);
   }
+  .text-brown {
+    color: var(--color-brown);
+  }
+  .text-green {
+    color: var(--color-green);
+  }
   .text-grey-300 {
     color: var(--color-grey-300);
   }
   .text-orange {
     color: var(--color-orange);
+  }
+  .text-red {
+    color: var(--color-red);
   }
   .text-white {
     color: var(--color-white);
@@ -3989,6 +4028,16 @@ code.hljs {
       margin-block: calc(var(--spacing) * 20);
     }
   }
+  .lg\:-mt-5 {
+    @media (width >= 64rem) {
+      margin-top: calc(var(--spacing) * -5);
+    }
+  }
+  .lg\:-mt-9 {
+    @media (width >= 64rem) {
+      margin-top: calc(var(--spacing) * -9);
+    }
+  }
   .lg\:mt-3 {
     @media (width >= 64rem) {
       margin-top: calc(var(--spacing) * 3);
@@ -4268,6 +4317,11 @@ code.hljs {
   .xl\:mx-auto {
     @media (width >= 80rem) {
       margin-inline: auto;
+    }
+  }
+  .xl\:-mt-9 {
+    @media (width >= 80rem) {
+      margin-top: calc(var(--spacing) * -9);
     }
   }
   .xl\:mt-20 {
