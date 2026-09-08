@@ -5,10 +5,11 @@ document.querySelectorAll(".swiper").forEach(el => {
     const nextEl = navScope.querySelector(".swiper-button-next");
 
     new Swiper(el, {
-        speed: 1000,
+        speed: 600,
         slidesPerView: d.slidesPerView ?? "auto",
         spaceBetween: Number(d.spaceBetween ?? 20),
         loop: d.loop === "true",
+        loopPreventsSliding: false,
         centeredSlides: d.centeredSlides === "true",
         slidesOffsetBefore: Number(d.slidesOffsetBefore ?? 0),
         initialSlide: Number(d.initialSlide ?? 0),

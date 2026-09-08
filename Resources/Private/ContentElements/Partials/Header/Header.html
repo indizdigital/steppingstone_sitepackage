@@ -5,13 +5,13 @@
 <f:if condition="{header}">
     <f:switch expression="{layout}">
         <f:case value="1">
-            <h1 class="{style}"><ndz:format.inlineText value="{header}" /></h1>
+            <h1 class="js-set-anchor-url {style}" data-anchor="{ndz:format.slug(value: header)}"><ndz:format.inlineText value="{header}" /></h1>
         </f:case>
         <f:case value="2">
-            <h2 class="{style}"><ndz:format.inlineText value="{header}" /></h2>
+            <h2 class="js-set-anchor-url {style}" data-anchor="{ndz:format.slug(value: header)}"><ndz:format.inlineText value="{header}" /></h2>
         </f:case>
         <f:case value="3">
-            <h3 class="{style}"><ndz:format.inlineText value="{header}" /></h3>
+            <h3 class="js-set-anchor-url {style}" data-anchor="{ndz:format.slug(value: header)}"><ndz:format.inlineText value="{header}" /></h3>
         </f:case>
     </f:switch>
 </f:if>

@@ -26,5 +26,29 @@ accordionItems.forEach((item, index) => {
 
         item.classList.toggle('js-accordion-active', !isOpen);
         header.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+
+        if (!isOpen) {
+            const anchor = item.querySelector('a[id]');
+            if (anchor && anchor.id) {
+                history.replaceState(null, '', '#' + anchor.id);
+            }
+        }
     });
 });
+
+function openAccordionFromHash() {
+    if (!location.hash || location.hash.length < 2) return;
+    let target;
+    try {
+        target = document.querySelector(location.hash);
+    } catch (e) {
+        return;
+    }
+    if (!target) return;
+    const item = target.closest('.js-accordion-item');
+    if (!item || item.classList.contains('js-accordion-active')) return;
+    const header = item.querySelector('.js-accordion-header');
+    if (header) header.click();
+}
+openAccordionFromHash();
+window.addEventListener('hashchange', openAccordionFromHash);

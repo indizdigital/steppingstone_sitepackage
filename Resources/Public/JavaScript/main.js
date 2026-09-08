@@ -194,6 +194,15 @@ if(gotoform_anchor){
     gotoform_anchor.href = "#" + document.querySelector(".frame-type-form_formframework a[id]").id;
 }
 
+/* ANCHOR */
+document.querySelectorAll('.js-set-anchor-url').forEach(function (el) {
+    el.addEventListener('click', function () {
+        if (el.dataset.anchor) {
+            history.replaceState(null, '', '#' + el.dataset.anchor);
+        }
+    });
+});
+
 /* COOKIE BANNER */
 (function () {
     const banner = document.querySelector('[data-cookiebanner]');

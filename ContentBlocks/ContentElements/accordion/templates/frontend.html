@@ -1,6 +1,7 @@
 <html
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers"
+    xmlns:ndz="http://typo3.org/ns/IndizDigitalGmbh/SteppingStoneSitePackage/ViewHelpers"
     data-namespace-typo3-fluid="true"
 >
 <f:layout name="Default" />
@@ -8,7 +9,8 @@
     <f:asset.script identifier="accordion" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-accordion.js"/>
     <div class="js-accordion border-y border-gray-200 divide-y divide-gray-200">
         <f:for each="{data.items}" as="item">
-            <div class="ndz-accordion-item js-accordion-item{f:if(condition: item.open, then: ' js-accordion-active')}">
+            <div class="ndz-accordion-item js-accordion-item{f:if(condition: item.open, then: ' js-accordion-active')} relative">
+                <a id="{ndz:format.slug(value: item.title)}" class="absolute -top-[100px] left-0"></a>
                 <h2 class="ndz-headline-middle">
                     <button type="button" class="js-accordion-header py-2 w-full flex items-center justify-between text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
                         {item.title}
