@@ -2635,6 +2635,9 @@ code.hljs {
   .fill-current {
     fill: currentcolor;
   }
+  .fill-orange {
+    fill: var(--color-orange);
+  }
   .fill-white {
     fill: var(--color-white);
   }
