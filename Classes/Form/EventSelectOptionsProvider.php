@@ -13,11 +13,10 @@ final class EventSelectOptionsProvider
 {
     public function getOptions(): array
     {
-
         $pageUid = (int)($GLOBALS['TSFE']->id ?? 0);
 
         if (!$pageUid) {
-            return [];
+            return [1=>""];
         }
 
 
@@ -28,7 +27,7 @@ final class EventSelectOptionsProvider
         $page = $pageRepository->getPage($pageUid);
 
         if (!$page) {
-            return [];
+            return [1=>""];
         }
 
 

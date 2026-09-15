@@ -116,6 +116,12 @@
             <trans-unit id="status.fullybooked">
                 <target>Ausgebucht</target>
             </trans-unit>
+            <trans-unit id="nextevent">
+                <target>Nächster Anlass</target>
+            </trans-unit>
+            <trans-unit id="nextevents">
+                <target>Nächste Anlässe</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

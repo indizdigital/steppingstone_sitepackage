@@ -1277,7 +1277,6 @@ code.hljs {
     --color-blue-500: #6671b3;
     --color-blue-900: oklch(37.9% 0.146 265.522);
     --color-slate-100: oklch(96.8% 0.007 247.896);
-    --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-black: #000000;
     --color-white: #ffffff;
@@ -2056,6 +2055,9 @@ code.hljs {
   .h-18 {
     height: calc(var(--spacing) * 18);
   }
+  .h-20 {
+    height: calc(var(--spacing) * 20);
+  }
   .h-auto {
     height: auto;
   }
@@ -2447,6 +2449,9 @@ code.hljs {
       }
     }
   }
+  .self-baseline {
+    align-self: baseline;
+  }
   .self-center {
     align-self: center;
   }
@@ -2701,6 +2706,9 @@ code.hljs {
   }
   .py-5 {
     padding-block: calc(var(--spacing) * 5);
+  }
+  .py-8 {
+    padding-block: calc(var(--spacing) * 8);
   }
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
@@ -3163,6 +3171,11 @@ code.hljs {
   .focus-visible\:ring-blue-500 {
     &:focus-visible {
       --tw-ring-color: var(--color-blue-500);
+    }
+  }
+  .has-\[\.swiper-pagination-lock\]\:pb-0 {
+    &:has(*:is(.swiper-pagination-lock)) {
+      padding-bottom: calc(var(--spacing) * 0);
     }
   }
   .sm\:top-2 {
@@ -3674,19 +3687,9 @@ code.hljs {
       grid-column-end: 13;
     }
   }
-  .md\:row-span-2 {
-    @media (width >= 48rem) {
-      grid-row: span 2 / span 2;
-    }
-  }
   .md\:row-start-1 {
     @media (width >= 48rem) {
       grid-row-start: 1;
-    }
-  }
-  .md\:row-start-2 {
-    @media (width >= 48rem) {
-      grid-row-start: 2;
     }
   }
   .md\:-mx-8 {
@@ -4215,6 +4218,11 @@ code.hljs {
   .lg\:self-center {
     @media (width >= 64rem) {
       align-self: center;
+    }
+  }
+  .lg\:p-10 {
+    @media (width >= 64rem) {
+      padding: calc(var(--spacing) * 10);
     }
   }
   .lg\:px-15 {
@@ -5937,7 +5945,7 @@ figure.table {
     padding-top: calc(var(--spacing) * 12);
   }
 }
-.frame-type-ndz_onboardingteaser, .frame-type-ndz_carousel, .frame-type-form_formframework, .frame-type-insights_tease {
+.frame-type-ndz_onboardingteaser, .frame-type-ndz_carousel, .frame-type-insights_tease {
   margin-inline: calc(var(--spacing) * -5);
   @media (width >= 48rem) {
     margin-inline: calc(var(--spacing) * -10);
@@ -5946,8 +5954,7 @@ figure.table {
     margin-inline: calc(var(--spacing) * -20);
   }
 }
-.frame-type-insights_tease {
-  background-color: var(--color-blue);
+.frame-type-insights_tease, .frame-type-insights_tease.frame-layout-1 {
   padding: calc(var(--spacing) * 5);
   @media (width >= 48rem) {
     padding: calc(var(--spacing) * 10);
@@ -5956,20 +5963,26 @@ figure.table {
     padding-inline: calc(var(--spacing) * 20);
   }
 }
-.frame-type-insights_tease > header > h1, .frame-type-insights_tease > header > h2 {
+.frame-type-insights_tease.frame-layout-0 {
+  background-color: var(--color-blue);
+}
+.frame-type-insights_tease.frame-layout-1 {
+  background-color: var(--color-lightblue);
+}
+.frame-type-insights_tease.frame-layout-0 > header > h1, .frame-type-insights_tease.frame-layout-0 > header > h2 {
+  color: var(--color-white);
+}
+.frame-type-insights_tease.frame-layout-1 .swiper-slide {
+  color: var(--color-blue);
+}
+.frame-type-insights_tease.frame-layout-0 .swiper-slide h3 {
   color: var(--color-white);
 }
 .frame-type-form_formframework {
-  background-color: var(--color-gray-100);
+  background-color: var(--color-lightblue);
   padding: calc(var(--spacing) * 5);
   @media (width >= 48rem) {
     padding: calc(var(--spacing) * 10);
-  }
-  @media (width >= 64rem) {
-    margin-inline: calc(var(--spacing) * -10);
-  }
-  @media (width >= 64rem) {
-    width: 110%;
   }
 }
 .frame-type-form_formframework .actions {

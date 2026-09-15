@@ -38,7 +38,7 @@
             <f:variable name="imgcount"><f:count>{data.image}</f:count></f:variable>
             <f:if condition="{imgcount} == 1">
                 <f:then>
-                    <div class="pswp-gallery mb-20" id="gallery-grid-{data.uid}">
+                    <div class="pswp-gallery" id="gallery-grid-{data.uid}">
                         <f:for each="{data.image}" as="image">
                             <a href="{f:uri.image(image: image)}"
                             data-pswp-width="{image.originalFile.properties.width}"

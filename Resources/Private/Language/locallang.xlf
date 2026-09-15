@@ -102,6 +102,12 @@
             <trans-unit id="status.fullybooked">
                 <source>Fully booked</source>
             </trans-unit>
+            <trans-unit id="nextevent">
+                <source>Next Event</source>
+            </trans-unit>
+            <trans-unit id="nextevents">
+                <source>Upcoming Events</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

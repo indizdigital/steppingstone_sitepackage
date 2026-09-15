@@ -3,52 +3,78 @@
 <f:section name="Main">
 <div class="mt-5 space-y-3 grid grid-cols-1 gap-y-5 text-blue md:grid-cols-6 md:gap-x-12 md:items-start lg:mt-20 lg:gap-y-5">
     <div class="space-y-10 md:col-span-3 md:row-start-1">
-      <div class="space-y-3">
-        <f:render partial="Content" arguments="{records: content.top.records}"/>
-        <f:if condition="{events}">
-            <div class="space-y-2">
-                <f:for each="{events}" as="event">
+        <div class="space-y-3">
+            <f:render partial="Content" arguments="{records: content.top.records}"/>
+            <f:if condition="{events}">
+                <div class="space-y-2">
+                    <f:for each="{events}" as="event">
+                        <p>
+                            <span class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="fill-current">
+                                    <path d="M680-200h-80q-17 0-28.5-11.5T560-240q0-17 11.5-28.5T600-280h80v-80q0-17 11.5-28.5T720-400q17 0 28.5 11.5T760-360v80h80q17 0 28.5 11.5T880-240q0 17-11.5 28.5T840-200h-80v80q0 17-11.5 28.5T720-80q-17 0-28.5-11.5T680-120v-80Zm-480 40q-33 0-56.5-23.5T120-240v-480q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h240v-40q0-17 11.5-28.5T600-880q17 0 28.5 11.5T640-840v40h40q33 0 56.5 23.5T760-720v200q0 17-11.5 28.5T720-480q-17 0-28.5-11.5T680-520v-40H200v320h240q17 0 28.5 11.5T480-200q0 17-11.5 28.5T440-160H200Zm0-480h480v-80H200v80Zm0 0v-80 80Z"/>
+                                </svg>
+                                <f:variable name="day" value="{event.data.startdate -> f:format.date(format:'N')}" />
+                                <strong>{event.data.location}, <f:translate key="day{day}" extensionName="stepping_stone_site_package" />, {event.data.startdate -> f:format.date(format:'j. F')} ab {event.data.startdate -> f:format.date(format:'H:i')} Uhr</strong>
+                            </span>
+                            <f:switch expression="{event.data.status}">
+                                <f:case value="stillavailable">
+                                    <span class="uppercase -rotate-[5deg] ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightgreen text-green">
+                                        <f:translate key="status.stillavailable" extensionName="stepping_stone_site_package" />
+                                    </span>
+                                </f:case>
+                                <f:case value="fewleft">
+                                    <span class="uppercase -rotate-[5deg] ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightbrown text-brown">
+                                        <f:translate key="status.fewleft" extensionName="stepping_stone_site_package" />
+                                    </span>
+                                </f:case>
+                                <f:case value="fullybooked">
+                                    <span class="uppercase -rotate-[5deg] ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightred text-red">
+                                        <f:translate key="status.fullybooked" extensionName="stepping_stone_site_package" />
+                                    </span>
+                                </f:case>
+                            </f:switch>
+                        </p>
+                    </f:for>
                     <p>
-                        <span class="flex gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="fill-current">
-                                <path d="M680-200h-80q-17 0-28.5-11.5T560-240q0-17 11.5-28.5T600-280h80v-80q0-17 11.5-28.5T720-400q17 0 28.5 11.5T760-360v80h80q17 0 28.5 11.5T880-240q0 17-11.5 28.5T840-200h-80v80q0 17-11.5 28.5T720-80q-17 0-28.5-11.5T680-120v-80Zm-480 40q-33 0-56.5-23.5T120-240v-480q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h240v-40q0-17 11.5-28.5T600-880q17 0 28.5 11.5T640-840v40h40q33 0 56.5 23.5T760-720v200q0 17-11.5 28.5T720-480q-17 0-28.5-11.5T680-520v-40H200v320h240q17 0 28.5 11.5T480-200q0 17-11.5 28.5T440-160H200Zm0-480h480v-80H200v80Zm0 0v-80 80Z"/>
+                        <a id="gotoform" class="flex gap-2 text-orange">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="fill-blue">
+                                <path d="M440-313v-447q0-17 11.5-28.5T480-800q17 0 28.5 11.5T520-760v447l196-196q12-12 28-11.5t28 12.5q11 12 11.5 28T772-452L508-188q-6 6-13 8.5t-15 2.5q-8 0-15-2.5t-13-8.5L188-452q-11-11-11-27.5t11-28.5q12-12 28.5-12t28.5 12l195 195Z"/>
                             </svg>
-                            <f:variable name="day" value="{event.data.startdate -> f:format.date(format:'N')}" />
-                            <strong>{event.data.location}, <f:translate key="day{day}" extensionName="stepping_stone_site_package" />, {event.data.startdate -> f:format.date(format:'j. F')} ab {event.data.startdate -> f:format.date(format:'H:i')} Uhr</strong>
-                        </span>
-                        <f:switch expression="{event.data.status}">
-                            <f:case value="stillavailable">
-                                <span class="uppercase -rotate-[5deg] ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightgreen text-green">
-                                    <f:translate key="status.stillavailable" extensionName="stepping_stone_site_package" />
-                                </span>
-                            </f:case>
-                            <f:case value="fewleft">
-                                <span class="uppercase -rotate-[5deg] ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightbrown text-brown">
-                                    <f:translate key="status.fewleft" extensionName="stepping_stone_site_package" />
-                                </span>
-                            </f:case>
-                            <f:case value="fullybooked">
-                                <span class="uppercase -rotate-[5deg] ml-3 mb-5 w-fit block rounded-md px-5 py-1 text-xs font-bold bg-lightred text-red">
-                                    <f:translate key="status.fullybooked" extensionName="stepping_stone_site_package" />
-                                </span>
-                            </f:case>
-                        </f:switch>
+                            <strong><f:translate key="toregister" extensionName="stepping_stone_site_package" /></strong>
+                        </a>
                     </p>
-                </f:for>
-                <p>
-                    <a id="gotoform" class="flex gap-2 text-orange">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="fill-blue">
-                            <path d="M440-313v-447q0-17 11.5-28.5T480-800q17 0 28.5 11.5T520-760v447l196-196q12-12 28-11.5t28 12.5q11 12 11.5 28T772-452L508-188q-6 6-13 8.5t-15 2.5q-8 0-15-2.5t-13-8.5L188-452q-11-11-11-27.5t11-28.5q12-12 28.5-12t28.5 12l195 195Z"/>
-                        </svg>
-                        <strong><f:translate key="toregister" extensionName="stepping_stone_site_package" /></strong>
-                    </a>
-                </p>
+                </div>
+            </f:if>
+        </div>
+        <f:if condition="{nextEvents}">
+            <div class="bg-lightblue p-5 lg:p-10">
+                <h2 class="ndz-headline-middle mb-5">{f:if(condition: '{nextEvents -> f:count()} > 1', then: '{f:translate(key: \'nextevents\', extensionName: \'stepping_stone_site_package\')}', else: '{f:translate(key: \'nextevent\', extensionName: \'stepping_stone_site_package\')}')}</h2>
+                <div class="space-y-5">
+                    <f:for each="{nextEvents}" as="nextEvent">
+                        <div class="space-y-1">
+                            <h3 class="font-bold">{nextEvent.data.title}</h3>
+                            <div class="space-y-1">
+                                <p class="flex items-center gap-3">
+                                    <svg height="24px" viewBox="0 -960 960 960" width="24px" class="fill-current"><path d="M680-200h-80q-17 0-28.5-11.5T560-240q0-17 11.5-28.5T600-280h80v-80q0-17 11.5-28.5T720-400q17 0 28.5 11.5T760-360v80h80q17 0 28.5 11.5T880-240q0 17-11.5 28.5T840-200h-80v80q0 17-11.5 28.5T720-80q-17 0-28.5-11.5T680-120v-80Zm-480 40q-33 0-56.5-23.5T120-240v-480q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h240v-40q0-17 11.5-28.5T600-880q17 0 28.5 11.5T640-840v40h40q33 0 56.5 23.5T760-720v200q0 17-11.5 28.5T720-480q-17 0-28.5-11.5T680-520v-40H200v320h240q17 0 28.5 11.5T480-200q0 17-11.5 28.5T440-160H200Zm0-480h480v-80H200v80Zm0 0v-80 80Z"/></svg>
+                                    <span>{nextEvent.data.startdate -> f:format.date(pattern:'EEEE, d. MMMM yyyy')}</span>
+                                </p>
+                                <p class="flex items-center gap-3">
+                                    <svg height="24px" viewBox="0 -960 960 960" width="24px" class="fill-current"><path d="M520-456v-144q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600v159q0 8 3 15.5t9 13.5l112 112q11 11 28 11t28-11q11-11 11-28t-11-28L520-456ZM339.5-108.5q-65.5-28.5-114-77t-77-114Q120-365 120-440t28.5-140.5q28.5-65.5 77-114t114-77Q405-800 480-800t140.5 28.5q65.5 28.5 114 77t77 114Q840-515 840-440t-28.5 140.5q-28.5 65.5-77 114t-114 77Q555-80 480-80t-140.5-28.5ZM480-440ZM82-668q-11-11-11-28t11-28l114-114q11-11 28-11t28 11q11 11 11 28t-11 28L138-668q-11 11-28 11t-28-11Zm796 0q-11 11-28 11t-28-11L708-782q-11-11-11-28t11-28q11-11 28-11t28 11l114 114q11 11 11 28t-11 28ZM480-160q117 0 198.5-81.5T760-440q0-117-81.5-198.5T480-720q-117 0-198.5 81.5T200-440q0 117 81.5 198.5T480-160Z"/></svg>
+                                    <span>ab {nextEvent.data.startdate -> f:format.date(format:'H:i')} Uhr</span>
+                                </p>
+                                <p class="flex items-center gap-3">
+                                    <svg height="24px" viewBox="0 -960 960 960" width="24px" class="fill-current"><path d="M480-301q99-80 149.5-154T680-594q0-90-56-148t-144-58q-88 0-144 58t-56 148q0 65 50.5 139T480-301Zm-24 78q-12-4-22-12-118-94-176-183.5T200-594q0-125 78-205.5T480-880q124 0 202 80.5T760-594q0 86-58 175.5T526-235q-10 8-22 12t-24 4q-12 0-24-4Zm24-297q33 0 56.5-23.5T560-600q0-33-23.5-56.5T480-680q-33 0-56.5 23.5T400-600q0 33 23.5 56.5T480-520ZM240-80q-17 0-28.5-11.5T200-120q0-17 11.5-28.5T240-160h480q17 0 28.5 11.5T760-120q0 17-11.5 28.5T720-80H240Zm240-520Z"/></svg>
+                                    <span class="font-bold text-orange">{nextEvent.data.venue}, {nextEvent.data.location}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </f:for>
+                </div>
             </div>
         </f:if>
-      </div>
         <f:render partial="Content" arguments="{records: content.main.records}"/>
     </div>
-    <aside class="space-y-5 md:col-span-3 md:col-start-4 md:row-start-1 lg:space-y-20">
+    <aside class="space-y-5 md:col-span-3 md:col-start-4 md:row-start-1">
         <f:render partial="Content" arguments="{records: content.aside.records}"/>
         <f:if condition="{events}">
             <div class="space-y-10">

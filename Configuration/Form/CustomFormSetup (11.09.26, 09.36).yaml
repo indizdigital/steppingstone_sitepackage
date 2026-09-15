@@ -126,13 +126,13 @@ TYPO3:
           finishersDefinition:
             Ics:
               implementationClassName: 'IndizDigitalGmbh\SteppingStoneSitePackage\Form\Finisher\IcsFinisher'
-            EmailToReceiver:
+            EventEmailToReceiver:
               implementationClassName: 'IndizDigitalGmbh\SteppingStoneSitePackage\Form\Finisher\EventEmailFinisher'
               options:
                 templateName: 'Default'
                 templateRootPaths:
                   20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Templates/Event/Finishers/Email/'
-            EmailToSender:
+            EventEmailToSender:
               implementationClassName: 'IndizDigitalGmbh\SteppingStoneSitePackage\Form\Finisher\EventEmailFinisher'
               options:
                 templateName: 'Default'

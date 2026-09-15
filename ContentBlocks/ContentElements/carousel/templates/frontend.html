@@ -9,7 +9,7 @@
     <f:asset.script identifier="swiper" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-swiper.js"/>
     <!-- <f:asset.script identifier="stones" src="EXT:indiz-digital-gmbh/stepping-stone-site-package/Resources/Public/JavaScript/ndz-carousel.js"/> -->
     <!-- <ul class="js-carousel bg-blue/5" data-stone-base="{f:uri.resource(path: 'Images/Stones/', extensionName: 'SteppingStoneSitePackage')}"> -->
-    <div class="swiper bg-lightblue pb-12" data-slides-per-view="1" data-space-between="0">
+    <div class="swiper bg-lightblue pb-12 has-[.swiper-pagination-lock]:pb-0" data-slides-per-view="1" data-space-between="0">
         <f:variable name="slideCount" value="{data.slides -> f:count()}" />
         <div class="swiper-wrapper">
             <f:for each="{data.slides}" as="slide">

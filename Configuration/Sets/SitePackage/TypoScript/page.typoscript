@@ -54,12 +54,32 @@ page {
             }
             50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
             50 {
+                if.isTrue.data = page:ndz_eventpage_event_select
+                table = tx_ndz_event
+                pidInList = 95
+                uidInList {
+                     data = page:ndz_eventpage_event_select
+                }
+                as = events
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references {
+                            fieldName = map
+                        }
+                        as = map
+                    }
+                }
+            }
+            55 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            55 {
+                if.isTrue.data = page:ndz_eventpage_next_event_select
                 table = tx_ndz_event
                  pidInList = 95
                  uidInList {
-                     data = page:pageRecord.ndz_eventpage_event_select
+                     data = page:ndz_eventpage_next_event_select
                 }
-                as = events
+                as = nextEvents
                 dataProcessing {
                     10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                     10 {

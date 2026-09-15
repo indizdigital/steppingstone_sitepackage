@@ -58,3 +58,11 @@ config.recordLinks.category {
         additionalParams.wrap = &tx_products_index[category]=|&tx_products_index[action]=index&tx_products_index[controller]=Product
     }
 }
+
+config.recordLinks.insight {
+    typolink {
+        parameter = 7
+        additionalParams.data = field:uid
+        additionalParams.wrap = &tx_insights_view[insight]=|&tx_insights_view[action]=show&tx_insights_view[controller]=Insight
+    }
+}

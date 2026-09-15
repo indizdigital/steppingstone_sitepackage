@@ -596,19 +596,31 @@ figure.table {
 }
 .frame-type-ndz_onboardingteaser,
 .frame-type-ndz_carousel,
-.frame-type-form_formframework,
 .frame-type-insights_tease {
     @apply -mx-5 md:-mx-10 lg:-mx-20;
 }
-.frame-type-insights_tease {
-    @apply bg-blue p-5 md:p-10 lg:px-20;
+.frame-type-insights_tease,
+.frame-type-insights_tease.frame-layout-1 {
+    @apply p-5 md:p-10 lg:px-20;
 }
-.frame-type-insights_tease > header > h1,
-.frame-type-insights_tease > header > h2 {
+.frame-type-insights_tease.frame-layout-0 {
+    @apply bg-blue;
+}
+.frame-type-insights_tease.frame-layout-1 {
+    @apply bg-lightblue;
+}
+.frame-type-insights_tease.frame-layout-0 > header > h1,
+.frame-type-insights_tease.frame-layout-0 > header > h2 {
     @apply text-white;
 } 
+.frame-type-insights_tease.frame-layout-1 .swiper-slide {
+    @apply text-blue;
+}
+.frame-type-insights_tease.frame-layout-0 .swiper-slide h3 {
+    @apply text-white;
+}
 .frame-type-form_formframework {
-    @apply p-5 bg-gray-100 md:p-10 lg:-mx-10 lg:w-[110%];
+    @apply p-5 bg-lightblue md:p-10;
 }
 
 /* FORM */

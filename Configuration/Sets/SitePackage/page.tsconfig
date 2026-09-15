@@ -16,6 +16,15 @@ TCEFORM {
                 3 = H3
             }
         }
+        layout {
+            types {
+                insights_tease {
+                    removeItems = 2,3
+                    altLabels.0 = Blue
+                    altLabels.1 = Light Blue
+                }
+            }
+        }
     }
 }
 
@@ -51,6 +60,16 @@ TCEMAIN.linkHandler.category {
     configuration {
         table = tx_products_domain_model_category
         pageTreeMountPoints = 38
+    }
+    scanAfter = page
+}
+
+TCEMAIN.linkHandler.insight {
+    handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
+    label = Insight
+    configuration {
+        table = tx_products_domain_model_insight
+        pageTreeMountPoints = 61
     }
     scanAfter = page
 }

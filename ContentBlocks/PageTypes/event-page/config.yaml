@@ -7,5 +7,15 @@ fields:
     type: Relation
     label: Events
     allowed: 'tx_ndz_event'
-    minitems: 1
+    minitems: 0
     maxitems: 5
+    l10n_mode: exclude
+    l10n_display: defaultAsReadonly
+  - identifier: next_event_select
+    type: Relation
+    label: Next Events
+    allowed: 'tx_ndz_event'
+    minitems: 0
+    maxitems: 5
+    l10n_mode: exclude
+    l10n_display: defaultAsReadonly

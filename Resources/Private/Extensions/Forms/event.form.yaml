@@ -14,35 +14,32 @@ finishers:
   -
     identifier: Ics
   -
-    identifier: EventEmailToReceiver
     options:
-      subject: 'Event'
+      subject: Event
       recipients:
         events@stepping-stone.ch: 'stepping stone'
-      senderAddress: 3750511@customers.stepping-stone.ch
-      senderName: 'stepping stone'
+      senderAddress: info@stepping-stone.ch
+      senderName: 'Events stepping stone AG'
       addHtmlPart: true
       attachUploads: true
       translation:
         language: default
       title: ''
+    identifier: EmailToReceiver
   -
-    identifier: EventEmailToSender
     options:
-      subject: 'Event'
+      subject: Event
       recipients:
         '{email}': '{firstname} {surname}'
-      senderAddress: 3750511@customers.stepping-stone.ch
-      senderName: 'stepping stone'
+      senderAddress: info@stepping-stone.ch
+      senderName: 'Events stepping stone AG'
       addHtmlPart: true
       attachUploads: true
       title: ''
       translation:
-        language: ''
+        language: default
+    identifier: EmailToSender
   -
-    identifier: PrefillTimestamps
-  -
-    identifier: SaveToDatabase
     options:
       table: tx_steppingstonesitepackage_form_event
       mode: insert
@@ -70,6 +67,9 @@ finishers:
           mapOnDatabaseColumn: email
         comment:
           mapOnDatabaseColumn: comment
+    identifier: SaveToDatabase
+  -
+    identifier: PrefillTimestamps
 renderables:
   -
     renderingOptions:
@@ -120,7 +120,7 @@ renderables:
                 required: required
               prependOptionLabel: 'Please select'
               options:
-                '': ''
+                1: ''
             type: SingleSelect
             identifier: venue
             label: Venue

@@ -1,0 +1,43 @@
+name: ndz/banner
+typeName: ndz_banner
+group: stepping-stone
+prefixFields: true
+prefixType: full
+basics:
+  - TYPO3/Appearance
+fields:
+  - identifier: header
+    type: Palette
+    label: Header
+    fields:
+    - identifier: header
+      useExistingField: true
+    - type: Linebreak
+    - identifier: header_layout
+      useExistingField: true
+      default: 100
+    - identifier: header_style
+      useExistingField: true
+      type: Select
+  - identifier: content
+    type: Palette
+    label: Content
+    fields:
+    - identifier: bodytext
+      type: Textarea
+      useExistingField: true
+      enableRichtext: true
+    - type: Linebreak
+    - identifier: text
+      type: Textarea
+      label: Text Center
+      enableRichtext: true
+      richtextConfiguration: custom
+    - type: Linebreak
+    - identifier: image
+      type: File
+      label: Bild
+      maxitems: 1
+      allowed: common-image-types
+  
+
