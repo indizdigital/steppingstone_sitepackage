@@ -2,20 +2,12 @@
     <f:if condition="{data.frame_class} != none">
         <f:then>
             <div class="frame frame-{data.frame_class} frame-type-{data.CType} frame-layout-{data.layout}{f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')} relative">
+                <a id="c{data.uid}" class="absolute -top-[100px] left-0"></a>
                 <f:if condition="{data._LOCALIZED_UID}">
-                    <f:then>
-                        <a id="c{data._LOCALIZED_UID}"></a>
-                    </f:then>
-                    <f:else>
-                        <f:if condition="{data.header}">
-                            <f:then>
-                                <a id="{ndz:format.slug(value: data.header)}" class="absolute -top-[100px] left-0"></a>
-                            </f:then>
-                            <f:else>
-                                <a id="c{data.uid}" class="absolute -top-[100px] left-0"></a>
-                            </f:else>
-                        </f:if>                        
-                    </f:else>
+                    <a id="c{data._LOCALIZED_UID}" class="absolute -top-[100px] left-0"></a>
+                </f:if>
+                <f:if condition="{data.header}">
+                    <a id="{ndz:format.slug(value: data.header)}" class="absolute -top-[100px] left-0"></a>
                 </f:if>
                 <f:render section="Header" optional="true">
                     <f:render partial="Header/All" arguments="{_all}" />
@@ -27,6 +19,9 @@
             <a id="c{data.uid}"></a>
             <f:if condition="{data._LOCALIZED_UID}">
                 <a id="c{data._LOCALIZED_UID}"></a>
+            </f:if>
+            <f:if condition="{data.header}">
+                <a id="{ndz:format.slug(value: data.header)}"></a>
             </f:if>
             <f:if condition="{data.space_before_class}">
                 <div class="frame-space-before-{data.space_before_class}"></div>

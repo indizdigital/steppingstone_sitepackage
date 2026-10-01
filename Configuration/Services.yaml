@@ -3,3 +3,11 @@ services:
     resource: '../Classes/*'
     autowire: true
     autoconfigure: true
+
+  IndizDigitalGmbh\SteppingStoneSitePackage\Form\Persistence\SchemaSyncingFormPersistenceManager:
+    autowire: true
+    autoconfigure: true
+    lazy: true
+    decorates: TYPO3\CMS\Form\Mvc\Persistence\FormPersistenceManager
+    arguments:
+      $decoratedFormPersistenceManager: '@.inner'

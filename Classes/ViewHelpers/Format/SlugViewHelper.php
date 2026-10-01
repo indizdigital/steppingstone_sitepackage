@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace IndizDigitalGmbh\SteppingStoneSitePackage\ViewHelpers\Format;
 
+use IndizDigitalGmbh\SteppingStoneSitePackage\Utility\SlugUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
@@ -28,23 +29,6 @@ class SlugViewHelper extends AbstractViewHelper
             $value = (string)$this->arguments['value'];
         }
 
-        // Umlaute und ß transliterieren
-        $value = str_replace(
-            ['ä', 'ö', 'ü', 'Ä', 'Ö', 'Ü', 'ß'],
-            ['ae', 'oe', 'ue', 'Ae', 'Oe', 'Ue', 'ss'],
-            $value
-        );
-
-        // Verbleibende Sonderzeichen transliterieren (z. B. é, à, ...)
-        $transliterated = @iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $value);
-        if ($transliterated !== false) {
-            $value = $transliterated;
-        }
-
-        $value = strtolower($value);
-        $value = preg_replace('/[^a-z0-9]+/', '-', $value);
-        $value = trim($value, '-');
-
-        return $value;
+        return SlugUtility::slugify($value);
     }
 }
