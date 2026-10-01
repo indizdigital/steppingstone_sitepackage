@@ -8,6 +8,9 @@ final class SlugUtility
 {
     public static function slugify(string $value): string
     {
+        // Farbmarkierungen wie {orange|Text} auf den Text reduzieren
+        $value = preg_replace('/\{[^{}|]*\|([^{}]*)\}/', '$1', $value);
+
         // Umlaute und ß transliterieren
         $value = str_replace(
             ['ä', 'ö', 'ü', 'Ä', 'Ö', 'Ü', 'ß'],
