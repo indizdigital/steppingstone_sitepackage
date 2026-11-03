@@ -2,8 +2,8 @@
 renderingOptions:
   submitButtonLabel: Send
 type: Form
-identifier: registration
-label: Registration
+identifier: event
+label: Event
 prototypeName: event
 finishers:
   -
@@ -17,39 +17,37 @@ finishers:
     options:
       subject: Event
       recipients:
-        events@stepping-stone.ch: 'stepping stone'
-      senderAddress: info@stepping-stone.ch
-      senderName: 'Events stepping stone AG'
+        pascal@indiz.digital: 'stepping stone AG'
+      senderAddress: events@stepping-stone.ch
+      senderName: 'stepping stone AG'
       addHtmlPart: true
       attachUploads: true
-      translation:
-        language: default
       title: ''
+      replyToRecipients:
+        '{email}': '{firstname} {surname}'
     identifier: EmailToReceiver
+    defaultValue: ''
   -
     options:
       subject: Event
       recipients:
         '{email}': '{firstname} {surname}'
-      senderAddress: info@stepping-stone.ch
-      senderName: 'Events stepping stone AG'
+      senderAddress: events@stepping-stone.ch
+      senderName: 'stepping stone AG'
       addHtmlPart: true
       attachUploads: true
       title: ''
-      translation:
-        language: default
     identifier: EmailToSender
   -
+    identifier: PrefillTimestamps
+  -
     options:
+      errorMessage: ''
       table: tx_steppingstonesitepackage_form_event
       mode: insert
       databaseColumnMappings:
         pid:
-          value: 95
-        crdate:
-          value: '{PrefillTimestamps.crdate}'
-        tstamp:
-          value: '{PrefillTimestamps.tstamp}'
+          value: '95'
       elements:
         company:
           mapOnDatabaseColumn: company
@@ -67,9 +65,7 @@ finishers:
           mapOnDatabaseColumn: email
         comment:
           mapOnDatabaseColumn: comment
-    identifier: SaveToDatabase
-  -
-    identifier: PrefillTimestamps
+    identifier: SaveToDatabaseWithPid
 renderables:
   -
     renderingOptions:
@@ -163,6 +159,7 @@ renderables:
               elementDescription: ''
               fluidAdditionalAttributes:
                 required: required
+              useAsRecordLabel: true
             validators:
               -
                 identifier: EmailAddress

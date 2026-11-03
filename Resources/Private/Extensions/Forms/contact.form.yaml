@@ -2,7 +2,7 @@
 renderingOptions:
   submitButtonLabel: Send
 identifier: contact
-label: 'Contact form'
+label: Contact
 type: Form
 prototypeName: standard
 finishers:
@@ -15,36 +15,47 @@ finishers:
     options:
       subject: 'Contact form'
       recipients:
-        events@stepping-stone.ch: 'stepping stone'
-      senderAddress: 3750511@customers.stepping-stone.ch
+        pascal@indiz.digital: 'stepping stone'
+      senderAddress: info@stepping-stone.ch
       senderName: 'stepping stone'
       addHtmlPart: true
       attachUploads: true
-      translation:
-        language: default
       title: ''
     identifier: EmailToReceiver
     defaultValue: ''
   -
     options:
-      table: tx_steppingstonesitepackage_form_submissions
+      subject: 'Contact form'
+      recipients:
+        '{email}': '{firstname} {surname}'
+      senderAddress: info@stepping-stone.ch
+      senderName: 'stepping stone'
+      addHtmlPart: true
+      attachUploads: true
+      title: ''
+    identifier: EmailToSender
+    defaultValue: ''
+  -
+    options:
+      errorMessage: ''
+      table: tx_steppingstonesitepackage_form_contact
       mode: insert
       databaseColumnMappings:
         pid:
-          value: 80
+          value: '80'
       elements:
         company:
           mapOnDatabaseColumn: company
         title:
           mapOnDatabaseColumn: title
         firstname:
-          mapOnDatabaseColumn: first_name
+          mapOnDatabaseColumn: firstname
         surname:
-          mapOnDatabaseColumn: last_name
+          mapOnDatabaseColumn: surname
         address-1:
-          mapOnDatabaseColumn: address_line_1
+          mapOnDatabaseColumn: address_1
         address-2:
-          mapOnDatabaseColumn: address_line_2
+          mapOnDatabaseColumn: address_2
         postcode:
           mapOnDatabaseColumn: postcode
         location:
@@ -52,28 +63,14 @@ finishers:
         country:
           mapOnDatabaseColumn: country
         mobileorphone:
-          mapOnDatabaseColumn: phone
+          mapOnDatabaseColumn: mobileorphone
         email:
           mapOnDatabaseColumn: email
         receivenewsletter:
-          mapOnDatabaseColumn: newsletter
+          mapOnDatabaseColumn: receivenewsletter
         questionsorcomments:
-          mapOnDatabaseColumn: message
-    identifier: SaveToDatabase
-  -
-    options:
-      subject: 'Contact form'
-      recipients:
-        '{email}': '{firstname} {surname}'
-      senderAddress: 3750511@customers.stepping-stone.ch
-      senderName: 'stepping stone'
-      addHtmlPart: true
-      attachUploads: true
-      title: ''
-      translation:
-        language: default
-    identifier: EmailToSender
-    defaultValue: ''
+          mapOnDatabaseColumn: questionsorcomments
+    identifier: SaveToDatabaseWithPid
 renderables:
   -
     renderingOptions:
@@ -377,6 +374,7 @@ renderables:
                 -
                   code: 1221559976
                   message: 'Die E-Mail-Adresse ist nicht korrekt'
+              useAsRecordLabel: true
             validators:
               -
                 identifier: EmailAddress
@@ -403,7 +401,7 @@ renderables:
               -
                 type: Checkbox
                 identifier: receivenewsletter
-                label: 'I would like to receive the newsletter.'
+                label: 'I would like to receive the newsletter'
           -
             defaultValue: ''
             type: Textarea

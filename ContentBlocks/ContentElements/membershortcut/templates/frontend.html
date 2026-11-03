@@ -65,10 +65,9 @@
                         </f:if>
                     </address>
                     <p class="mt-5 md:mt-8">
-                        <f:variable name="kontakturl" value="/kontakt" />
+                        <f:variable name="kontakturl"><f:uri.typolink parameter='{record.link.url}'></f:uri.typolink></f:variable>
                         <f:if condition='<indiz:product attr="contactlink" uid="{record.uid}" />'>
                             <f:variable name="kontakturl"><f:uri.typolink parameter='<indiz:product attr="contactlink" uid="{record.uid}" />'></f:uri.typolink></f:variable>
-
                         </f:if>
                         <a class="ndz-btn ndz-btn-outline js-overwrite-contacturl" href="{kontakturl}" aria-label="Termin mit Fabian Zoffel vereinbaren">
                             <svg xmlns="http://www.w3.org/2000/svg" height="28px" width="28px" viewBox="0 -960 960 960">
@@ -79,6 +78,12 @@
                                     <f:then>
                                         <indiz:product attr="contactlabel" uid="{record.uid}" />
                                     </f:then>
+                                    <f:else if="{record.linktext}">
+                                        {record.linktext}
+                                    </f:else>
+                                    <f:else if="{record.link.title}">
+                                        {record.link.title}
+                                    </f:else>
                                     <f:else>
                                         <f:translate key="make_appointment" default="Make Appointment" />
                                     </f:else>

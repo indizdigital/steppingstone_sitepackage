@@ -107,7 +107,7 @@ final class EventSelectOptionsProvider
 
             $date = new \DateTime(
                 '@' . $event['startdate']
-            ); 
+            );
 
 
             $formatter = new \IntlDateFormatter(

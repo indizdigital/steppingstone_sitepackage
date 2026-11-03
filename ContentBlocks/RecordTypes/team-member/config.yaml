@@ -30,9 +30,15 @@ fields:
     label: Image
     maxitems: 1
     allowed: jpg,png
-  - identifier: link
-    type: Link
-    label: Link
-    allowedTypes:
+  - identifier: button
+    type: Palette
+    fields:
+    - identifier: link
+      type: Link
+      label: Link
+      allowedTypes:
       - page
       - url
+    - identifier: linktext
+      type: Text
+      label: Linktext

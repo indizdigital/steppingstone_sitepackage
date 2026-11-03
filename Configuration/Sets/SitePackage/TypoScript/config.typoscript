@@ -42,14 +42,27 @@ config {
     concatenateCss = 0
     contentObjectExceptionHandler = 0
 }
-
 config.recordLinks.product {
     typolink {
         parameter = 3
-        additionalParams.data = field:uid
-        additionalParams.wrap = &tx_products_index[product]=|&tx_products_index[action]=show&tx_products_index[controller]=Product
+        additionalParams.cObject = COA
+        additionalParams.cObject {
+            10 = TEXT
+            10.field = uid
+            10.wrap = &tx_products_index[product]=|
+
+            20 = TEXT
+            20.field = categories
+            20.listNum = 0
+            20.wrap = &tx_products_index[maincat]=|
+
+
+            30 = TEXT
+            30.value = &tx_products_index[action]=show&tx_products_index[controller]=Product
+        }
     }
 }
+
 
 config.recordLinks.category {
     typolink {

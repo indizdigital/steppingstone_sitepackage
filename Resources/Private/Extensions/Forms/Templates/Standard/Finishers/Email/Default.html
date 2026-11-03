@@ -11,29 +11,39 @@
                     <f:else>
                         <td valign="top" align="left"><strong>{formvh:translateElementProperty(element: formValue.element, property: 'label')}</strong></td>
                         <td valign="top" align="left">
-                            <f:if condition="{formValue.value}">
+                            <f:if condition="{formValue.element.type} == 'Checkbox'">
                                 <f:then>
-                                    <f:if condition="{formValue.isMultiValue}">
-                                        <f:then>
-                                            <table cellspacing="0" border="0">
-                                                <f:for each="{formValue.processedValue}" as="value">
-                                                    <tr>
-                                                        <td>{value}</td>
-                                                    </tr>
-                                                </f:for>
-                                            </table>
-                                        </f:then>
-                                        <f:else>
-                                            <table cellspacing="0" border="0">
-                                                <tr>
-                                                    <td><f:format.nl2br>{formValue.processedValue}</f:format.nl2br></td>
-                                                </tr>
-                                            </table>
-                                        </f:else>
+                                    <f:if condition="{formValue.value}">
+                                        <f:then><f:translate key="yes" extensionName="stepping_stone_site_package" /></f:then>
+                                        <f:else><f:translate key="no" extensionName="stepping_stone_site_package" /></f:else>
                                     </f:if>
                                 </f:then>
                                 <f:else>
-                                    -
+                                    <f:if condition="{formValue.value}">
+                                        <f:then>
+                                            <f:if condition="{formValue.isMultiValue}">
+                                                <f:then>
+                                                    <table cellspacing="0" border="0">
+                                                        <f:for each="{formValue.processedValue}" as="value">
+                                                            <tr>
+                                                                <td>{value}</td>
+                                                            </tr>
+                                                        </f:for>
+                                                    </table>
+                                                </f:then>
+                                                <f:else>
+                                                    <table cellspacing="0" border="0">
+                                                        <tr>
+                                                            <td><f:format.nl2br>{formValue.processedValue}</f:format.nl2br></td>
+                                                        </tr>
+                                                    </table>
+                                                </f:else>
+                                            </f:if>
+                                        </f:then>
+                                        <f:else>
+                                            -
+                                        </f:else>
+                                    </f:if>
                                 </f:else>
                             </f:if>
                         </td>

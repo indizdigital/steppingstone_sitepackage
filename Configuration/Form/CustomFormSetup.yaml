@@ -14,7 +14,7 @@ TYPO3:
             identifier: standard
             label: 'Standard'
             newFormTemplates:
-              100:
+              300:
                 templatePath: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/contact.form.yaml'
                 label: 'Contact'
           200:
@@ -39,6 +39,16 @@ TYPO3:
                 templateName: 'Default'
                 templateRootPaths:
                   20: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Templates/Standard/Finishers/Email/'
+            SaveToDatabaseWithPid:
+              implementationClassName: 'TYPO3\CMS\Form\Domain\Finishers\SaveToDatabaseFinisher'
+              formEditor:
+                iconIdentifier: form-finisher
+                label: 'In Datenbank speichern (mit PID)'
+                predefinedDefaults:
+                  options:
+                    errorMessage: ''
+                    table: tx_steppingstonesitepackage_form_submissions
+                    mode: insert
           formElementsDefinition:
             Form:
               renderingOptions:
@@ -51,6 +61,97 @@ TYPO3:
                   100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Partials/Standard/'
                 layoutRootPaths:
                   100: 'EXT:stepping_stone_site_package/Resources/Private/Extensions/Forms/Layouts/Standard/'
+              formEditor:
+                editors:
+                  900:
+                    selectOptions:
+                      1000:
+                        value: SaveToDatabaseWithPid
+                        label: 'Save to database (with PID)'
+                propertyCollections:
+                  finishers:
+                    1000:
+                      identifier: SaveToDatabaseWithPid
+                      editors:
+                        100:
+                          identifier: header
+                          templateName: Inspector-CollectionElementHeaderEditor
+                          label: 'Database Storage (with PID)'
+                        200:
+                          identifier: pid
+                          templateName: Inspector-Typo3WinBrowserEditor
+                          label: 'Destination Page (PID)'
+                          buttonLabel: 'Select a page'
+                          browsableType: pages
+                          iconIdentifier: apps-pagetree-page-default
+                          propertyPath: options.databaseColumnMappings.pid.value
+                          propertyValidatorsMode: OR
+                          propertyValidators:
+                            10: Integer
+                            20: FormElementIdentifierWithinCurlyBracesExclusive
+                        9999:
+                          identifier: removeButton
+                          templateName: Inspector-RemoveElementEditor
+            Text:
+              formEditor:
+                editors:
+                  9000: &useAsRecordLabelEditor
+                    identifier: useAsRecordLabel
+                    templateName: Inspector-CheckboxEditor
+                    label: 'Als Datensatz-Bezeichnung im Backend verwenden'
+                    propertyPath: properties.useAsRecordLabel
+            Textarea:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            Email:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            Telephone:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            Url:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            Number:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            Date:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            DatePicker:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            Checkbox:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            RadioButton:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            MultiSelect:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            MultiCheckbox:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            CountrySelect:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
+            Hidden:
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
             GridRow:
               properties:
                 elementClassAttribute: 'grid gap-y-5 gap-x-2 grid-cols-6 md:grid-cols-12 md:gap-x-10'
@@ -79,6 +180,9 @@ TYPO3:
             SingleSelect:
               properties:
                 elementClassAttribute: 'custom-select'
+              formEditor:
+                editors:
+                  9000: *useAsRecordLabelEditor
         event:
           __inheritances:
             10: 'TYPO3.CMS.Form.prototypes.standard'

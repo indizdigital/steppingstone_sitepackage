@@ -31,9 +31,6 @@ fields:
       - identifier: footer
         type: Textarea
         label: Fusszeile
-      - identifier: link
-        type: Link
-        label: Link
       - identifier: image
         type: File
         label: Bild
@@ -44,3 +41,12 @@ fields:
         label: Icon
         maxitems: 1
         allowed: common-image-types
+      - identifier: button
+        type: Palette
+        fields:
+        - identifier: link
+          type: Link
+          label: Link
+        - identifier: linktext
+          type: Text
+          label: Linktext

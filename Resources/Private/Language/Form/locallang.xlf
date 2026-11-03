@@ -22,13 +22,13 @@
       <trans-unit id="element.title.properties.label">
         <source>Title</source>
       </trans-unit>
-      <trans-unit id="element.mister.properties.options.Mister">
+      <trans-unit id="element.title.properties.options.Mister">
         <source>Mister</source>
       </trans-unit>
-      <trans-unit id="element.miss.properties.options.Miss">
+      <trans-unit id="element.title.properties.options.Miss">
         <source>Miss</source>
       </trans-unit>
-      <trans-unit id="element.divers.properties.options.Divers">
+      <trans-unit id="element.title.properties.options.Divers">
         <source>Divers</source>
       </trans-unit>
 
@@ -128,11 +128,11 @@
       </trans-unit>
 
       <trans-unit id="element.readtermsandconditions.properties.label">
-        <source>I have read the general terms and conditions and agree.</source>
+        <source>I have read the general terms and conditions and agree</source>
       </trans-unit>
 
       <trans-unit id="element.receivenewsletter.properties.label">
-        <source>I would like to receive the newsletter.</source>
+        <source>I would like to receive the newsletter</source>
       </trans-unit>
 
       <trans-unit id="element.questionsorcomments.properties.label">

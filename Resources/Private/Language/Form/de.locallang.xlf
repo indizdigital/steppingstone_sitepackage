@@ -28,15 +28,15 @@
         <source>Title</source>
         <target>Anrede</target>
       </trans-unit>
-      <trans-unit id="element.mister.properties.options.Mister">
+      <trans-unit id="element.title.properties.options.Mister">
         <source>Mister</source>
         <target>Herr</target>
       </trans-unit>
-      <trans-unit id="element.miss.properties.options.Miss">
+      <trans-unit id="element.title.properties.options.Miss">
         <source>Miss</source>
         <target>Frau</target>
       </trans-unit>
-      <trans-unit id="element.divers.properties.options.Divers">
+      <trans-unit id="element.title.properties.options.Divers">
         <source>Divers</source>
         <target>Divers</target>
       </trans-unit>
@@ -123,13 +123,13 @@
       </trans-unit>
 
       <trans-unit id="element.readtermsandconditions.properties.label">
-        <source>I have read the general terms and conditions and agree.</source>
-        <target>Ich habe die allgemeinen Geschäftsbedingungen gelesen und stimme diesen zu.</target>
+        <source>I have read the general terms and conditions and agree</source>
+        <target>Ich habe die allgemeinen Geschäftsbedingungen gelesen und stimme diesen zu</target>
       </trans-unit>
 
       <trans-unit id="element.receivenewsletter.properties.label">
-        <source>I would like to receive the newsletter.</source>
-        <target>Ich möchte den Newsletter erhalten.</target>
+        <source>I would like to receive the newsletter</source>
+        <target>Ich möchte den Newsletter erhalten</target>
       </trans-unit>
 
       <trans-unit id="element.questionsorcomments.properties.label">
