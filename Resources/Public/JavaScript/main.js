@@ -210,96 +210,18 @@ document.querySelectorAll('.js-set-anchor-url').forEach(function (el) {
 
     const COOKIE_NAME = 'ndz-cookie-consent';
     const COOKIE_MAX_AGE = 60 * 60 * 24 * 180; // 180 Tage
-    const acceptAllBtn = banner.querySelector('[data-cookiebanner-accept-all]');
-    const rejectBtn = banner.querySelector('[data-cookiebanner-reject]');
-    const saveBtn = banner.querySelector('[data-cookiebanner-save]');
-    const settingsToggle = banner.querySelector('[data-cookiebanner-settings-toggle]');
-    const categoryInputs = banner.querySelectorAll('[data-cookiebanner-category]');
-    const openTriggers = document.querySelectorAll('[data-cookiebanner-open]');
 
-    function getCookie(name) {
-        const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
-        return match ? decodeURIComponent(match[1]) : null;
-    }
+    const acknowledged = document.cookie
+        .split('; ')
+        .some(c => c.startsWith(COOKIE_NAME + '='));
+    if (acknowledged) return;
 
-    function setCookie(name, value, maxAge) {
-        document.cookie = name + '=' + encodeURIComponent(value) + '; path=/; max-age=' + maxAge + '; SameSite=Lax';
-    }
+    banner.classList.add('js-cookiebanner-open');
 
-    function getConsent() {
-        try {
-            return JSON.parse(getCookie(COOKIE_NAME));
-        } catch (e) {
-            return null;
-        }
-    }
-
-    function applyConsent(consent) {
-        categoryInputs.forEach(input => {
-            input.checked = input.disabled || !!consent[input.dataset.cookiebannerCategory];
-        });
-        document.dispatchEvent(new CustomEvent('ndz:cookieconsent', { detail: consent }));
-    }
-
-    function openBanner() {
-        banner.classList.add('js-cookiebanner-open');
-    }
-
-    function closeBanner() {
-        banner.classList.remove('js-cookiebanner-open', 'js-cookiebanner-settings-open');
-        settingsToggle?.setAttribute('aria-expanded', 'false');
-    }
-
-    function saveConsent(consent) {
-        consent.timestamp = new Date().toISOString();
-        setCookie(COOKIE_NAME, JSON.stringify(consent), COOKIE_MAX_AGE);
-        applyConsent(consent);
-        closeBanner();
-    }
-
-    function collectCategories(forceAccept) {
-        const consent = { necessary: true };
-        categoryInputs.forEach(input => {
-            const category = input.dataset.cookiebannerCategory;
-            consent[category] = input.disabled ? true : (forceAccept || input.checked);
-        });
-        return consent;
-    }
-
-    acceptAllBtn?.addEventListener('click', () => {
-        saveConsent(collectCategories(true));
+    banner.querySelector('[data-cookiebanner-ok]')?.addEventListener('click', () => {
+        const value = JSON.stringify({ acknowledged: true, timestamp: new Date().toISOString() });
+        document.cookie = COOKIE_NAME + '=' + encodeURIComponent(value)
+            + '; path=/; max-age=' + COOKIE_MAX_AGE + '; SameSite=Lax';
+        banner.classList.remove('js-cookiebanner-open');
     });
-
-    rejectBtn?.addEventListener('click', () => {
-        const consent = { necessary: true };
-        categoryInputs.forEach(input => {
-            consent[input.dataset.cookiebannerCategory] = false;
-        });
-        saveConsent(consent);
-    });
-
-    saveBtn?.addEventListener('click', () => {
-        saveConsent(collectCategories(false));
-    });
-
-    settingsToggle?.addEventListener('click', () => {
-        const isOpen = banner.classList.toggle('js-cookiebanner-settings-open');
-        settingsToggle.setAttribute('aria-expanded', isOpen);
-    });
-
-    openTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            const consent = getConsent();
-            if (consent) applyConsent(consent);
-            openBanner();
-        });
-    });
-
-    const existingConsent = getConsent();
-    if (existingConsent) {
-        applyConsent(existingConsent);
-    } else {
-        openBanner();
-    }
 })();

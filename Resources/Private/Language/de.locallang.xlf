@@ -128,6 +128,15 @@
             <trans-unit id="nextevents">
                 <target>Nächste Anlässe</target>
             </trans-unit>
+            <trans-unit id="cookietext">
+                <target>Diese Website verwendet nur Cookies, die für den Betrieb notwendig sind. Wir setzen keine Analyse- oder Marketing-Cookies ein und geben keine Daten an Dritte weiter. Weitere Informationen finden Sie in unserer</target>
+            </trans-unit>
+            <trans-unit id="privacypolicy">
+                <target>Datenschutzerklärung</target>
+            </trans-unit>
+            <trans-unit id="ok">
+                <target>OK</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

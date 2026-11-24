@@ -494,40 +494,6 @@
     .ndz-cookiebanner-actions {
         @apply flex flex-wrap gap-3;
     }
-    .ndz-cookiebanner-settings-toggle {
-        @apply flex items-center gap-2;
-    }
-    .ndz-cookiebanner-settings-icon {
-        @apply size-5 flex-none transition-transform duration-500 ease-out-expo;
-    }
-    .ndz-cookiebanner.js-cookiebanner-settings-open .ndz-cookiebanner-settings-icon {
-        @apply rotate-180;
-    }
-    .ndz-cookiebanner-settings {
-        @apply grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out-expo invisible;
-    }
-    .ndz-cookiebanner.js-cookiebanner-settings-open .ndz-cookiebanner-settings {
-        @apply grid-rows-[1fr] visible;
-    }
-    .ndz-cookiebanner-settings-inner {
-        @apply overflow-hidden;
-    }
-    .ndz-cookiebanner-category {
-        @apply flex items-start gap-3 py-3 border-t border-grey-200;
-    }
-    .ndz-cookiebanner-category-label {
-        @apply flex-1;
-    }
-    .ndz-cookiebanner-category-title {
-        @apply block font-extrabold text-grey-900;
-    }
-    .ndz-cookiebanner-category-desc {
-        @apply block text-sm text-grey;
-    }
-    .ndz-cookiebanner-category input[type=checkbox] {
-        @apply mt-1;
-    }
-
 }
 
 /* RTE */

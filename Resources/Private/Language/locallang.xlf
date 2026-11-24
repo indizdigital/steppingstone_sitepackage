@@ -114,6 +114,15 @@
             <trans-unit id="nextevents">
                 <source>Upcoming Events</source>
             </trans-unit>
+            <trans-unit id="cookietext">
+                <source>This website only uses cookies that are necessary for its operation. We do not use any analytics or marketing cookies and we do not pass on any data to third parties. For further information, please see our</source>
+            </trans-unit>
+            <trans-unit id="privacypolicy">
+                <source>Privacy Policy</source>
+            </trans-unit>
+            <trans-unit id="ok">
+                <source>OK</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
